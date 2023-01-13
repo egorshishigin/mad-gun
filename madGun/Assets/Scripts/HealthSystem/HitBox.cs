@@ -1,5 +1,3 @@
-using System;
-
 using UnityEngine;
 
 namespace HealthSystem
@@ -8,26 +6,14 @@ namespace HealthSystem
     {
         [SerializeField] private Health _health;
 
-        [SerializeField] private bool _head;
-
-        public event Action HeadShot = delegate { };
-
         public void HitHandler(int damage)
         {
-            int amount;
-
-            if (_head)
+            if(_health.CurrentHealth <= 0)
             {
-                amount = damage * 10;
-
-                HeadShot.Invoke();
-            }
-            else
-            {
-                amount = damage;
+                enabled = false;
             }
 
-            _health.ApplyDamage(amount);
+            _health.ApplyDamage(damage);
         }
     }
 }

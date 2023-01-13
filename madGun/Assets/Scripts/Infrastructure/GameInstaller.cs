@@ -4,6 +4,10 @@ using PlayerInput;
 
 using Projectiles;
 
+using Enemies;
+
+using Player;
+
 using UnityEngine;
 
 namespace Infrastructure
@@ -14,25 +18,50 @@ namespace Infrastructure
 
         [SerializeField] private Projectile _playerProjectilePrefab;
 
+        [SerializeField] private BulletTrail _enemyBulletTrailPrefab;
+
         [SerializeField] private Transform _playerProjectilesHolder;
+
+        [SerializeField] private Transform _enemyBulletsHolder;
+
+        [SerializeField] private PlayerHitBox _player;
 
         public override void InstallBindings()
         {
             BindPlayerInput();
 
-            BindPlayerProjectilePool();
+            BindPlayerProjectile();
+
+            BindEnemyShooting();
+
+            BindPlayer();
         }
 
-        private void BindPlayerProjectilePool()
+        private void BindPlayer()
         {
             Container
-                .Bind<ProjectilesPool>()
+                .Bind<PlayerHitBox>()
+                .FromInstance(_player)
                 .AsSingle();
+        }
+
+        private void BindEnemyShooting()
+        {
+            Container.Bind<BulletTrailPool>().AsSingle();
 
             Container
-                .BindMemoryPool<Projectile, Projectile.Pool>()
-                .WithInitialSize(10)
-                .FromComponentInNewPrefab(_playerProjectilePrefab)
+                .BindMemoryPool<BulletTrail, BulletTrail.Pool>()
+                .WithInitialSize(10).FromComponentInNewPrefab(_enemyBulletTrailPrefab)
+                .UnderTransform(_enemyBulletsHolder);
+        }
+
+        private void BindPlayerProjectile()
+        {
+            Container.Bind<ProjectilesPool>().AsSingle();
+
+            Container
+                .BindMemoryPool<PlayerProjectile, PlayerProjectile.Pool>()
+                .WithInitialSize(10).FromComponentInNewPrefab(_playerProjectilePrefab)
                 .UnderTransform(_playerProjectilesHolder);
         }
 

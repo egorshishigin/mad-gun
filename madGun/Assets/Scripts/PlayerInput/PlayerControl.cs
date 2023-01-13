@@ -10,15 +10,32 @@ namespace PlayerInput
 
         [SerializeField] private float _inputRange;
 
-        public event Action<Vector3> ScreenHold = delegate { };
+        public event Action<Vector3> ScreenMove = delegate { };
+
+        public event Action ScreenHold = delegate { };
+
+        public event Action ScreenDown = delegate { };
+
+        public event Action ScreenUp = delegate { };
 
         private void Update()
         {
-            if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
-                ScreenHold.Invoke(GetClickedPoint());
+                ScreenHold.Invoke();
             }
-            else return;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                ScreenDown.Invoke();
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                ScreenUp.Invoke();
+            }
+
+            ScreenMove.Invoke(GetClickedPoint());
         }
 
         private Vector3 GetClickedPoint()

@@ -1,16 +1,18 @@
 using System.Collections;
 
-using Zenject;
-
 using UnityEngine;
 
 namespace Projectiles
 {
-    public class Projectile : MonoBehaviour
+    public abstract class Projectile : MonoBehaviour
     {
         [SerializeField] private Rigidbody _rigidbody;
 
         [SerializeField] private MeshRenderer _meshRenderer;
+
+        [SerializeField] private Collider _collider;
+
+        [SerializeField] private GameObject _trail;
 
         [SerializeField] private ForceMode _forceMode;
 
@@ -30,15 +32,7 @@ namespace Projectiles
 
         [SerializeField] private int _damage;
 
-        private ProjectilesPool _projectilesPool;
-
         private IShootable _shootable;
-
-        [Inject]
-        private void Construct(ProjectilesPool projectilesPool)
-        {
-            _projectilesPool = projectilesPool;
-        }
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -61,16 +55,27 @@ namespace Projectiles
             }
 
             _meshRenderer.enabled = false;
+
+            _collider.enabled = false;
+
+            _trail.SetActive(false);
+
+            _rigidbody.isKinematic = true;
         }
 
-        private void Launch(Vector3 direction, float speed)
+        public void Launch(Vector3 direction, float speed)
         {
             _rigidbody.AddForce(direction * speed, _forceMode);
 
             StartCoroutine(Deactivate());
         }
 
-        private void ResetProjectile()
+        public void EnableTrail()
+        {
+            _trail.SetActive(true);
+        }
+
+        public void ResetProjectile()
         {
             _rigidbody.velocity = Vector3.zero;
 
@@ -79,42 +84,19 @@ namespace Projectiles
             transform.rotation = Quaternion.identity;
 
             _meshRenderer.enabled = true;
+
+            _collider.enabled = true;
+
+            _rigidbody.isKinematic = false;
         }
 
-        private void ReturnToPool()
-        {
-            _projectilesPool.RemoveProjectile();
-        }
+        public abstract void ReturnToPool();
 
         private IEnumerator Deactivate()
         {
             yield return new WaitForSeconds(_activeTime);
 
             ReturnToPool();
-        }
-
-        public class Pool : MonoMemoryPool<Vector3, Vector3, float, Projectile>
-        {
-            protected override void OnCreated(Projectile item)
-            {
-                item.gameObject.SetActive(false);
-            }
-
-            protected override void Reinitialize(Vector3 startPosition, Vector3 direction, float speed, Projectile item)
-            {
-                item.transform.position = startPosition;
-
-                item.gameObject.SetActive(true);
-
-                item.Launch(direction, speed);
-            }
-
-            protected override void OnDespawned(Projectile item)
-            {
-                item.gameObject.SetActive(false);
-
-                item.ResetProjectile();
-            }
         }
     }
 }

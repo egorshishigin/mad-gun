@@ -6,11 +6,11 @@ namespace Projectiles
 {
     public class ProjectilesPool
     {
-        private readonly Projectile.Pool _projectilePool;
+        private readonly PlayerProjectile.Pool _projectilePool;
 
         private readonly List<Projectile> _projectiles = new List<Projectile>();
 
-        public ProjectilesPool(Projectile.Pool pool)
+        public ProjectilesPool(PlayerProjectile.Pool pool)
         {
             _projectilePool = pool;
         }

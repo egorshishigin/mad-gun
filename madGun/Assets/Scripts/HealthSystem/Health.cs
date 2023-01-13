@@ -14,6 +14,8 @@ namespace HealthSystem
 
         public event Action Died = delegate { };
 
+        public int CurrentHealth => _currentHealth;
+
         private void Awake()
         {
             _currentHealth = _maxHealth;
@@ -30,6 +32,8 @@ namespace HealthSystem
             if (_currentHealth <= 0)
             {
                 Died.Invoke();
+
+                enabled = false;
             }
             else return;
         }

@@ -8,7 +8,7 @@ namespace HealthSystem
 {
     public class HeadShotView : MonoBehaviour
     {
-        [SerializeField] private HitBox _headHitBox;
+        [SerializeField] private HeadHitBox _headHitBox;
 
         [SerializeField] private TMP_Text _headShotText;
 
