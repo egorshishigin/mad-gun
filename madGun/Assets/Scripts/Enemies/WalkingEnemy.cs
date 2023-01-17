@@ -68,7 +68,5 @@ namespace Enemies
 
             Destroy(_rootObject);
         }
-
-        public class Factory : PlaceholderFactory<IEnemy> { }
     }
 }

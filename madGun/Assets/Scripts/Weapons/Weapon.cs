@@ -1,3 +1,5 @@
+using System;
+
 using Zenject;
 
 using PlayerInput;
@@ -14,29 +16,41 @@ namespace Weapons
 
         [SerializeField] private Transform[] _shootPoints;
 
-        [SerializeField] private Transform _weaponModel;
+        [SerializeField] private Transform _shootPointsHolder;
+
+        [Header("Fire speed")]
 
         [SerializeField] private float _fireRate;
 
         [SerializeField] private float _speed;
 
-        [SerializeField] private float _lookTime;
+        [Header("Recoil")]
 
-        [SerializeField] private ParticleSystem _particleSystem;
+        [SerializeField] private Transform _recoilRoot;
 
-        [SerializeField] private GameObject _secondGun;
+        [SerializeField] private float _xRecoil;
 
-        [SerializeField] private bool _doubleGun;
+        [SerializeField] private float _yRecoil;
 
-        [SerializeField] private AnimationCurve _xRecoil;
+        [SerializeField] private float _recoilSpeed;
 
-        [SerializeField] private AnimationCurve _yRecoil;
+        [SerializeField] private float _returnSpeed;
+
+        [Header("Spread")]
 
         [SerializeField] private float _xSpread;
 
         [SerializeField] private float _ySpread;
 
-        [SerializeField] private AudioSource _shootAudio;
+        [Header("Second gun options")]
+
+        [SerializeField] private GameObject _secondGun;
+
+        [SerializeField] private bool _doubleGun;
+
+        private Vector3 _targetRotation;
+
+        private Vector3 _currentRotation;
 
         private PlayerControl _playerControl;
 
@@ -44,9 +58,11 @@ namespace Weapons
 
         private float _nextTimeToShoot;
 
-        private float _fireTime;
-
         private bool _shooting;
+
+        public event Action Shot = delegate { };
+
+        public WeaponType Type => _type;
 
         [Inject]
         private void Construct(PlayerControl playerControl, ProjectilesPool projectilesPool)
@@ -101,26 +117,33 @@ namespace Weapons
 
         private void Aim(Vector3 target)
         {
-            RotateShootPointsToTarget(target);
+            RotateShootPointsHolder(target);
+
+            WeaponRecoil();
         }
 
-        private void RotateShootPointsToTarget(Vector3 target)
+        private void WeaponRecoil()
         {
+            _targetRotation = Vector3.Lerp(_targetRotation, Vector3.zero, _returnSpeed * Time.deltaTime);
+
+            _currentRotation = Vector3.Slerp(_currentRotation, _targetRotation, _recoilSpeed * Time.fixedDeltaTime);
+
+            _recoilRoot.rotation = Quaternion.Euler(_currentRotation);
+        }
+
+        private void RotateShootPointsHolder(Vector3 target)
+        {
+            Vector3 lookPositon = target - _shootPointsHolder.position;
+
+            _shootPointsHolder.transform.forward = lookPositon.normalized;
+
             for (int i = 0; i < _shootPoints.Length; i++)
             {
-               // Vector3 lookPositon = target - _shootPoints[i].position;
-
-                //_shootPoints[i].rotation = Quaternion.LookRotation(lookPositon);
-
                 if (_shooting)
                 {
                     ShootSpread(_shootPoints[i]);
                 }
             }
-
-            Quaternion rotation = Quaternion.LookRotation(target - _weaponModel.position);
-
-            _weaponModel.rotation = Quaternion.Slerp(_weaponModel.rotation, rotation, Time.deltaTime * _lookTime);
         }
 
         private void Shoot()
@@ -131,8 +154,6 @@ namespace Weapons
 
                 _nextTimeToShoot = Time.time + 1f / _fireRate;
 
-                _fireTime += Time.time * Time.deltaTime;
-
                 for (int i = 0; i < _shootPoints.Length; i++)
                 {
                     _projectilesPool.AddProjectile(_shootPoints[i].position, _shootPoints[i].forward, _speed);
@@ -140,11 +161,9 @@ namespace Weapons
                     ShootSpread(_shootPoints[i]);
                 }
 
-                _particleSystem.Play();
+                ShootRecoil();
 
-                _shootAudio.PlayOneShot(_shootAudio.clip);
-
-                ShootRecoilAnimation();
+                Shot.Invoke();
             }
             else return;
         }
@@ -152,8 +171,6 @@ namespace Weapons
         private void ResetShootTime()
         {
             _shooting = false;
-
-            _fireTime = 0;
 
             ResetShootPoints();
         }
@@ -166,14 +183,14 @@ namespace Weapons
             }
         }
 
-        private void ShootRecoilAnimation()
+        private void ShootRecoil()
         {
-            transform.localEulerAngles += new Vector3(_xRecoil.Evaluate(_fireTime), _yRecoil.Evaluate(_fireTime), 0f);
+            _targetRotation += new Vector3(_xRecoil, UnityEngine.Random.Range(-_yRecoil, _yRecoil), 0f);
         }
 
         private void ShootSpread(Transform shootPoint)
         {
-            shootPoint.localEulerAngles += new Vector3(Random.Range(-_xSpread, _xSpread), Random.Range(-_ySpread, _ySpread), 0f);
+            shootPoint.localEulerAngles += new Vector3(UnityEngine.Random.Range(-_xSpread, _xSpread), UnityEngine.Random.Range(-_ySpread, _ySpread), 0f);
         }
     }
 }

@@ -10,6 +10,8 @@ namespace PlayerInput
 
         [SerializeField] private float _inputRange;
 
+        [SerializeField] private LayerMask _inputLayer;
+
         public event Action<Vector3> ScreenMove = delegate { };
 
         public event Action ScreenHold = delegate { };
@@ -42,17 +44,17 @@ namespace PlayerInput
         {
             RaycastHit raycastHit;
 
-            Ray ray = _gameCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _gameCamera.farClipPlane));
+            Ray ray = _gameCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
             Vector3 target;
 
-            if (Physics.Raycast(ray, out raycastHit))
+            if (Physics.Raycast(ray, out raycastHit, _inputLayer))
             {
                 target = raycastHit.point;
             }
             else
             {
-                target = ray.origin + ray.direction * _inputRange;
+                target = ray.GetPoint(_inputRange);
             }
 
             return target;
