@@ -58,8 +58,6 @@ namespace Weapons
 
         private float _nextTimeToShoot;
 
-        private bool _shooting;
-
         public event Action Shot = delegate { };
 
         public WeaponType Type => _type;
@@ -136,29 +134,19 @@ namespace Weapons
             Vector3 lookPositon = target - _shootPointsHolder.position;
 
             _shootPointsHolder.transform.forward = lookPositon.normalized;
-
-            for (int i = 0; i < _shootPoints.Length; i++)
-            {
-                if (_shooting)
-                {
-                    ShootSpread(_shootPoints[i]);
-                }
-            }
         }
 
         private void Shoot()
         {
             if (Time.time >= _nextTimeToShoot)
             {
-                _shooting = true;
-
                 _nextTimeToShoot = Time.time + 1f / _fireRate;
 
                 for (int i = 0; i < _shootPoints.Length; i++)
                 {
-                    _projectilesPool.AddProjectile(_shootPoints[i].position, _shootPoints[i].forward, _speed);
-
                     ShootSpread(_shootPoints[i]);
+
+                    _projectilesPool.AddProjectile(_shootPoints[i].position, _shootPoints[i].forward, _speed);
                 }
 
                 ShootRecoil();
@@ -170,8 +158,6 @@ namespace Weapons
 
         private void ResetShootTime()
         {
-            _shooting = false;
-
             ResetShootPoints();
         }
 

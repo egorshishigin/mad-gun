@@ -6,6 +6,12 @@ using Projectiles;
 
 using Player;
 
+using Timer;
+
+using Spawner;
+
+using Enemies;
+
 using UnityEngine;
 
 namespace Infrastructure
@@ -24,6 +30,10 @@ namespace Infrastructure
 
         [SerializeField] private PlayerHitBox _player;
 
+        [SerializeField] private WaveSpawner _waveSpawner;
+
+        [SerializeField] private WavesConfig _wavesConfig;
+
         public override void InstallBindings()
         {
             BindPlayerInput();
@@ -33,6 +43,24 @@ namespace Infrastructure
             BindEnemyShooting();
 
             BindPlayer();
+
+            BindGameTimer();
+
+            BindSpawner();
+        }
+
+        private void BindSpawner()
+        {
+            Container.Bind<WavesConfig>().FromScriptableObject(_wavesConfig).AsSingle();
+
+            Container.BindInterfacesTo<WaveSpawner>().FromInstance(_waveSpawner).AsSingle();
+
+            Container.BindFactory<IWave, WaveFactory>().FromFactory<WavesFactory>();
+        }
+
+        private void BindGameTimer()
+        {
+            Container.BindInterfacesAndSelfTo<GameTimer>().AsSingle();
         }
 
         private void BindPlayer()
