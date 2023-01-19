@@ -37,5 +37,12 @@ namespace HealthSystem
             }
             else return;
         }
+
+        public void HealUp(int amount)
+        {
+            _currentHealth += amount;
+
+            HealthChanged.Invoke(_currentHealth);
+        }
     }
 }

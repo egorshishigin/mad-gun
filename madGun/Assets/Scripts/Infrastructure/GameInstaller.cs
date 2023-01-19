@@ -12,6 +12,8 @@ using Spawner;
 
 using Score;
 
+using Boosters;
+
 using UnityEngine;
 
 namespace Infrastructure
@@ -27,6 +29,10 @@ namespace Infrastructure
         [SerializeField] private Transform _playerProjectilesHolder;
 
         [SerializeField] private Transform _enemyProjectilesHolder;
+
+        [SerializeField] private Transform _boostersHolder;
+
+        [SerializeField] private BoostersHolder _boostersHolderPrefab;
 
         [SerializeField] private PlayerHitBox _player;
 
@@ -49,11 +55,24 @@ namespace Infrastructure
             BindSpawner();
 
             BindGameScore();
+
+            BindBoostersPool();
+        }
+
+        private void BindBoostersPool()
+        {
+            Container.Bind<BoostersPool>().AsSingle();
+
+            Container
+               .BindMemoryPool<BoostersHolder, BoostersHolder.Pool>()
+               .WithInitialSize(5)
+               .FromComponentInNewPrefab(_boostersHolderPrefab)
+               .UnderTransform(_boostersHolder);
         }
 
         private void BindGameScore()
         {
-            GameScore gameScore = new GameScore(0);
+            GameScore gameScore = new GameScore(0, 0);
 
             Container.Bind<GameScore>().FromInstance(gameScore).AsSingle();
         }

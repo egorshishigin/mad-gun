@@ -44,7 +44,7 @@ namespace Spawner
         {
             int waveLevel = (int)_waveLevelFromGameTime.Evaluate(_gameTimer.GameTime);
 
-            List<Wave> waves = (_wavesPrefabs.Where(item => item.Level <= waveLevel)).ToList();
+            List<Wave> waves = _wavesPrefabs.Where(item => item.Level <= waveLevel).ToList();
 
             return waves;
         }

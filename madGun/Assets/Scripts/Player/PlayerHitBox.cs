@@ -19,12 +19,17 @@ namespace Player
 
         private void OnCollisionEnter(Collision collision)
         {
-            if(collision.transform.TryGetComponent(out _enemy))
+            if (collision.transform.TryGetComponent(out _enemy))
             {
                 _health.ApplyDamage(_enemy.GetDamage());
 
                 Destroy(collision.gameObject);
             }
+        }
+
+        public void Heal(int amount)
+        {
+            _health.HealUp(amount);
         }
     }
 }

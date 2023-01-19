@@ -6,9 +6,9 @@ using UnityEngine;
 
 namespace Score
 {
-    public class GameScoreView : MonoBehaviour
+    public class CoinsView : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _score;
+        [SerializeField] private TMP_Text _coins;
 
         private GameScore _gameScore;
 
@@ -20,17 +20,17 @@ namespace Score
 
         private void OnEnable()
         {
-            _gameScore.ScoreChanged += UpdateGameScoreText;
+            _gameScore.CoinsChanged += UpdateCoinsText;
         }
 
         private void OnDisable()
         {
-            _gameScore.ScoreChanged -= UpdateGameScoreText;
+            _gameScore.CoinsChanged -= UpdateCoinsText;
         }
 
-        private void UpdateGameScoreText(int value)
+        private void UpdateCoinsText(int value)
         {
-            _score.text = value.ToString();
+            _coins.text = value.ToString();
         }
     }
 }
