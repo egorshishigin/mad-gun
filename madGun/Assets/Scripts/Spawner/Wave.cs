@@ -1,3 +1,9 @@
+using Zenject;
+
+using HealthSystem;
+
+using Score;
+
 using UnityEngine;
 
 namespace Spawner
@@ -6,6 +12,39 @@ namespace Spawner
     {
         [SerializeField] private int _level;
 
+        [SerializeField] private int _killScore;
+
+        [SerializeField] private Health[] _enemies;
+
+        private GameScore _gameScore;
+
         public int Level => _level;
+
+        [Inject]
+        private void Construct(GameScore gameScore)
+        {
+            _gameScore = gameScore;
+        }
+
+        public void WaveScore()
+        {
+            _gameScore.IncreaseScore(_killScore);
+        }
+
+        private void OnEnable()
+        {
+            for (int i = 0; i < _enemies.Length; i++)
+            {
+                _enemies[i].Died += WaveScore;
+            }
+        }
+
+        private void OnDisable()
+        {
+            for (int i = 0; i < _enemies.Length; i++)
+            {
+                _enemies[i].Died -= WaveScore;
+            }
+        }
     }
 }

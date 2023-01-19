@@ -69,6 +69,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: 0
+  _killScore: 5
+  _enemies:
+  - {fileID: 6665423418379193333}
 --- !u!1 &6665423418125384931
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +551,7 @@ MonoBehaviour:
   _bodyParts:
   - {fileID: 6665423418379193334}
   - {fileID: 6665423418125384940}
-  _pushBackForce: 0
+  _pushBackForce: 25
 --- !u!114 &4534267141953483671
 MonoBehaviour:
   m_ObjectHideFlags: 0

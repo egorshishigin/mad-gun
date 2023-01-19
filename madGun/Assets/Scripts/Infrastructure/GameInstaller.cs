@@ -10,7 +10,7 @@ using Timer;
 
 using Spawner;
 
-using Enemies;
+using Score;
 
 using UnityEngine;
 
@@ -47,6 +47,15 @@ namespace Infrastructure
             BindGameTimer();
 
             BindSpawner();
+
+            BindGameScore();
+        }
+
+        private void BindGameScore()
+        {
+            GameScore gameScore = new GameScore(0);
+
+            Container.Bind<GameScore>().FromInstance(gameScore).AsSingle();
         }
 
         private void BindSpawner()

@@ -28,10 +28,7 @@ namespace Spawner
             _gameTimer = gameTimer;
         }
 
-        public void Initialize()
-        {
-
-        }
+        void IInitializable.Initialize() { }
 
         private void Start()
         {

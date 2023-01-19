@@ -22,6 +22,8 @@ namespace Player
             if(collision.transform.TryGetComponent(out _enemy))
             {
                 _health.ApplyDamage(_enemy.GetDamage());
+
+                Destroy(collision.gameObject);
             }
         }
     }
