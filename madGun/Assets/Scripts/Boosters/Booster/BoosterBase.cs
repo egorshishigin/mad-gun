@@ -14,8 +14,6 @@ namespace Boosters
 
         [SerializeField] private BoosterAnimation _animation;
 
-        [SerializeField] private AudioSource _boosterSound;
-
         private PlayerHitBox _player;
 
         public BoosterType BoosterType => _type;
@@ -38,7 +36,6 @@ namespace Boosters
 
                 _boostersHolder.ReturnToPool();
             }
-            else return;
         }
 
         protected abstract void ActivateBooster();
@@ -50,8 +47,6 @@ namespace Boosters
 
         public void Use()
         {
-            _boosterSound.PlayOneShot(_boosterSound.clip);
-
             ActivateBooster();
         }
     }

@@ -40,6 +40,10 @@ namespace Infrastructure
 
         [SerializeField] private WavesConfig _wavesConfig;
 
+        [SerializeField] private Drone _droneBooster;
+
+        [SerializeField] private BulletTime _bulletTime;
+
         public override void InstallBindings()
         {
             BindPlayerInput();
@@ -57,6 +61,17 @@ namespace Infrastructure
             BindGameScore();
 
             BindBoostersPool();
+
+            BindActiveBoosters();
+        }
+
+        private void BindActiveBoosters()
+        {
+            Container.Bind<ActiveBoostersState>().AsSingle();
+
+            Container.Bind<Drone>().FromInstance(_droneBooster).AsSingle();
+
+            Container.Bind<BulletTime>().FromInstance(_bulletTime).AsSingle();
         }
 
         private void BindBoostersPool()

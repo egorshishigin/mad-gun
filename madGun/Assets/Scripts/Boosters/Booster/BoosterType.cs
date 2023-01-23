@@ -3,6 +3,8 @@ namespace Boosters
     public enum BoosterType
     {
         Coin,
-        Medkit
+        Medkit,
+        Drone,
+        BulletTime
     }
 }

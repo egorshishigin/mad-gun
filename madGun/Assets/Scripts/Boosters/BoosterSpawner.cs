@@ -3,7 +3,6 @@ using Zenject;
 using HealthSystem;
 
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace Boosters
 {
@@ -17,12 +16,20 @@ namespace Boosters
 
         [SerializeField] private float _medkitSpawnChance;
 
+        [SerializeField] private float _droneSpawnChance;
+
+        [SerializeField] private float _bulletTimeSpawnChance;
+
         private BoostersPool _boostersPool;
 
+        private ActiveBoostersState _activeBoostersState;
+
         [Inject]
-        private void Construct(BoostersPool boostersPool)
+        private void Construct(BoostersPool boostersPool, ActiveBoostersState activeBoostersState)
         {
             _boostersPool = boostersPool;
+
+            _activeBoostersState = activeBoostersState;
         }
 
         private void OnEnable()
@@ -47,7 +54,17 @@ namespace Boosters
             {
                 _boostersPool.AddBooster(_boosterHolder.position, BoosterType.Medkit);
             }
+            else if (randomValue < _droneSpawnChance && !_activeBoostersState.Drone)
+            {
+                _boostersPool.AddBooster(_boosterHolder.position, BoosterType.Drone);
+            }
+            else if (randomValue < _bulletTimeSpawnChance && !_activeBoostersState.BulletTime)
+            {
+                _boostersPool.AddBooster(_boosterHolder.position, BoosterType.BulletTime);
+            }
             else return;
+
+            enabled = false;
         }
     }
 }

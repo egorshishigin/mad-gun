@@ -120,7 +120,9 @@ MonoBehaviour:
   _health: {fileID: 6665423418379193333}
   _boosterHolder: {fileID: 3098793712510534287}
   _coinsBoosterSpawnChance: 0
-  _medkitSpawnChance: 1
+  _medkitSpawnChance: 0
+  _droneSpawnChance: 0
+  _bulletTimeSpawnChance: 1
 --- !u!1 &6665423418125384931
 GameObject:
   m_ObjectHideFlags: 0
