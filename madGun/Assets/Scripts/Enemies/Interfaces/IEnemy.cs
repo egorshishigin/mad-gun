@@ -7,5 +7,7 @@ namespace Enemies
         void Stop();
 
         int GetDamage();
+
+        void Die();
     }
 }

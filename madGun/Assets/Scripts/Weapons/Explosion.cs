@@ -21,6 +21,8 @@ namespace Weapons
                     _shootable.HitHandler(_damage);
                 }
             }
+
+            enabled = false;
         }
 
         private void OnDrawGizmosSelected()

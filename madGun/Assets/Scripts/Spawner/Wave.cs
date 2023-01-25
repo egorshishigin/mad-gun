@@ -18,6 +18,10 @@ namespace Spawner
 
         private GameScore _gameScore;
 
+        private int _enemyCount;
+
+        private int _destroyedEnemies;
+
         public int Level => _level;
 
         [Inject]
@@ -33,9 +37,23 @@ namespace Spawner
 
         private void OnEnable()
         {
+            _enemyCount = _enemies.Length;
+
             for (int i = 0; i < _enemies.Length; i++)
             {
                 _enemies[i].Died += WaveScore;
+
+                _enemies[i].Destroyed += EnemyDestroyedHandler;
+            }
+        }
+
+        private void EnemyDestroyedHandler()
+        {
+            _destroyedEnemies++;
+
+            if (_destroyedEnemies == _enemyCount)
+            {
+                Destroy(gameObject, 5f);
             }
         }
 

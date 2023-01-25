@@ -7,7 +7,7 @@ namespace Enemies
 {
     public class FlyingEnemy : MonoBehaviour, IEnemy
     {
-        [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private Rigidbody _rigibody;
 
         [SerializeField] private float _speed;
 
@@ -16,6 +16,8 @@ namespace Enemies
         [SerializeField] private float _destroyTime;
 
         [SerializeField] private Health _health;
+
+        [SerializeField] private bool _move;
 
         private void OnEnable()
         {
@@ -27,7 +29,7 @@ namespace Enemies
             _health.Died -= Stop;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             Move();
         }
@@ -39,14 +41,20 @@ namespace Enemies
 
         public void Move()
         {
-            _rigidbody.AddForce(Vector3.back * _speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            if (_move)
+            {
+                transform.Translate(Vector3.forward * _speed * Time.fixedDeltaTime);
+            }
+            else return;
         }
 
         public void Stop()
         {
-            _rigidbody.useGravity = true;
+            _move = false;
 
-            StartCoroutine(Deactivate());
+            _rigibody.useGravity = true;
+
+            Die();
         }
 
         private IEnumerator Deactivate()
@@ -54,6 +62,11 @@ namespace Enemies
             yield return new WaitForSeconds(_destroyTime);
 
             Destroy(gameObject);
+        }
+
+        public void Die()
+        {
+            StartCoroutine(Deactivate());
         }
     }
 }

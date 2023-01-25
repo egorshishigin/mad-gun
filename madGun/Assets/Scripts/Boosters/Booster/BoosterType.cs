@@ -4,7 +4,7 @@ namespace Boosters
     {
         Coin,
         Medkit,
-        Drone,
+        FireRain,
         BulletTime
     }
 }

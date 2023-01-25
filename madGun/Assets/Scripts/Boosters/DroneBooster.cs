@@ -4,10 +4,10 @@ namespace Boosters
 {
     public class DroneBooster : BoosterBase
     {
-        private Drone _drone;
+        private FireRain _drone;
 
         [Inject]
-        private void Construct(Drone drone)
+        private void Construct(FireRain drone)
         {
             _drone = drone;
         }

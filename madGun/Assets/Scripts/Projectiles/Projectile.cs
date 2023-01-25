@@ -30,6 +30,10 @@ namespace Projectiles
 
         [SerializeField] private ParticleSystem _stoneHit;
 
+        [SerializeField] private AudioSource _fleshSound;
+
+        [SerializeField] private AudioSource _metalSound;
+
         [SerializeField] private int _damage;
 
         private IShootable _shootable;
@@ -39,10 +43,14 @@ namespace Projectiles
             if ((_fleshLayer & (1 << collision.gameObject.layer)) != 0)
             {
                 _fleshHit.Play();
+
+                _fleshSound.PlayOneShot(_fleshSound.clip);
             }
             else if ((_metalLayer & (1 << collision.gameObject.layer)) != 0)
             {
                 _metalHit.Play();
+
+                _metalSound.PlayOneShot(_metalSound.clip);
             }
             else if ((_stoneLayer & (1 << collision.gameObject.layer)) != 0)
             {

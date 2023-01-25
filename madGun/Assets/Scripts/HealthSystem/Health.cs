@@ -8,19 +8,28 @@ namespace HealthSystem
     {
         [SerializeField] private int _maxHealth;
 
+        [SerializeField] private AudioSource _deathSound;
+
         private int _currentHealth;
+
+        private bool _died = false;
 
         public event Action<int> HealthChanged = delegate { };
 
         public event Action Died = delegate { };
+
+        public event Action Destroyed = delegate { };
 
         public int CurrentHealth => _currentHealth;
 
         private void Awake()
         {
             _currentHealth = _maxHealth;
+        }
 
-            HealthChanged.Invoke(_currentHealth);
+        private void OnDestroy()
+        {
+            Destroyed.Invoke();
         }
 
         public void ApplyDamage(int damage)
@@ -29,8 +38,15 @@ namespace HealthSystem
 
             HealthChanged.Invoke(_currentHealth);
 
-            if (_currentHealth <= 0)
+            if (_currentHealth <= 0 && !_died)
             {
+                _died = true;
+
+                if(_deathSound != null)
+                {
+                    _deathSound.Play();
+                }
+
                 Died.Invoke();
 
                 enabled = false;

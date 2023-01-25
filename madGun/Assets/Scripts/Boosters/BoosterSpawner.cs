@@ -16,7 +16,7 @@ namespace Boosters
 
         [SerializeField] private float _medkitSpawnChance;
 
-        [SerializeField] private float _droneSpawnChance;
+        [SerializeField] private float _fireRainSpawnChance;
 
         [SerializeField] private float _bulletTimeSpawnChance;
 
@@ -54,9 +54,9 @@ namespace Boosters
             {
                 _boostersPool.AddBooster(_boosterHolder.position, BoosterType.Medkit);
             }
-            else if (randomValue < _droneSpawnChance && !_activeBoostersState.Drone)
+            else if (randomValue < _fireRainSpawnChance && !_activeBoostersState.FireRain)
             {
-                _boostersPool.AddBooster(_boosterHolder.position, BoosterType.Drone);
+                _boostersPool.AddBooster(_boosterHolder.position, BoosterType.FireRain);
             }
             else if (randomValue < _bulletTimeSpawnChance && !_activeBoostersState.BulletTime)
             {

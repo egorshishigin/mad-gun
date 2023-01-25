@@ -19,6 +19,8 @@ namespace HealthSystem
             {
                 _health.ApplyDamage(damage * _headShotMultiplier);
 
+                gameObject.transform.localScale = Vector3.zero;
+
                 HeadShot.Invoke();
             }
             else

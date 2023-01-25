@@ -2,35 +2,37 @@ using HealthSystem;
 
 using Weapons;
 
+using Projectiles;
+
 using UnityEngine;
 
 namespace Enemies
 {
     public class EnemyExplosion : MonoBehaviour
     {
-        [SerializeField] private Health _health;
-
         [SerializeField] private ParticleSystem _particleSystem;
 
         [SerializeField] private Explosion _explosion;
 
-        private void OnEnable()
-        {
-            _health.Died += DiedExplosion;
-        }
+        private PlayerProjectile _playerProjectile;
 
-        private void OnDisable()
+        private void OnCollisionEnter(Collision collision)
         {
-            _health.Died -= DiedExplosion;
+            if (collision.transform.TryGetComponent<PlayerProjectile>(out _playerProjectile))
+            {
+                DiedExplosion();
+            }
+            else return;
+
         }
 
         private void DiedExplosion()
         {
-            _health.gameObject.SetActive(false);
-
             _particleSystem.Play();
 
             _explosion.ExplosionDamage();
+
+            gameObject.SetActive(false);
         }
     }
 }

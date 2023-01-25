@@ -1,16 +1,17 @@
+using System;
+using System.Collections;
+
 using Zenject;
 
-using Player;
-
 using HealthSystem;
+using Player;
 
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 
 namespace Enemies
 {
-    public class WalkingEnemy : MonoBehaviour, IEnemy
+    public class JumpEnemy : MonoBehaviour, IEnemy
     {
         [SerializeField] private NavMeshAgent _meshAgent;
 
@@ -22,7 +23,13 @@ namespace Enemies
 
         [SerializeField] private GameObject _rootObject;
 
+        [SerializeField] private float _jumpDistance;
+
         private PlayerHitBox _player;
+
+        private float _dictanceToPlayer;
+
+        public event Action Jumped = delegate { };
 
         [Inject]
         private void Construct(PlayerHitBox player)
@@ -40,28 +47,19 @@ namespace Enemies
             Move();
         }
 
+        private void Update()
+        {
+            _dictanceToPlayer = (transform.position - _player.transform.position).magnitude;
+
+            if (_dictanceToPlayer <= _jumpDistance)
+            {
+                Jump();
+            }
+        }
+
         private void OnDisable()
         {
             _health.Died -= Stop;
-        }
-
-        public void Move()
-        {
-            _meshAgent.isStopped = false;
-
-            _meshAgent.SetDestination(_player.transform.position);
-        }
-
-        public void HitHandler()
-        {
-            _meshAgent.isStopped = true;
-        }
-
-        public void Stop()
-        {
-            _meshAgent.isStopped = true;
-
-            Die();
         }
 
         public void Die()
@@ -72,6 +70,29 @@ namespace Enemies
         public int GetDamage()
         {
             return _damage;
+        }
+
+        public void Move()
+        {
+            _meshAgent.isStopped = false;
+
+            _meshAgent.SetDestination(_player.transform.position);
+        }
+
+        public void Stop()
+        {
+            _meshAgent.isStopped = true;
+
+            Die();
+        }
+
+        private void Jump()
+        {
+            _meshAgent.isStopped = true;
+
+            //_meshAgent.enabled = false;
+
+            Jumped.Invoke();
         }
 
         private IEnumerator Deactivate()

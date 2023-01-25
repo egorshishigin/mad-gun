@@ -23,7 +23,7 @@ namespace Player
             {
                 _health.ApplyDamage(_enemy.GetDamage());
 
-                Destroy(collision.gameObject);
+                _enemy.Die();
             }
         }
 

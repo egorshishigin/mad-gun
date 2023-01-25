@@ -40,7 +40,7 @@ namespace Infrastructure
 
         [SerializeField] private WavesConfig _wavesConfig;
 
-        [SerializeField] private Drone _droneBooster;
+        [SerializeField] private FireRain _fireRainBooster;
 
         [SerializeField] private BulletTime _bulletTime;
 
@@ -69,7 +69,7 @@ namespace Infrastructure
         {
             Container.Bind<ActiveBoostersState>().AsSingle();
 
-            Container.Bind<Drone>().FromInstance(_droneBooster).AsSingle();
+            Container.Bind<FireRain>().FromInstance(_fireRainBooster).AsSingle();
 
             Container.Bind<BulletTime>().FromInstance(_bulletTime).AsSingle();
         }

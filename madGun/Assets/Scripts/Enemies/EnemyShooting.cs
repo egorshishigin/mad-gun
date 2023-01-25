@@ -1,9 +1,12 @@
+using System;
+
 using Zenject;
 
 using Player;
 
-using UnityEngine;
 using Projectiles;
+
+using UnityEngine;
 
 namespace Enemies
 {
@@ -11,17 +14,11 @@ namespace Enemies
     {
         [SerializeField] private Transform _shootPoint;
 
-        [SerializeField] private float _aimTime;
-
         [SerializeField] private float _speed;
-
-        [SerializeField] private float _fireRate;
 
         private EnemyProjectilePool _projectilesPool;
 
         private PlayerHitBox _player;
-
-        private float _nextTimeToShoot;
 
         [Inject]
         private void Construct(PlayerHitBox player, EnemyProjectilePool projectilesPool)
@@ -31,28 +28,21 @@ namespace Enemies
             _projectilesPool = projectilesPool;
         }
 
-        private void Update()
+        public void Shoot()
         {
             Aim();
 
-            if (Time.time >= _nextTimeToShoot)
-            {
-                _nextTimeToShoot = Time.time + 1f / _fireRate;
-
-                Shoot();
-            }
+            LaunchProjectile();
         }
 
-        private void Shoot()
+        private void LaunchProjectile()
         {
             _projectilesPool.AddEnemyProjectile(_shootPoint.position, _shootPoint.forward, _speed);
         }
 
         private void Aim()
         {
-            Quaternion rotation = Quaternion.LookRotation(_player.transform.position - _shootPoint.position);
-
-            _shootPoint.rotation = Quaternion.Slerp(_shootPoint.rotation, rotation, Time.deltaTime * _aimTime);
+            _shootPoint.LookAt(_player.transform.position);
         }
     }
 }

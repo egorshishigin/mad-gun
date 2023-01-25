@@ -20,6 +20,14 @@ namespace HealthSystem
             _health.Died -= DiedHandler;
         }
 
+        private void Awake()
+        {
+            foreach (var item in _bodyParts)
+            {
+                item.isKinematic = true;
+            }
+        }
+
         private void DiedHandler()
         {
             ActivateRagdoll();

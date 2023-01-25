@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    public class DroneRocket : MonoBehaviour
+    public class BoosterFireBall : MonoBehaviour
     {
-        [SerializeField] private GameObject _rocketModel;
-
         [SerializeField] private Explosion _explosion;
 
         [SerializeField] private ParticleSystem _explosionEffect;
@@ -18,13 +16,19 @@ namespace Projectiles
 
         [SerializeField] private AudioSource _explosionSound;
 
+        [SerializeField] private Collider _collider;
+
+        [SerializeField] private GameObject _model;
+
         private void OnCollisionEnter(Collision collision)
         {
+            _collider.enabled = false;
+
+            _model.SetActive(false);
+
             _explosionEffect.Play();
 
             _explosion.ExplosionDamage();
-
-            _rocketModel.SetActive(false);
 
             _explosionSound.PlayOneShot(_explosionSound.clip);
         }

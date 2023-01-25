@@ -9,17 +9,13 @@ using UnityEngine;
 
 namespace Boosters
 {
-    public class Drone : ActiveBoosterBase
+    public class FireRain : ActiveBoosterBase
     {
-        [SerializeField] private DroneRocket _rocketPrefab;
-
-        [SerializeField] private float _moveSpeed;
+        [SerializeField] private BoosterFireBall _rocketPrefab;
 
         [SerializeField] private float _fireRate;
 
-        [SerializeField] private Transform _shootPoint;
-
-        [SerializeField] private Transform _startPoint;
+        [SerializeField] private Transform[] _shootPoints;
 
         private ActiveBoostersState _boostersState;
 
@@ -33,20 +29,16 @@ namespace Boosters
 
         protected override void OnActivated()
         {
-            _boostersState.Drone = true;
+            _boostersState.FireRain = true;
         }
 
         protected override void OnDectivated()
         {
-            _boostersState.Drone = false;
-
-            transform.position = _startPoint.position;
+            _boostersState.FireRain = false;
         }
 
         private void Update()
         {
-            Move();
-
             Shoot();
         }
 
@@ -56,15 +48,12 @@ namespace Boosters
             {
                 _nextTimeToShoot = Time.time + 1f / _fireRate;
 
-                DroneRocket rocket = Instantiate(_rocketPrefab, _shootPoint);
+                int randomPointIdex = Random.Range(0, _shootPoints.Length);
 
-                rocket.Launch(_shootPoint.forward);
+                BoosterFireBall rocket = Instantiate(_rocketPrefab, _shootPoints[randomPointIdex]);
+
+                rocket.Launch(_shootPoints[randomPointIdex].forward);
             }
-        }
-
-        private void Move()
-        {
-            transform.Translate(Vector3.forward * _moveSpeed * Time.deltaTime);
         }
     }
 }
