@@ -12,7 +12,7 @@ namespace Projectiles
 
         [SerializeField] private Collider _collider;
 
-        [SerializeField] private GameObject _trail;
+        [SerializeField] private TrailRenderer _trail;
 
         [SerializeField] private ForceMode _forceMode;
 
@@ -66,7 +66,9 @@ namespace Projectiles
 
             _collider.enabled = false;
 
-            _trail.SetActive(false);
+            _trail.gameObject.SetActive(false);
+
+            _trail.Clear();
 
             _rigidbody.isKinematic = true;
         }
@@ -80,7 +82,7 @@ namespace Projectiles
 
         public void EnableTrail()
         {
-            _trail.SetActive(true);
+            _trail.gameObject.SetActive(true);
         }
 
         public void ResetProjectile()

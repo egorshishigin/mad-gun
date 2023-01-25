@@ -29,10 +29,9 @@ Transform:
   m_LocalPosition: {x: 0.023200035, y: 0.008, z: 0.028}
   m_LocalScale: {x: 0.7605367, y: 0.7605367, z: 0.7605367}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3676899670153912856}
+  m_Children: []
   m_Father: {fileID: 2149270545266177362}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4002909990259396752
 MeshFilter:
@@ -115,6 +114,7 @@ Transform:
   m_LocalScale: {x: 0.58458, y: 0.58458, z: 0.58458}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3676899670153912856}
   - {fileID: 9828503357300533}
   - {fileID: 8297080194880573329}
   - {fileID: 8540792961342278171}
@@ -166,7 +166,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 2149270545266177363}
   _meshRenderer: {fileID: 1182694236950553690}
   _collider: {fileID: 8059586773019265409}
-  _trail: {fileID: 2469859501579454598}
+  _trail: {fileID: 6702994487303082456}
   _forceMode: 2
   _activeTime: 5
   _metalLayer:
@@ -208,12 +208,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2469859501579454598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: -0.0895}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000104308114, y: 3.5141242e-23, z: -1.1557237e-24, w: 1}
+  m_LocalPosition: {x: 0.023200009, y: 0.008000025, z: -0.04006803}
+  m_LocalScale: {x: 0.7605366, y: 0.7605366, z: 0.7605366}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9828503357300533}
+  m_Father: {fileID: 2149270545266177362}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &6702994487303082456
@@ -258,7 +258,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.05
+  m_Time: 0.025
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.025352579
@@ -275,7 +275,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.953317
+        time: 0.4484647
         value: 0
         inSlope: 0
         outSlope: 0
@@ -5435,7 +5435,7 @@ Transform:
   - {fileID: 8303342027158570735}
   - {fileID: 3589592093699307500}
   m_Father: {fileID: 2149270545266177362}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 28.073002, y: 0, z: 0}
 --- !u!198 &8181882817598220591
 ParticleSystem:
@@ -14840,7 +14840,7 @@ Transform:
   - {fileID: 8540834916071951911}
   - {fileID: 6375621449946021304}
   m_Father: {fileID: 2149270545266177362}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!198 &8383342801317190991
 ParticleSystem:
@@ -19605,7 +19605,7 @@ Transform:
   - {fileID: 8775803539635392522}
   - {fileID: 6867158827426678524}
   m_Father: {fileID: 2149270545266177362}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!198 &8891810760700521302
 ParticleSystem:

@@ -18,6 +18,8 @@ namespace Weapons
 
         [SerializeField] private Transform _shootPointsHolder;
 
+        [SerializeField] private PlayerProjectile _projectile;
+
         [Header("Fire speed")]
 
         [SerializeField] private float _fireRate;
@@ -61,6 +63,8 @@ namespace Weapons
         public event Action Shot = delegate { };
 
         public WeaponType Type => _type;
+
+        public PlayerProjectile Projectile => _projectile;
 
         [Inject]
         private void Construct(PlayerControl playerControl, ProjectilesPool projectilesPool)

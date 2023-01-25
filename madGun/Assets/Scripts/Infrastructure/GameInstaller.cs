@@ -15,6 +15,7 @@ using Score;
 using Boosters;
 
 using UnityEngine;
+using Weapons;
 
 namespace Infrastructure
 {
@@ -43,6 +44,8 @@ namespace Infrastructure
         [SerializeField] private FireRain _fireRainBooster;
 
         [SerializeField] private BulletTime _bulletTime;
+
+        [SerializeField] private Weapon _playerWeapon;
 
         public override void InstallBindings()
         {
@@ -132,7 +135,7 @@ namespace Infrastructure
             Container
                 .BindMemoryPool<PlayerProjectile, PlayerProjectile.Pool>()
                 .WithInitialSize(10)
-                .FromComponentInNewPrefab(_playerProjectilePrefab)
+                .FromComponentInNewPrefab(_playerWeapon.Projectile)
                 .UnderTransform(_playerProjectilesHolder);
         }
 
