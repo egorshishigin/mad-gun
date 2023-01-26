@@ -36,6 +36,8 @@ namespace Projectiles
 
         [SerializeField] private int _damage;
 
+        [SerializeField] private bool _disableOnCollision;
+
         private IShootable _shootable;
 
         private void OnCollisionEnter(Collision collision)
@@ -62,15 +64,18 @@ namespace Projectiles
                 _shootable.HitHandler(_damage);
             }
 
-            _meshRenderer.enabled = false;
+            if (_disableOnCollision)
+            {
+                _meshRenderer.enabled = false;
 
-            _collider.enabled = false;
+                _collider.enabled = false;
+
+                _rigidbody.isKinematic = true;
+            }
 
             _trail.gameObject.SetActive(false);
 
             _trail.Clear();
-
-            _rigidbody.isKinematic = true;
         }
 
         public void Launch(Vector3 direction, float speed)

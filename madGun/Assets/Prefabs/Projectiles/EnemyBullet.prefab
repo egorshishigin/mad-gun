@@ -171,6 +171,7 @@ MonoBehaviour:
   _fleshSound: {fileID: 6043302972127423856}
   _metalSound: {fileID: 6043302972127423856}
   _damage: 5
+  _disableOnCollision: 1
 --- !u!135 &2908068573944673117
 SphereCollider:
   m_ObjectHideFlags: 0
