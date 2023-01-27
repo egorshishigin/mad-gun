@@ -4,11 +4,16 @@ using UnityEngine;
 
 namespace Boosters
 {
-    public abstract class ActiveBoosterBase : MonoBehaviour
+    public abstract class ActiveBoosterBase : MonoBehaviour, IUpgradetable
     {
         [SerializeField] private float _activeTime;
 
         public float ActiveTime => _activeTime;
+
+        public void Upgrade(int amount)
+        {
+            _activeTime += amount;
+        }
 
         public void Activate()
         {

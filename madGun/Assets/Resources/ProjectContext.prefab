@@ -74,3 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44468b3a5905e6741b27ee1bc9f1ef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponsConfig: {fileID: 11400000, guid: 1c01bd1d47327134382a6661d848f23c, type: 2}
+  _powerUpConfig: {fileID: 11400000, guid: e302a812d137f5442aaeda68f6a0e7e1, type: 2}

@@ -14,12 +14,20 @@ namespace Player
 
         private void OnEnable()
         {
-            _playerHealth.HealthChanged += UpdateHealthText;
+            _playerHealth.Dmaged += UpdateHealthText;
+
+            _playerHealth.HealthInitialized += UpdateHealthText;
+
+            _playerHealth.Healed += UpdateHealthText;
         }
 
         private void OnDisable()
         {
-            _playerHealth.HealthChanged -= UpdateHealthText;
+            _playerHealth.Dmaged -= UpdateHealthText;
+
+            _playerHealth.HealthInitialized -= UpdateHealthText;
+
+            _playerHealth.Healed -= UpdateHealthText;
         }
 
         private void UpdateHealthText(int value)

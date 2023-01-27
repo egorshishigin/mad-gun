@@ -11,11 +11,13 @@ namespace Boosters
 {
     public class FireRain : ActiveBoosterBase
     {
-        [SerializeField] private BoosterFireBall _rocketPrefab;
+        [SerializeField] private BoosterFireBall _fireBallPrefab;
 
         [SerializeField] private float _fireRate;
 
         [SerializeField] private Transform[] _shootPoints;
+
+        [SerializeField] private Transform _fireBallsHolder;
 
         private ActiveBoostersState _boostersState;
 
@@ -50,7 +52,7 @@ namespace Boosters
 
                 int randomPointIdex = Random.Range(0, _shootPoints.Length);
 
-                BoosterFireBall rocket = Instantiate(_rocketPrefab, _shootPoints[randomPointIdex]);
+                BoosterFireBall rocket = Instantiate(_fireBallPrefab, _shootPoints[randomPointIdex].position, Quaternion.identity, _fireBallsHolder);
 
                 rocket.Launch(_shootPoints[randomPointIdex].forward);
             }

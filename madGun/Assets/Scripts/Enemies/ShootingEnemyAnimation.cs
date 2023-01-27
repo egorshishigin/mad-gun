@@ -17,14 +17,14 @@ namespace Enemies
         {
             _health.Died += DisableAnimation;
 
-            _health.HealthChanged += HealthChangedHandler;
+            _health.Dmaged += HealthChangedHandler;
         }
 
         private void OnDisable()
         {
             _health.Died -= DisableAnimation;
 
-            _health.HealthChanged -= HealthChangedHandler;
+            _health.Dmaged -= HealthChangedHandler;
         }
 
         public void HitAnimation()

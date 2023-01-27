@@ -20,8 +20,13 @@ namespace Projectiles
 
         [SerializeField] private GameObject _model;
 
+        private bool _explode;
+
         private void OnCollisionEnter(Collision collision)
         {
+            if (_explode)
+                return;
+
             _collider.enabled = false;
 
             _model.SetActive(false);
@@ -31,6 +36,8 @@ namespace Projectiles
             _explosion.ExplosionDamage();
 
             _explosionSound.PlayOneShot(_explosionSound.clip);
+
+            _explode = true;
         }
 
         public void Launch(Vector3 direction)

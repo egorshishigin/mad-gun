@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aead0d316963d664bafa6e0b17ce06ec, type: 3}
+  m_Name: WeaponsConfig
+  m_EditorClassIdentifier: 
+  _weapons:
+  - _id: 0
+    _weaponPrefab: {fileID: 2528650036620691593, guid: 1c164670119dcfb4a9724f11c92ee53d, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: dc48a5dae1aa7234aaac51a440ef057c, type: 3}
+    _price: 0
+    _bought: 1
+  - _id: 1
+    _weaponPrefab: {fileID: 7717664729613290763, guid: f9a008ffe1055c44ea2d46eef24e058b, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: dc48a5dae1aa7234aaac51a440ef057c, type: 3}
+    _price: 0
+    _bought: 1
+  - _id: 2
+    _weaponPrefab: {fileID: 6852974714741176632, guid: 5ba32eaa152a24943a451ba264a6be13, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: dc48a5dae1aa7234aaac51a440ef057c, type: 3}
+    _price: 0
+    _bought: 0
+  - _id: 3
+    _weaponPrefab: {fileID: 3837339382966016998, guid: 16fb4739d4813f744bf4f0165acaaf20, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: dc48a5dae1aa7234aaac51a440ef057c, type: 3}
+    _price: 10
+    _bought: 1
+  - _id: 4
+    _weaponPrefab: {fileID: 5393324304726941182, guid: e252a29ad40400f4f88d8526538c472f, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: dc48a5dae1aa7234aaac51a440ef057c, type: 3}
+    _price: 0
+    _bought: 1
+  - _id: 5
+    _weaponPrefab: {fileID: 5387998015398000668, guid: 1fe6b958bf5e365499d7c54fc7753363, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: dc48a5dae1aa7234aaac51a440ef057c, type: 3}
+    _price: 0
+    _bought: 0
+  - _id: 6
+    _weaponPrefab: {fileID: 3963816362503103304, guid: 4131d05c956fe924891be2a8c5087c8d, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: dc48a5dae1aa7234aaac51a440ef057c, type: 3}
+    _price: 0
+    _bought: 0
+  - _id: 7
+    _weaponPrefab: {fileID: 7146807829585277148, guid: 8c3cef2cae166d3429740c38e4113fb8, type: 3}
+    _projectile: {fileID: 3212304904005132269, guid: 16dde4add91785f4ea2b404a7d991145, type: 3}
+    _price: 0
+    _bought: 0
+  - _id: 8
+    _weaponPrefab: {fileID: 7775153440789322714, guid: cc8295a601df12f49b16262ba08f4306, type: 3}
+    _projectile: {fileID: 6083181513649260905, guid: d515a843a3faa0c46bccbaf9207df919, type: 3}
+    _price: 0
+    _bought: 0
+  - _id: 9
+    _weaponPrefab: {fileID: 5067215327397119154, guid: 386ee8e86dd4c7649982535ba128a55e, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: dc48a5dae1aa7234aaac51a440ef057c, type: 3}
+    _price: 0
+    _bought: 1

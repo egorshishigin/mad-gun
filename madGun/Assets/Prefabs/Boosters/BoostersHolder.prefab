@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eeda8e5511ed0494ea45f29b908d1d8c, type: 2}
+  - {fileID: 2100000, guid: ba044ede0ab04b74fa69b4d2b5e5e8a9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 2363991698600908331}
   - component: {fileID: 6893437399745717182}
   - component: {fileID: 1263803955684132372}
+  - component: {fileID: 8058370301048697216}
   m_Layer: 0
   m_Name: Medkit
   m_TagString: Untagged
@@ -734,6 +735,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8058370301048697216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028702033130944068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e40a54a2bb39947814319910c100ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 1
+  _powerUpAmount: 15
 --- !u!1 &6396586927961137027
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ namespace Weapons
 {
     public class MouseLook : MonoBehaviour
     {
+        private const string SettingName = "CameraSensitivity";
+
         [SerializeField] private Camera _gameCamera;
 
         [SerializeField] private float _xMouseSensitivity = 30f;
@@ -36,6 +38,10 @@ namespace Weapons
 
         private void Awake()
         {
+            _xMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
+
+            _yMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
+
             Cursor.visible = false;
 
             Cursor.lockState = CursorLockMode.Locked;

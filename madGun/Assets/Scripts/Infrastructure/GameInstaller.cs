@@ -23,8 +23,6 @@ namespace Infrastructure
     {
         [SerializeField] private PlayerControl _playerControl;
 
-        [SerializeField] private PlayerProjectile _playerProjectilePrefab;
-
         [SerializeField] private EnemyProjectile _enemyProjectilePrefab;
 
         [SerializeField] private Transform _playerProjectilesHolder;
@@ -45,7 +43,13 @@ namespace Infrastructure
 
         [SerializeField] private BulletTime _bulletTime;
 
-        [SerializeField] private Weapon _playerWeapon;
+        private WeaponSettings _weaponSettings;
+
+        [Inject]
+        private void Construct(WeaponSettings weaponSettings)
+        {
+            _weaponSettings = weaponSettings;
+        }
 
         public override void InstallBindings()
         {
@@ -135,7 +139,7 @@ namespace Infrastructure
             Container
                 .BindMemoryPool<PlayerProjectile, PlayerProjectile.Pool>()
                 .WithInitialSize(10)
-                .FromComponentInNewPrefab(_playerWeapon.Projectile)
+                .FromComponentInNewPrefab(_weaponSettings.PlayerProjectile)
                 .UnderTransform(_playerProjectilesHolder);
         }
 

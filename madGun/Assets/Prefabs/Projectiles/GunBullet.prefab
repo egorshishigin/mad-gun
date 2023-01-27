@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2149270545266177362}
   - component: {fileID: 2149270545266177363}
-  - component: {fileID: 8059586773019265409}
   - component: {fileID: 3086181399172567809}
+  - component: {fileID: 921006818937310272}
   m_Layer: 10
   m_Name: GunBullet
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2149270545266177366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5498, y: 0.202, z: -0.1882}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.58458, y: 0.58458, z: 0.58458}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55,19 +55,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!135 &8059586773019265409
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2149270545266177366}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.06
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3086181399172567809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2149270545266177363}
   _meshRenderer: {fileID: 3259656593455735337}
-  _collider: {fileID: 8059586773019265409}
+  _collider: {fileID: 921006818937310272}
   _trail: {fileID: 6702994487303082456}
   _forceMode: 2
   _activeTime: 5
@@ -102,6 +89,19 @@ MonoBehaviour:
   _metalSound: {fileID: 8883406733384925133}
   _damage: 3
   _disableOnCollision: 1
+--- !u!65 &921006818937310272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149270545266177366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06, y: 0.06, z: 0.08715963}
+  m_Center: {x: 0, y: 0, z: 0.013579868}
 --- !u!1 &2469859501579454598
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2469859501579454598}
   m_LocalRotation: {x: 0.000000104308114, y: 3.5141242e-23, z: -1.1557237e-24, w: 1}
-  m_LocalPosition: {x: 0.023200009, y: 0.008000025, z: -0.04006803}
+  m_LocalPosition: {x: -0, y: 0, z: -0.0381}
   m_LocalScale: {x: 0.7605366, y: 0.7605366, z: 0.7605366}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -303,7 +303,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3822798335036542502, guid: 0f4c4619c07d61d46b3c1b5121870c53, type: 3}
+  - {fileID: 2100000, guid: 88471666cd604be409d368b194e564b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

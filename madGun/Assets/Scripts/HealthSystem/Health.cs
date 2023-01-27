@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HealthSystem
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, IUpgradetable
     {
         [SerializeField] private int _maxHealth;
 
@@ -14,7 +14,11 @@ namespace HealthSystem
 
         private bool _died = false;
 
-        public event Action<int> HealthChanged = delegate { };
+        public event Action<int> Dmaged = delegate { };
+
+        public event Action<int> HealthInitialized = delegate { };
+
+        public event Action<int> Healed = delegate { };
 
         public event Action Died = delegate { };
 
@@ -22,9 +26,11 @@ namespace HealthSystem
 
         public int CurrentHealth => _currentHealth;
 
-        private void Awake()
+        private void Start()
         {
             _currentHealth = _maxHealth;
+
+            HealthInitialized.Invoke(_currentHealth);
         }
 
         private void OnDestroy()
@@ -36,7 +42,7 @@ namespace HealthSystem
         {
             _currentHealth -= damage;
 
-            HealthChanged.Invoke(_currentHealth);
+            Dmaged.Invoke(_currentHealth);
 
             if (_currentHealth <= 0 && !_died)
             {
@@ -58,7 +64,12 @@ namespace HealthSystem
         {
             _currentHealth += amount;
 
-            HealthChanged.Invoke(_currentHealth);
+            Healed.Invoke(_currentHealth);
+        }
+
+        public void Upgrade(int amount)
+        {
+            _maxHealth += amount;
         }
     }
 }

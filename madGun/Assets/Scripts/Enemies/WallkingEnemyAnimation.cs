@@ -16,7 +16,7 @@ namespace Enemies
         {
             _health.Died += DisableAnimation;
 
-            _health.HealthChanged += HealthChangedHandler;
+            _health.Dmaged += HealthChangedHandler;
         }
 
         private void HealthChangedHandler(int damage)
@@ -28,7 +28,7 @@ namespace Enemies
         {
             _health.Died -= DisableAnimation;
 
-            _health.HealthChanged -= HealthChangedHandler;
+            _health.Dmaged -= HealthChangedHandler;
         }
 
         private void Start()
