@@ -14,8 +14,9 @@ using Score;
 
 using Boosters;
 
+using GamePause;
+
 using UnityEngine;
-using Weapons;
 
 namespace Infrastructure
 {
@@ -42,6 +43,8 @@ namespace Infrastructure
         [SerializeField] private FireRain _fireRainBooster;
 
         [SerializeField] private BulletTime _bulletTime;
+
+        [SerializeField] private KeyBoardPauseButton _pauseButton;
 
         private WeaponSettings _weaponSettings;
 
@@ -70,6 +73,15 @@ namespace Infrastructure
             BindBoostersPool();
 
             BindActiveBoosters();
+
+            BindPause();
+        }
+
+        private void BindPause()
+        {
+            Container.Bind<Pause>().AsSingle();
+
+            Container.Bind<KeyBoardPauseButton>().FromInstance(_pauseButton).AsSingle();
         }
 
         private void BindActiveBoosters()

@@ -84,5 +84,15 @@ namespace Data
 
             CoinsSpent.Invoke(_coins);
         }
+
+        public void GainCoins(int value)
+        {
+            _coins += value;
+        }
+
+        public void SetHighScore(int value)
+        {
+            _highScore = value;
+        }
     }
 }

@@ -6,30 +6,34 @@ namespace Score
 {
     public class GameScore
     {
-        private int _currentScore;
+        private int _kills;
 
         private int _coins;
 
-        public GameScore(int currentScore, int coins)
+        public GameScore(int kills, int coins)
         {
-            _currentScore = currentScore;
+            _kills = kills;
 
             _coins = coins;
 
-            ScoreChanged.Invoke(_currentScore);
+            KillsChanged.Invoke(_kills);
 
             CoinsChanged.Invoke(_coins);
         }
 
-        public event Action<int> ScoreChanged = delegate { };
+        public int Coins => _coins;
+
+        public int Kills => _kills;
+
+        public event Action<int> KillsChanged = delegate { };
 
         public event Action<int> CoinsChanged = delegate { };
 
         public void IncreaseScore(int amount)
         {
-            _currentScore += amount;
+            _kills += amount;
 
-            ScoreChanged.Invoke(_currentScore);
+            KillsChanged.Invoke(_kills);
         }
 
         public void IncreaseCoins(int amount)

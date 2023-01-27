@@ -41,10 +41,6 @@ namespace Weapons
             _xMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
 
             _yMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
-
-            Cursor.visible = false;
-
-            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void RotateCamera(Vector3 direction)

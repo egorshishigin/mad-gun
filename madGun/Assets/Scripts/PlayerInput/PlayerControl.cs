@@ -1,16 +1,22 @@
 using System;
 
+using Zenject;
+
+using GamePause;
+
 using UnityEngine;
 
 namespace PlayerInput
 {
-    public class PlayerControl : MonoBehaviour
+    public class PlayerControl : MonoBehaviour, IPauseHandler
     {
         [SerializeField] private Camera _gameCamera;
 
         [SerializeField] private float _inputRange;
 
         [SerializeField] private LayerMask _inputLayer;
+
+        private Pause _pause;
 
         public event Action<Vector3> ScreenMove = delegate { };
 
@@ -19,6 +25,16 @@ namespace PlayerInput
         public event Action ScreenDown = delegate { };
 
         public event Action ScreenUp = delegate { };
+
+        public event Action PauseButtonDown = delegate { };
+
+        [Inject]
+        private void Construct(Pause pause)
+        {
+            _pause = pause;
+
+            _pause.Register(this);
+        }
 
         private void Update()
         {
@@ -35,6 +51,13 @@ namespace PlayerInput
             if (Input.GetMouseButtonUp(0))
             {
                 ScreenUp.Invoke();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                PauseButtonDown.Invoke();
+
+                Debug.Log("Pause key pressed");
             }
 
             ScreenMove.Invoke(GetClickedPoint());
@@ -58,6 +81,11 @@ namespace PlayerInput
             }
 
             return target;
+        }
+
+        public void SetPause(bool paused)
+        {
+            enabled = paused ? false : true;
         }
     }
 }

@@ -20,12 +20,12 @@ namespace Score
 
         private void OnEnable()
         {
-            _gameScore.ScoreChanged += UpdateGameScoreText;
+            _gameScore.KillsChanged += UpdateGameScoreText;
         }
 
         private void OnDisable()
         {
-            _gameScore.ScoreChanged -= UpdateGameScoreText;
+            _gameScore.KillsChanged -= UpdateGameScoreText;
         }
 
         private void UpdateGameScoreText(int value)
