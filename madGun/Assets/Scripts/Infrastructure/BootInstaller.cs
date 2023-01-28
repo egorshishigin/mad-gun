@@ -6,6 +6,8 @@ using WeaponsShop;
 
 using PowerUp;
 
+using GamePause;
+
 using UnityEngine;
 
 namespace Infrastructure
@@ -18,6 +20,8 @@ namespace Infrastructure
 
         public override void InstallBindings()
         {
+            Container.Bind<Pause>().AsSingle();
+
             Container.Bind<WeaponSettings>().AsSingle();
 
             Container.Bind<WeaponsConfig>().FromScriptableObject(_weaponsConfig).AsSingle();

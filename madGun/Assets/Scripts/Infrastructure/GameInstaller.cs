@@ -46,6 +46,8 @@ namespace Infrastructure
 
         [SerializeField] private KeyBoardPauseButton _pauseButton;
 
+        [SerializeField] private SceneLoader _sceneLoader;
+
         private WeaponSettings _weaponSettings;
 
         [Inject]
@@ -75,12 +77,17 @@ namespace Infrastructure
             BindActiveBoosters();
 
             BindPause();
+
+            BindSceneLoader();
+        }
+
+        private void BindSceneLoader()
+        {
+            Container.Bind<SceneLoader>().FromInstance(_sceneLoader).AsSingle();
         }
 
         private void BindPause()
         {
-            Container.Bind<Pause>().AsSingle();
-
             Container.Bind<KeyBoardPauseButton>().FromInstance(_pauseButton).AsSingle();
         }
 

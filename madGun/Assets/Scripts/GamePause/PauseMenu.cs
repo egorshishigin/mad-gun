@@ -32,19 +32,11 @@ namespace GamePause
             _menu.SetActive(paused);
 
             _weapon.SetActive(!paused);
+        }
 
-            if (paused)
-            {
-                Cursor.visible = true;
-
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.visible = false;
-
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+        private void OnDestroy()
+        {
+            _pause.UnRegister(this);
         }
     }
 }

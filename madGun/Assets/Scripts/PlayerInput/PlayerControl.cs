@@ -56,8 +56,6 @@ namespace PlayerInput
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 PauseButtonDown.Invoke();
-
-                Debug.Log("Pause key pressed");
             }
 
             ScreenMove.Invoke(GetClickedPoint());
@@ -86,6 +84,11 @@ namespace PlayerInput
         public void SetPause(bool paused)
         {
             enabled = paused ? false : true;
+        }
+
+        private void OnDestroy()
+        {
+            _pause.UnRegister(this);
         }
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Timer
 {
-    public class GameTimer : ITickable, IPauseHandler
+    public class GameTimer : ITickable, IPauseHandler, IDisposable
     {
         private float _gameTime;
 
@@ -36,6 +36,11 @@ namespace Timer
             _gameTime += Time.deltaTime;
 
             TimeChanged.Invoke(_gameTime);
+        }
+
+        void IDisposable.Dispose()
+        {
+            _pause.UnRegister(this);
         }
     }
 }

@@ -38,6 +38,11 @@ namespace Weapons
 
         private void Awake()
         {
+            SetCameraSensitivity();
+        }
+
+        public void SetCameraSensitivity()
+        {
             _xMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
 
             _yMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
