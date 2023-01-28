@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 5214878559686070145}
   _boosterHolder: {fileID: 5214878559686070157}
-  _coinsBoosterSpawnChance: 0
+  _coinsBoosterSpawnChance: 0.75
   _medkitSpawnChance: 0
   _fireRainSpawnChance: 0
   _bulletTimeSpawnChance: 0

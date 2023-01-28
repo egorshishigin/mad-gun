@@ -13,25 +13,27 @@ MonoBehaviour:
   m_Name: WavesConfig
   m_EditorClassIdentifier: 
   _waves:
-  - {fileID: -8568750083038362814, guid: 3504d3c1e3108d342b21806138e29234, type: 3}
-  - {fileID: -3837634597239903658, guid: 912f179cba4f0634bbb6d4813ccff4db, type: 3}
+  - {fileID: 4856065700548986942, guid: af8c133ecf5b59c408eadee752d3d913, type: 3}
+  - {fileID: 7128639363952210932, guid: e5f67b06345bd784ea1558aff0872c9c, type: 3}
+  - {fileID: 2102845084, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
+  - {fileID: 658482921103658509, guid: 93788f6469ea0314e95dbb8068d82ef8, type: 3}
   _waveLevelFromGameTime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.1
-      outSlope: 0.1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 10
-      value: 1
-      inSlope: 0.1
-      outSlope: 0.1
+      value: 0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
