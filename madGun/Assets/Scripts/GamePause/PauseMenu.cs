@@ -8,8 +8,6 @@ namespace GamePause
     {
         [SerializeField] private GameObject _menu;
 
-        [SerializeField] private GameObject _weapon;
-
         private Pause _pause;
 
         [Inject]
@@ -30,8 +28,6 @@ namespace GamePause
         public void SetPause(bool paused)
         {
             _menu.SetActive(paused);
-
-            _weapon.SetActive(!paused);
         }
 
         private void OnDestroy()

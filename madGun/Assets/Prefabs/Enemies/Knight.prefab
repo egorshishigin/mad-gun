@@ -555,7 +555,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a495793dc73dbaf45b1be04b6c39f99d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 69972a107ae047f4dbdbd9003318ecfa, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -741,7 +741,7 @@ MonoBehaviour:
   _coinsBoosterSpawnChance: 0
   _medkitSpawnChance: 0
   _fireRainSpawnChance: 0
-  _bulletTimeSpawnChance: 0.75
+  _bulletTimeSpawnChance: 0
 --- !u!114 &91900742452949952
 MonoBehaviour:
   m_ObjectHideFlags: 0

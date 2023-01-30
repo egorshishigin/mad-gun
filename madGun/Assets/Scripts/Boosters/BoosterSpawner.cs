@@ -16,20 +16,12 @@ namespace Boosters
 
         [SerializeField] private float _medkitSpawnChance;
 
-        [SerializeField] private float _fireRainSpawnChance;
-
-        [SerializeField] private float _bulletTimeSpawnChance;
-
         private BoostersPool _boostersPool;
 
-        private ActiveBoostersState _activeBoostersState;
-
         [Inject]
-        private void Construct(BoostersPool boostersPool, ActiveBoostersState activeBoostersState)
+        private void Construct(BoostersPool boostersPool)
         {
             _boostersPool = boostersPool;
-
-            _activeBoostersState = activeBoostersState;
         }
 
         private void OnEnable()
@@ -53,14 +45,6 @@ namespace Boosters
             else if (randomValue < _medkitSpawnChance)
             {
                 _boostersPool.AddBooster(_boosterHolder.position, BoosterType.Medkit);
-            }
-            else if (randomValue < _fireRainSpawnChance && !_activeBoostersState.FireRain)
-            {
-                _boostersPool.AddBooster(_boosterHolder.position, BoosterType.FireRain);
-            }
-            else if (randomValue < _bulletTimeSpawnChance && !_activeBoostersState.BulletTime)
-            {
-                _boostersPool.AddBooster(_boosterHolder.position, BoosterType.BulletTime);
             }
             else return;
 

@@ -18,19 +18,19 @@ MonoBehaviour:
     _price: 0
     _priceGrowAmount: 100
     _description: Increases the player's HP
-    _level: 5
+    _level: 2
   - _id: 1
     _icon: {fileID: 21300000, guid: a179b5e3665184e45a7f6cc16361302c, type: 3}
     _price: 0
     _priceGrowAmount: 100
     _description: Increases the level of restored HP
-    _level: 0
+    _level: 2
   - _id: 2
     _icon: {fileID: 21300000, guid: 3cfa302569b8de24b897b807f1485562, type: 3}
     _price: 0
     _priceGrowAmount: 100
     _description: Increases duration
-    _level: 0
+    _level: 2
   - _id: 3
     _icon: {fileID: 21300000, guid: d57a35f800d3be24ea7a6d9891f8479d, type: 3}
     _price: 0

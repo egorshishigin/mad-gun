@@ -1,4 +1,4 @@
 public interface IUpgradetable
 {
-    void Upgrade(int amount);
+    void Upgrade(int timeAmount, int countAmount);
 }

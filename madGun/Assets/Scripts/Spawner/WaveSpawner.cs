@@ -4,11 +4,13 @@ using Zenject;
 
 using Timer;
 
+using GamePause;
+
 using UnityEngine;
 
 namespace Spawner
 {
-    public class WaveSpawner : MonoBehaviour, IInitializable
+    public class WaveSpawner : MonoBehaviour, IInitializable, IPauseHandler
     {
         [SerializeField] private Transform[] _spawnPoints;
 
@@ -20,12 +22,18 @@ namespace Spawner
 
         private GameTimer _gameTimer;
 
+        private Pause _pause;
+
         [Inject]
-        private void Construct(WaveFactory waveFactory, GameTimer gameTimer)
+        private void Construct(WaveFactory waveFactory, GameTimer gameTimer, Pause pause)
         {
             _waveFactory = waveFactory;
 
             _gameTimer = gameTimer;
+
+            _pause = pause;
+
+            _pause.Register(this);
         }
 
         void IInitializable.Initialize() { }
@@ -35,6 +43,11 @@ namespace Spawner
             StartSpawn();
         }
 
+        private void OnDestroy()
+        {
+            _pause.UnRegister(this);
+        }
+
         private void StartSpawn()
         {
             StartCoroutine(SpawnEnemy());
@@ -42,9 +55,12 @@ namespace Spawner
 
         private IEnumerator SpawnEnemy()
         {
-            Wave wave = (Wave)_waveFactory.Create();
+            if (!_pause.Paused)
+            {
+                Wave wave = (Wave)_waveFactory.Create();
 
-            PlaceWavePrefabAtRandomPoint(wave.transform);
+                PlaceWavePrefabAtRandomPoint(wave.transform);
+            }
 
             yield return new WaitForSeconds(_spawnTimeFromGameTime.Evaluate(_gameTimer.GameTime));
 
@@ -69,6 +85,11 @@ namespace Spawner
             {
                 Gizmos.DrawCube(_spawnPoints[i].position, Vector3.one);
             }
+        }
+
+        public void SetPause(bool paused)
+        {
+
         }
     }
 }

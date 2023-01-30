@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 
 using Zenject;
 
@@ -7,12 +6,14 @@ using Player;
 
 using HealthSystem;
 
+using GamePause;
+
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Enemies
 {
-    public class ShootingEnemy : MonoBehaviour, IEnemy
+    public class ShootingEnemy : MonoBehaviour, IEnemy, IPauseHandler
     {
         [SerializeField] private NavMeshAgent _meshAgent;
 
@@ -40,10 +41,16 @@ namespace Enemies
 
         private float _currentShootTime;
 
+        private Pause _pause;
+
         [Inject]
-        private void Construct(PlayerHitBox player)
+        private void Construct(PlayerHitBox player, Pause pause)
         {
             _player = player;
+
+            _pause = pause;
+
+            _pause.Register(this);
         }
 
         private void OnEnable()
@@ -70,6 +77,11 @@ namespace Enemies
                 StartCoroutine(Shoot());
             }
             else return;
+        }
+
+        private void OnDestroy()
+        {
+            _pause.UnRegister(this);
         }
 
         public void Die()
@@ -143,6 +155,13 @@ namespace Enemies
             yield return new WaitForSeconds(_destroyTime);
 
             Destroy(_rootObject);
+        }
+
+        public void SetPause(bool paused)
+        {
+            enabled = !paused;
+
+            _meshAgent.isStopped = paused;
         }
     }
 }

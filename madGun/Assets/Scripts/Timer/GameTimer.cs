@@ -12,6 +12,8 @@ namespace Timer
     {
         private float _gameTime;
 
+        private bool _timePaused;
+
         private Pause _pause;
 
         public float GameTime => _gameTime;
@@ -28,11 +30,14 @@ namespace Timer
 
         public void SetPause(bool paused)
         {
-            Time.timeScale = paused ? 0f : 1f;
+            _timePaused = paused;
         }
 
         void ITickable.Tick()
         {
+            if (_timePaused)
+                return;
+
             _gameTime += Time.deltaTime;
 
             TimeChanged.Invoke(_gameTime);

@@ -2,41 +2,48 @@ using System.Collections;
 
 using Zenject;
 
+using GamePause;
+
 using UnityEngine;
 
 namespace Boosters
 {
-    public class BulletTime : ActiveBoosterBase
+    public class BulletTime : ActiveBoosterBase, IPauseHandler
     {
         [SerializeField] private float _slowdownFactor;
 
-        private ActiveBoostersState _boostersState;
+        private bool _slowDowned;
 
-        [Inject]
-        private void Construct(ActiveBoostersState activeBoostersState)
+        public void SetPause(bool paused)
         {
-            _boostersState = activeBoostersState;
+            if (!paused && _slowDowned)
+            {
+                Time.timeScale = _slowdownFactor;
+
+                Time.fixedDeltaTime = Time.timeScale * 0.02f;
+            }
+            else if (paused)
+            {
+                Time.timeScale = 0;
+            }
+            else if (!paused && !_slowDowned)
+            {
+                Time.timeScale = 1;
+            }
         }
 
         protected override void OnActivated()
         {
-            _boostersState.BulletTime = true;
+            _slowDowned = true;
 
-            StartCoroutine(SlowDownTime());
+            Time.timeScale = _slowdownFactor;
+
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
 
         protected override void OnDectivated()
         {
-            _boostersState.BulletTime = false;
-        }
-
-        private IEnumerator SlowDownTime()
-        {
-            Time.timeScale = _slowdownFactor;
-
-            Time.fixedDeltaTime = Time.timeScale * 0.02f;
-
-            yield return new WaitForSeconds(ActiveTime);
+            _slowDowned = false;
 
             Time.timeScale = 1;
         }

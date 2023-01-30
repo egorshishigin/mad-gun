@@ -10,7 +10,9 @@ namespace PowerUp
     {
         [SerializeField] private int _id;
 
-        [SerializeField] private int _powerUpAmount;
+        [SerializeField] private int _timePowerUpAmount;
+
+        [SerializeField] private int _countPowerUpAmount;
 
         private GameDataIO _gameData;
 
@@ -33,7 +35,7 @@ namespace PowerUp
         {
             var level = GetPowerUpLevel();
 
-            _upgradetable.Upgrade(level * _powerUpAmount);
+            _upgradetable.Upgrade(level * _timePowerUpAmount, level * _countPowerUpAmount);
         }
 
         private int GetPowerUpLevel()

@@ -15,37 +15,37 @@ MonoBehaviour:
   _weapons:
   - _id: 0
     _weaponPrefab: {fileID: 2528650036620691593, guid: 1c164670119dcfb4a9724f11c92ee53d, type: 3}
-    _projectile: {fileID: 3086181399172567809, guid: dc48a5dae1aa7234aaac51a440ef057c, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: 3fe0fc297c3d6c0478883981eaf99c1f, type: 3}
     _price: 0
     _bought: 1
   - _id: 1
     _weaponPrefab: {fileID: 7717664729613290763, guid: f9a008ffe1055c44ea2d46eef24e058b, type: 3}
-    _projectile: {fileID: 3086181399172567809, guid: 7c3105bf39a92b94daf3b854af2086a0, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: 3fe0fc297c3d6c0478883981eaf99c1f, type: 3}
     _price: 0
     _bought: 1
   - _id: 2
     _weaponPrefab: {fileID: 6852974714741176632, guid: 5ba32eaa152a24943a451ba264a6be13, type: 3}
-    _projectile: {fileID: 3086181399172567809, guid: 5f983e684af65c74990f5c8f5e5b4d99, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: 3fe0fc297c3d6c0478883981eaf99c1f, type: 3}
     _price: 0
     _bought: 1
   - _id: 3
     _weaponPrefab: {fileID: 3837339382966016998, guid: 16fb4739d4813f744bf4f0165acaaf20, type: 3}
-    _projectile: {fileID: 3086181399172567809, guid: f6604d398a4633f4399f90052e1c633e, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: 3fe0fc297c3d6c0478883981eaf99c1f, type: 3}
     _price: 10
     _bought: 1
   - _id: 4
     _weaponPrefab: {fileID: 5393324304726941182, guid: e252a29ad40400f4f88d8526538c472f, type: 3}
-    _projectile: {fileID: 3086181399172567809, guid: 8d8ae16dcc2f6c14697953936876daaf, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: 3fe0fc297c3d6c0478883981eaf99c1f, type: 3}
     _price: 0
     _bought: 1
   - _id: 5
     _weaponPrefab: {fileID: 5387998015398000668, guid: 1fe6b958bf5e365499d7c54fc7753363, type: 3}
-    _projectile: {fileID: 3086181399172567809, guid: db21ac58fc0218a48be501464562effc, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: 3fe0fc297c3d6c0478883981eaf99c1f, type: 3}
     _price: 0
     _bought: 1
   - _id: 6
     _weaponPrefab: {fileID: 3963816362503103304, guid: 4131d05c956fe924891be2a8c5087c8d, type: 3}
-    _projectile: {fileID: 3086181399172567809, guid: 9755d3b650bc0744c9cbb1ca4e56b04d, type: 3}
+    _projectile: {fileID: 3086181399172567809, guid: 3fe0fc297c3d6c0478883981eaf99c1f, type: 3}
     _price: 0
     _bought: 1
   - _id: 7

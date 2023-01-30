@@ -6,7 +6,7 @@ namespace Boosters
     {
         [SerializeField] private int _healAmount;
 
-        public void Upgrade(int amount)
+        public void Upgrade(int amount, int count)
         {
             _healAmount += amount;
         }

@@ -1,11 +1,16 @@
-using HealthSystem;
 using System.Collections;
+
+using Zenject;
+
+using HealthSystem;
+
+using GamePause;
 
 using UnityEngine;
 
 namespace Enemies
 {
-    public class FlyingEnemy : MonoBehaviour, IEnemy
+    public class FlyingEnemy : MonoBehaviour, IEnemy, IPauseHandler
     {
         [SerializeField] private Rigidbody _rigibody;
 
@@ -18,6 +23,16 @@ namespace Enemies
         [SerializeField] private Health _health;
 
         [SerializeField] private bool _move;
+
+        private Pause _pause;
+
+        [Inject]
+        private void Construct(Pause pause)
+        {
+            _pause = pause;
+
+            _pause.Register(this);
+        }
 
         private void OnEnable()
         {
@@ -32,6 +47,11 @@ namespace Enemies
         private void Update()
         {
             Move();
+        }
+
+        private void OnDestroy()
+        {
+            _pause.UnRegister(this);
         }
 
         public int GetDamage()
@@ -67,6 +87,13 @@ namespace Enemies
         public void Die()
         {
             StartCoroutine(Deactivate());
+        }
+
+        public void SetPause(bool paused)
+        {
+            enabled = !paused;
+
+            _move = !paused;
         }
     }
 }

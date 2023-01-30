@@ -40,10 +40,6 @@ namespace Infrastructure
 
         [SerializeField] private WavesConfig _wavesConfig;
 
-        [SerializeField] private FireRain _fireRainBooster;
-
-        [SerializeField] private BulletTime _bulletTime;
-
         [SerializeField] private KeyBoardPauseButton _pauseButton;
 
         [SerializeField] private SceneLoader _sceneLoader;
@@ -74,8 +70,6 @@ namespace Infrastructure
 
             BindBoostersPool();
 
-            BindActiveBoosters();
-
             BindPause();
 
             BindSceneLoader();
@@ -89,15 +83,6 @@ namespace Infrastructure
         private void BindPause()
         {
             Container.Bind<KeyBoardPauseButton>().FromInstance(_pauseButton).AsSingle();
-        }
-
-        private void BindActiveBoosters()
-        {
-            Container.Bind<ActiveBoostersState>().AsSingle();
-
-            Container.Bind<FireRain>().FromInstance(_fireRainBooster).AsSingle();
-
-            Container.Bind<BulletTime>().FromInstance(_bulletTime).AsSingle();
         }
 
         private void BindBoostersPool()

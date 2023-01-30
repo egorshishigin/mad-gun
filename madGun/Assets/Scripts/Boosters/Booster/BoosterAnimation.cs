@@ -22,5 +22,10 @@ namespace Boosters
         {
             _tween.Kill();
         }
+
+        private void OnDestroy()
+        {
+            _tween.Kill();
+        }
     }
 }
