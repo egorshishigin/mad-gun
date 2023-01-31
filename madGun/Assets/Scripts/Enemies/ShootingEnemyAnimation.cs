@@ -8,23 +8,13 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class ShootingEnemyAnimation : MonoBehaviour, IEnemyAnimation, IPauseHandler
+    public class ShootingEnemyAnimation : MonoBehaviour, IEnemyAnimation
     {
         [SerializeField] private Animator _animator;
 
         [SerializeField] private Health _health;
 
         [SerializeField] private ShootingEnemy _shootingEnemy;
-
-        private Pause _pause;
-
-        [Inject]
-        private void Construct(Pause pause)
-        {
-            _pause = pause;
-
-            _pause.Register(this);
-        }
 
         private void OnEnable()
         {
@@ -38,11 +28,6 @@ namespace Enemies
             _health.Died -= DisableAnimation;
 
             _health.Dmaged -= HealthChangedHandler;
-        }
-
-        private void OnDestroy()
-        {
-            _pause.UnRegister(this);
         }
 
         public void HitAnimation()
@@ -69,11 +54,6 @@ namespace Enemies
             _animator.SetBool("Run", false);
 
             _animator.SetBool("Shot", true);
-        }
-
-        public void SetPause(bool paused)
-        {
-            _animator.speed = paused ? 0f : 1f;
         }
 
         private void HealthChangedHandler(int damage)

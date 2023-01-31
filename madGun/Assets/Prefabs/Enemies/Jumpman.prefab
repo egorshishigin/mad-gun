@@ -2756,6 +2756,7 @@ GameObject:
   - component: {fileID: 7653403350046840986}
   - component: {fileID: 7653403350046840989}
   - component: {fileID: 7653403350046840987}
+  - component: {fileID: 5624050751463234092}
   m_Layer: 0
   m_Name: Jumpman
   m_TagString: Untagged
@@ -2770,7 +2771,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7024922042279641638}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.000000104308114}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.01, y: 0.27, z: 24.17}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -2839,8 +2840,22 @@ MonoBehaviour:
   _boosterHolder: {fileID: 1662485630351844778}
   _coinsBoosterSpawnChance: 0.75
   _medkitSpawnChance: 0
-  _fireRainSpawnChance: 0
-  _bulletTimeSpawnChance: 0
+--- !u!114 &5624050751463234092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7024922042279641638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb44e53c9505b4b45ac7a23a8ed61251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 3
+  _killScore: 1
+  _enemies:
+  - {fileID: 7113963574120292728}
 --- !u!1 &7113963574120292733
 GameObject:
   m_ObjectHideFlags: 0

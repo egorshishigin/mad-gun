@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: WavesConfig
   m_EditorClassIdentifier: 
   _waves:
+  - {fileID: 5624050751463234092, guid: fd6d4e2267ba3424e8db78f59b632d5d, type: 3}
+  - {fileID: 4347665312662289120, guid: 7f0cd09738747464d9469576d14c800c, type: 3}
+  - {fileID: 2102845084, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
   - {fileID: 4856065700548986942, guid: af8c133ecf5b59c408eadee752d3d913, type: 3}
   - {fileID: 7128639363952210932, guid: e5f67b06345bd784ea1558aff0872c9c, type: 3}
-  - {fileID: 2102845084, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
+  - {fileID: 4839119702581270796, guid: 025601bf39748af4faaea17805328743, type: 3}
+  - {fileID: 6766754929590776002, guid: da4caceaba688254593d047b314ccf0c, type: 3}
   - {fileID: 658482921103658509, guid: 93788f6469ea0314e95dbb8068d82ef8, type: 3}
   _waveLevelFromGameTime:
     serializedVersion: 2
@@ -23,17 +27,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.01
+      outSlope: 0.01
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 10
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      time: 200
+      value: 2
+      inSlope: 0.01
+      outSlope: 0.01
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 300
+      value: 3
+      inSlope: 0.01
+      outSlope: 0.01
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

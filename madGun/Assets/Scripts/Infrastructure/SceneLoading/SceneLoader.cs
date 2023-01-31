@@ -9,6 +9,8 @@ namespace Infrastructure
     {
         public void LoadSceneAsync(int buildIndex)
         {
+            Time.timeScale = 1;
+
             StartCoroutine(LoadScene(buildIndex));
         }
 

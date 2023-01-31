@@ -54,7 +54,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &3086181399172567809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   _stoneHit: {fileID: 8891810760700521302}
   _fleshSound: {fileID: 6470879313032742877}
   _metalSound: {fileID: 8883406733384925133}
-  _damage: 8
+  _damage: 14
   _disableOnCollision: 1
 --- !u!65 &921006818937310272
 BoxCollider:

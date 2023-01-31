@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4902,11 +4902,11 @@ GameObject:
   - component: {fileID: 5235704971971997533}
   - component: {fileID: 5361058381722872327}
   - component: {fileID: 5360229047531579243}
-  - component: {fileID: 3694710698819391266}
   - component: {fileID: 6167306206864251023}
   - component: {fileID: 4867959262621924964}
   - component: {fileID: 410428611869745788}
   - component: {fileID: 9029583443761047625}
+  - component: {fileID: 6006776782385942497}
   m_Layer: 0
   m_Name: BoosterFireBall
   m_TagString: Untagged
@@ -4928,7 +4928,7 @@ Transform:
   m_Children:
   - {fileID: 5235913968352902183}
   - {fileID: 5235785085313717831}
-  - {fileID: 2066843136656723254}
+  - {fileID: 6387901726930815659}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9808,19 +9808,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!65 &3694710698819391266
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5233732874914752279}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.264201, y: 0.81, z: 0.2760095}
-  m_Center: {x: 0, y: 0.39, z: -2.0172217e-16}
 --- !u!54 &6167306206864251023
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9854,8 +9841,8 @@ MonoBehaviour:
   _speed: 15
   _rigidbody: {fileID: 6167306206864251023}
   _explosionSound: {fileID: 9029583443761047625}
-  _collider: {fileID: 3694710698819391266}
-  _model: {fileID: 5501149413227423865}
+  _collider: {fileID: 6006776782385942497}
+  _model: {fileID: 6047686043893796881}
 --- !u!114 &410428611869745788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9966,6 +9953,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &6006776782385942497
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5233732874914752279}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.44
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5233845434003681253
 GameObject:
   m_ObjectHideFlags: 0
@@ -14779,7 +14779,7 @@ GameObject:
   - component: {fileID: 5200876083419773654}
   - component: {fileID: 5199900281538956330}
   m_Layer: 0
-  m_Name: FireBall
+  m_Name: FireBall_fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14792,12 +14792,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5398162952742044668}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.42717534, z: 0}
-  m_LocalScale: {x: 2.1906428, y: 2.1906428, z: 2.1906428}
+  m_LocalRotation: {x: 0.00000008940697, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2066843136656723254}
+  m_Father: {fileID: 6387901726930815659}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &5200876083419773654
@@ -19591,7 +19591,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &5501149413227423865
+--- !u!1 &6047686043893796881
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19599,47 +19599,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2066843136656723254}
-  - component: {fileID: 6531745746288562219}
-  - component: {fileID: 2432135605335444993}
+  - component: {fileID: 6387901726930815659}
+  - component: {fileID: 8001129983091131662}
+  - component: {fileID: 5254942213817708996}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2066843136656723254
+--- !u!4 &6387901726930815659
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5501149413227423865}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.195, z: 0}
-  m_LocalScale: {x: 0.45648703, y: 0.45648703, z: 0.45648703}
+  m_GameObject: {fileID: 6047686043893796881}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 46.967, y: 46.967, z: 46.967}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5395945348355489484}
   m_Father: {fileID: 5235704971971997533}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6531745746288562219
+--- !u!33 &8001129983091131662
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5501149413227423865}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2432135605335444993
+  m_GameObject: {fileID: 6047686043893796881}
+  m_Mesh: {fileID: -5495902117074765545, guid: ae0a2eaeff93f81458dd1c34edf452d0, type: 3}
+--- !u!23 &5254942213817708996
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5501149413227423865}
+  m_GameObject: {fileID: 6047686043893796881}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

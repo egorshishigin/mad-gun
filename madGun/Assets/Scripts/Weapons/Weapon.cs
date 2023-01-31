@@ -142,9 +142,9 @@ namespace Weapons
 
         private void Shoot()
         {
-            if (Time.time >= _nextTimeToShoot)
+            if (Time.unscaledTime >= _nextTimeToShoot)
             {
-                _nextTimeToShoot = Time.time + 1f / _fireRate;
+                _nextTimeToShoot = Time.unscaledTime + 1f / _fireRate;
 
                 for (int i = 0; i < _shootPoints.Length; i++)
                 {

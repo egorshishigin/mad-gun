@@ -27,7 +27,7 @@ namespace Enemies
         private Pause _pause;
 
         [Inject]
-        private void Construct(Pause pause)
+        private void Consruct(Pause pause)
         {
             _pause = pause;
 
@@ -91,8 +91,6 @@ namespace Enemies
 
         public void SetPause(bool paused)
         {
-            enabled = !paused;
-
             _move = !paused;
         }
     }

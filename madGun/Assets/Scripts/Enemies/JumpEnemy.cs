@@ -8,11 +8,10 @@ using Player;
 
 using UnityEngine;
 using UnityEngine.AI;
-using GamePause;
 
 namespace Enemies
 {
-    public class JumpEnemy : MonoBehaviour, IEnemy, IPauseHandler
+    public class JumpEnemy : MonoBehaviour, IEnemy
     {
         [SerializeField] private NavMeshAgent _meshAgent;
 
@@ -30,18 +29,12 @@ namespace Enemies
 
         private float _dictanceToPlayer;
 
-        private Pause _pause;
-
         public event Action Jumped = delegate { };
 
         [Inject]
-        private void Construct(PlayerHitBox player, Pause pause)
+        private void Construct(PlayerHitBox player)
         {
             _player = player;
-
-            _pause = pause;
-
-            _pause.Register(this);
         }
 
         private void OnEnable()
@@ -67,11 +60,6 @@ namespace Enemies
         private void OnDisable()
         {
             _health.Died -= Stop;
-        }
-
-        private void OnDestroy()
-        {
-            _pause.UnRegister(this);
         }
 
         public void Die()
@@ -102,8 +90,6 @@ namespace Enemies
         {
             _meshAgent.isStopped = true;
 
-            //_meshAgent.enabled = false;
-
             Jumped.Invoke();
         }
 
@@ -112,13 +98,6 @@ namespace Enemies
             yield return new WaitForSeconds(_destroyTime);
 
             Destroy(_rootObject);
-        }
-
-        public void SetPause(bool paused)
-        {
-            enabled = !paused;
-
-            _meshAgent.isStopped = paused;
         }
     }
 }

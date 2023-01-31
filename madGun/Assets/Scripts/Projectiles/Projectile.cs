@@ -92,6 +92,8 @@ namespace Projectiles
 
         public void ResetProjectile()
         {
+            transform.position = Vector3.zero;
+
             _rigidbody.velocity = Vector3.zero;
 
             _rigidbody.angularVelocity = Vector3.zero;

@@ -54,7 +54,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &3086181399172567809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   _stoneHit: {fileID: 8891810760700521302}
   _fleshSound: {fileID: 6470879313032742877}
   _metalSound: {fileID: 8883406733384925133}
-  _damage: 3
+  _damage: 5
   _disableOnCollision: 1
 --- !u!65 &921006818937310272
 BoxCollider:
@@ -127,7 +127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2469859501579454598}
   m_LocalRotation: {x: 0.000000104308114, y: 3.5141242e-23, z: -1.1557237e-24, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -0.0381}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7605366, y: 0.7605366, z: 0.7605366}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,7 +179,7 @@ TrailRenderer:
   m_Time: 0.025
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.025352579
+    widthMultiplier: 0.0125
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -206,8 +206,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
-      key1: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+      key0: {r: 1, g: 0.6859311, b: 0, a: 1}
+      key1: {r: 1, g: 0.6517962, b: 0.0990566, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -267,9 +267,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3908099828493566972}
-  m_LocalRotation: {x: 0.70710707, y: -0, z: -0, w: 0.70710653}
-  m_LocalPosition: {x: 0, y: 0, z: -0.034869}
-  m_LocalScale: {x: 6.546985, y: 6.546985, z: 6.546985}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.000000043743317, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2149270545266177362}

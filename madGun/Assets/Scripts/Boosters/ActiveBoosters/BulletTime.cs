@@ -14,6 +14,16 @@ namespace Boosters
 
         private bool _slowDowned;
 
+        private void Awake()
+        {
+            Pause.Register(this);
+        }
+
+        private void OnDestroy()
+        {
+            Pause.UnRegister(this);
+        }
+
         public void SetPause(bool paused)
         {
             if (!paused && _slowDowned)
