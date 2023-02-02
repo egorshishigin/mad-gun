@@ -21,32 +21,33 @@ MonoBehaviour:
   - {fileID: 4839119702581270796, guid: 025601bf39748af4faaea17805328743, type: 3}
   - {fileID: 6766754929590776002, guid: da4caceaba688254593d047b314ccf0c, type: 3}
   - {fileID: 658482921103658509, guid: 93788f6469ea0314e95dbb8068d82ef8, type: 3}
+  - {fileID: 3763661100543190675, guid: 389202465c5600d4990e4ecb07fa95dd, type: 3}
   _waveLevelFromGameTime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.01
-      outSlope: 0.01
+      inSlope: 0.02
+      outSlope: 0.02
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 200
+      time: 100
       value: 2
-      inSlope: 0.01
-      outSlope: 0.01
+      inSlope: 0.013333334
+      outSlope: 0.013333334
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 300
+      time: 250
       value: 3
-      inSlope: 0.01
-      outSlope: 0.01
+      inSlope: 0.006666667
+      outSlope: 0.006666667
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

@@ -908,8 +908,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.349227, y: 3.4466631, z: 2.5684292}
-  m_Center: {x: 0.11042261, y: 0, z: 0.78421456}
+  m_Size: {x: 8.349227, y: 3.4466631, z: 4.458975}
+  m_Center: {x: 0.11042242, y: 0, z: -0.16105777}
 --- !u!54 &5214878559686070159
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigibody: {fileID: 5214878559686070159}
-  _speed: 1
+  _speed: 1.5
   _damage: 1
   _destroyTime: 2
   _health: {fileID: 5214878559686070145}
@@ -1017,8 +1017,6 @@ MonoBehaviour:
   _boosterHolder: {fileID: 5214878559686070157}
   _coinsBoosterSpawnChance: 0.75
   _medkitSpawnChance: 0
-  _fireRainSpawnChance: 0
-  _bulletTimeSpawnChance: 0
 --- !u!82 &5214878559686070155
 AudioSource:
   m_ObjectHideFlags: 0

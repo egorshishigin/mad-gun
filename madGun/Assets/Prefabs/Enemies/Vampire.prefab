@@ -1801,7 +1801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b764aa766af5f094ca014ca296d7dd09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 25
+  _maxHealth: 220
   _deathSound: {fileID: 3808281053476700931}
 --- !u!114 &3808281053476700928
 MonoBehaviour:
@@ -2073,7 +2073,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -2133,7 +2133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 8287357674795328051}
-  _speed: 15
+  _speed: 30
 --- !u!114 &4347665312662289127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3592,7 +3592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3808281053476700934}
-  _headShotMultiplier: 25
+  _headShotMultiplier: 50
 --- !u!1 &6768046813482481825
 GameObject:
   m_ObjectHideFlags: 0

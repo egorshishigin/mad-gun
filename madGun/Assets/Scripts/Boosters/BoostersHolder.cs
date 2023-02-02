@@ -26,6 +26,8 @@ namespace Boosters
 
         private void ActivateBooster(Vector3 startPosition, BoosterType type)
         {
+            _boosters.FirstOrDefault(item => item.BoosterType != type).gameObject.SetActive(false);
+
             BoosterBase booster = _boosters.FirstOrDefault(item => item.BoosterType == type);
 
             booster.gameObject.SetActive(true);

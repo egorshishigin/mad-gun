@@ -2971,7 +2971,7 @@ MonoBehaviour:
   _damage: 15
   _destroyTime: 4
   _rootObject: {fileID: 7024922042279641638}
-  _jumpDistance: 9
+  _jumpDistance: 16
 --- !u!114 &7113963574120292726
 MonoBehaviour:
   m_ObjectHideFlags: 0

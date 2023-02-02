@@ -24,17 +24,19 @@ public class LoadScreenView : MonoBehaviour
 
     [SerializeField] private LoopType _loopType;
 
+    private Tween _fade;
+
     private Tween _loadRotation;
 
     public event Action FadeCompleted = delegate { };
 
     public void AnimateLoadScreen()
     {
-        Tween tween = _image.DOFade(_imageFadeValue, _imageFadeDuration);
+        _fade = _image.DOFade(_imageFadeValue, _imageFadeDuration);
 
-        tween.OnComplete(() =>
+        _fade.OnComplete(() =>
         {
-            tween.Kill();
+            _fade.Kill();
 
             FadeCompleted.Invoke();
 
@@ -44,6 +46,8 @@ public class LoadScreenView : MonoBehaviour
 
     private void OnDestroy()
     {
+        _fade.Kill();
+
         _loadRotation.Kill();
     }
 }

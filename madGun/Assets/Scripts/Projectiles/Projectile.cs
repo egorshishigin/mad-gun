@@ -75,7 +75,7 @@ namespace Projectiles
 
             _trail.gameObject.SetActive(false);
 
-            _trail.Clear();
+            //_trail.Clear();
         }
 
         public void Launch(Vector3 direction, float speed)
@@ -87,6 +87,8 @@ namespace Projectiles
 
         public void EnableTrail()
         {
+            _trail.Clear();
+
             _trail.gameObject.SetActive(true);
         }
 

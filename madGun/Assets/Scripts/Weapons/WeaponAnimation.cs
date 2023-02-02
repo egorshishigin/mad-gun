@@ -9,25 +9,63 @@ namespace Weapons
     [RequireComponent(typeof(Animator))]
     public class WeaponAnimation : MonoBehaviour
     {
+        private const string AnimationName = "Shot";
+
         [SerializeField] private Animator _animator;
 
         [SerializeField] private Weapon _weapon;
 
-        private const string AnimationTriggerName = "Shot";
+        private PlayerControl _playerControl;
+
+        [Inject]
+        private void Consruct(PlayerControl playerControl)
+        {
+            _playerControl = playerControl;
+        }
 
         private void OnEnable()
         {
-            _weapon.Shot += PlayShotAnimation;
+            switch (_weapon.Type)
+            {
+                case WeaponType.SINGLE:
+                    _weapon.Shot += PlaySinglrShotAnimation;
+                    break;
+                case WeaponType.AUTO:
+                    _weapon.Shot += PlayAutoShotAnimation;
+
+                    _playerControl.ScreenUp += StopAutoShotAnimation;
+                    break;
+            }
         }
 
         private void OnDisable()
         {
-            _weapon.Shot -= PlayShotAnimation;
+            switch (_weapon.Type)
+            {
+                case WeaponType.SINGLE:
+                    _weapon.Shot -= PlaySinglrShotAnimation;
+                    break;
+                case WeaponType.AUTO:
+                    _weapon.Shot -= PlayAutoShotAnimation;
+
+                    _playerControl.ScreenUp -= StopAutoShotAnimation;
+                    break;
+            }
         }
 
-        private void PlayShotAnimation()
+        private void PlaySinglrShotAnimation()
         {
-            _animator.SetTrigger(AnimationTriggerName);
+            _animator.SetTrigger(AnimationName);
+        }
+
+        private void PlayAutoShotAnimation()
+        {
+            _animator.SetBool(AnimationName, true);
+        }
+
+        private void StopAutoShotAnimation()
+        {
+            _animator.SetBool(AnimationName, false);
         }
     }
 }

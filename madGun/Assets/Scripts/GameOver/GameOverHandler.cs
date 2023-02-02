@@ -69,6 +69,8 @@ namespace GameOver
 
             _pause.SetPause(true);
 
+            _gameData.GameData.GainCoins(_gameScore.Coins);
+
             _gameData.SaveGameData();
         }
     }
