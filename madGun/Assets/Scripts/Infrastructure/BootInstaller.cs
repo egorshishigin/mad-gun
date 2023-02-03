@@ -22,8 +22,6 @@ namespace Infrastructure
         {
             Container.Bind<Pause>().AsSingle();
 
-            Container.Bind<WeaponSettings>().AsSingle();
-
             Container.Bind<WeaponsConfig>().FromScriptableObject(_weaponsConfig).AsSingle();
 
             Container.Bind<PowerUpConfig>().FromScriptableObject(_powerUpConfig).AsSingle();

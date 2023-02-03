@@ -16,6 +16,8 @@ namespace Boosters
 
         [SerializeField] private float _medkitSpawnChance;
 
+        [SerializeField] private float _ammoSpawnChance;
+
         private BoostersPool _boostersPool;
 
         [Inject]
@@ -45,6 +47,10 @@ namespace Boosters
             else if (randomValue < _medkitSpawnChance)
             {
                 _boostersPool.AddBooster(_boosterHolder.position, BoosterType.Medkit);
+            }
+            else if (randomValue < _ammoSpawnChance)
+            {
+                _boostersPool.AddBooster(_boosterHolder.position, BoosterType.Ammo);
             }
             else return;
 

@@ -1,32 +1,40 @@
-using System.Collections.Generic;
-
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Projectiles
 {
-    public class ProjectilesPool
+    public class ProjectilesPool : MonoBehaviour
     {
-        private readonly PlayerProjectile.Pool _projectilePool;
+        [SerializeField] private PlayerProjectile _projectilePrefab;
 
-        private readonly List<Projectile> _projectiles = new List<Projectile>();
+        private ObjectPool<PlayerProjectile> _pool;
 
-        public ProjectilesPool(PlayerProjectile.Pool pool)
+        public ObjectPool<PlayerProjectile> Pool => _pool;
+
+        private void Awake()
         {
-            _projectilePool = pool;
+            _pool = new ObjectPool<PlayerProjectile>(CreatePooledObject, OnTakeFromPool, OnReturnToPool);
         }
 
-        public void AddProjectile(Vector3 startPosition, Vector3 direction, float speed)
+        private PlayerProjectile CreatePooledObject()
         {
-            _projectiles.Add(_projectilePool.Spawn(startPosition, direction, speed));
+            PlayerProjectile projectile = Instantiate(_projectilePrefab, transform);
+
+            projectile.SetPool(_pool);
+
+            return projectile;
         }
 
-        public void RemoveProjectile()
+        private void OnTakeFromPool(PlayerProjectile projectile)
         {
-            var projectile = _projectiles[0];
+            projectile.gameObject.SetActive(true);
+        }
 
-            _projectilePool.Despawn(projectile);
+        private void OnReturnToPool(PlayerProjectile projectile)
+        {
+            projectile.gameObject.SetActive(false);
 
-            _projectiles.Remove(projectile);
+            projectile.ResetProjectile();
         }
     }
 }

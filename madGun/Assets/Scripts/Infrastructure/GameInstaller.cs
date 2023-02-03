@@ -16,6 +16,8 @@ using Boosters;
 
 using GamePause;
 
+using Weapons;
+
 using UnityEngine;
 
 namespace Infrastructure
@@ -44,13 +46,7 @@ namespace Infrastructure
 
         [SerializeField] private SceneLoader _sceneLoader;
 
-        private WeaponSettings _weaponSettings;
-
-        [Inject]
-        private void Construct(WeaponSettings weaponSettings)
-        {
-            _weaponSettings = weaponSettings;
-        }
+        [SerializeField] private AmmoConfig _ammoConfig;
 
         public override void InstallBindings()
         {
@@ -73,6 +69,15 @@ namespace Infrastructure
             BindPause();
 
             BindSceneLoader();
+
+            BindAmmo();
+        }
+
+        private void BindAmmo()
+        {
+            Container.Bind<AmmoConfig>().FromScriptableObject(_ammoConfig).AsSingle();
+
+            Container.Bind<Ammo>().AsSingle();
         }
 
         private void BindSceneLoader()
@@ -138,13 +143,13 @@ namespace Infrastructure
 
         private void BindPlayerProjectile()
         {
-            Container.Bind<ProjectilesPool>().AsSingle();
+            //Container.Bind<ProjectilesPool>().AsSingle();
 
-            Container
-                .BindMemoryPool<PlayerProjectile, PlayerProjectile.Pool>()
-                .WithInitialSize(10)
-                .FromComponentInNewPrefab(_weaponSettings.PlayerProjectile)
-                .UnderTransform(_playerProjectilesHolder);
+            //Container
+            //    .BindMemoryPool<PlayerProjectile, PlayerProjectile.Pool>()
+            //    .WithInitialSize(10)
+            //    .FromComponentInNewPrefab(_weaponSettings.PlayerProjectile)
+            //    .UnderTransform(_playerProjectilesHolder);
         }
 
         private void BindPlayerInput()

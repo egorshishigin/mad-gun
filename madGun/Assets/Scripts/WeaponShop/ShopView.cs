@@ -16,8 +16,6 @@ namespace WeaponsShop
 
         [SerializeField] private Button _previousButton;
 
-        [SerializeField] private Button _confirmButton;
-
         [SerializeField] private Button _buyButton;
 
         [SerializeField] private Transform _weaponModelHolder;
@@ -83,13 +81,6 @@ namespace WeaponsShop
         public void UpdatePriceText(string value)
         {
             _price.text = value;
-        }
-
-        public void SetConfirmButtonState(bool value)
-        {
-            _confirmButton.image.color = value ? _normalColor : _disableColor;
-
-            _confirmButton.enabled = value;
         }
 
         public void SetBuyButtonState(bool value)

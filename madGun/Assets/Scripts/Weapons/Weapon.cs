@@ -12,15 +12,19 @@ namespace Weapons
 {
     public class Weapon : MonoBehaviour
     {
+        [SerializeField] private int _id;
+
         [SerializeField] private WeaponType _type;
 
         [SerializeField] private Transform[] _shootPoints;
 
         [SerializeField] private Transform _shootPointsHolder;
 
-        [SerializeField] private PlayerProjectile _projectile;
+        [SerializeField] private ProjectilesPool _projectilesPool;
 
-        [Header("Fire speed")]
+        [Header("Fire settings")]
+
+        [SerializeField] private int _damage;
 
         [SerializeField] private float _fireRate;
 
@@ -56,22 +60,22 @@ namespace Weapons
 
         private PlayerControl _playerControl;
 
-        private ProjectilesPool _projectilesPool;
-
         private float _nextTimeToShoot;
+
+        private Ammo _ammo;
 
         public event Action Shot = delegate { };
 
         public WeaponType Type => _type;
 
-        public PlayerProjectile Projectile => _projectile;
+        public int ID => _id;
 
         [Inject]
-        private void Construct(PlayerControl playerControl, ProjectilesPool projectilesPool)
+        private void Construct(PlayerControl playerControl, Ammo ammo)
         {
             _playerControl = playerControl;
 
-            _projectilesPool = projectilesPool;
+            _ammo = ammo;
         }
 
         private void Awake()
@@ -121,7 +125,7 @@ namespace Weapons
         {
             RotateShootPointsHolder(target);
 
-            WeaponRecoil();
+           WeaponRecoil();
         }
 
         private void WeaponRecoil()
@@ -130,7 +134,7 @@ namespace Weapons
 
             _currentRotation = Vector3.Slerp(_currentRotation, _targetRotation, _recoilSpeed * Time.fixedDeltaTime);
 
-            _recoilRoot.rotation = Quaternion.Euler(_currentRotation);
+            _recoilRoot.rotation = Quaternion.Euler(_currentRotation.x, _currentRotation.y, 0);
         }
 
         private void RotateShootPointsHolder(Vector3 target)
@@ -142,6 +146,9 @@ namespace Weapons
 
         private void Shoot()
         {
+            if (_ammo.AmmoSupply[_id] <= 0)
+                return;
+
             if (Time.unscaledTime >= _nextTimeToShoot)
             {
                 _nextTimeToShoot = Time.unscaledTime + 1f / _fireRate;
@@ -150,12 +157,22 @@ namespace Weapons
                 {
                     ShootSpread(_shootPoints[i]);
 
-                    _projectilesPool.AddProjectile(_shootPoints[i].position, _shootPoints[i].forward, _speed);
+                    PlayerProjectile projectile = _projectilesPool.Pool.Get();
+
+                    projectile.SetDamage(_damage);
+
+                    projectile.transform.position = _shootPoints[i].position;
+
+                    projectile.EnableTrail();
+
+                    projectile.Launch(_shootPoints[i].forward, _speed);
                 }
 
                 ShootRecoil();
 
                 Shot.Invoke();
+
+                _ammo.SpendAmmo(_id);
             }
             else return;
         }

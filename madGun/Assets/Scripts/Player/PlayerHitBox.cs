@@ -1,7 +1,5 @@
 using HealthSystem;
 
-using Enemies;
-
 using UnityEngine;
 
 namespace Player
@@ -10,21 +8,9 @@ namespace Player
     {
         [SerializeField] private Health _health;
 
-        private IEnemy _enemy;
-
         public void HitHandler(int damage)
         {
             _health.ApplyDamage(damage);
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.transform.TryGetComponent(out _enemy))
-            {
-                _health.ApplyDamage(_enemy.GetDamage());
-
-                _enemy.Die();
-            }
         }
 
         public void Heal(int amount)

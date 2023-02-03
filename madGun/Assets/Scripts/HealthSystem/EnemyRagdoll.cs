@@ -43,7 +43,7 @@ namespace HealthSystem
             {
                 item.isKinematic = false;
 
-                item.AddForce(Vector3.forward * _pushBackForce, ForceMode.Impulse);
+                item.AddForce(-item.transform.forward * _pushBackForce, ForceMode.Impulse);
             }
         }
     }

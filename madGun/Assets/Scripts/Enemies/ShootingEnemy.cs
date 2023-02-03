@@ -76,11 +76,6 @@ namespace Enemies
             StartCoroutine(Deactivate());
         }
 
-        public int GetDamage()
-        {
-            return _damage;
-        }
-
         public void Move()
         {
             _enemyAnimation.MoveAnimatiom();
@@ -126,6 +121,8 @@ namespace Enemies
             while (_currentShootTime > 0)
             {
                 _currentShootTime -= Time.deltaTime;
+
+                _rootObject.transform.LookAt(_player.transform.position);
 
                 yield return null;
             }

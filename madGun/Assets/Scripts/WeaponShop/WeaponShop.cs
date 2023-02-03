@@ -17,9 +17,7 @@ namespace WeaponsShop
 
         private WeaponsConfig _weaponsConfig;
 
-        private int _itemIdex = 0;
-
-        private WeaponSettings _weaponSettings;
+        private int _itemIndex = 0;
 
         private GameDataIO _gameDataIO;
 
@@ -30,11 +28,9 @@ namespace WeaponsShop
         public event Action<int> WeaponBought = delegate { };
 
         [Inject]
-        private void Construct(WeaponSettings weaponSettings, GameDataIO gameDataIO, WeaponsConfig weaponsConfig)
+        private void Construct(GameDataIO gameDataIO, WeaponsConfig weaponsConfig)
         {
             _weaponsConfig = weaponsConfig;
-
-            _weaponSettings = weaponSettings;
 
             _gameDataIO = gameDataIO;
 
@@ -66,19 +62,15 @@ namespace WeaponsShop
         private void Start()
         {
             UpdateView();
-
-            SaveSelectedWeapon(_weaponsConfig.Weapons[_itemIdex].Projectile, _itemIdex);
         }
 
         private void UpdateView()
         {
-            _view.UpdateWeaponModel(_itemIdex);
+            _view.UpdateWeaponModel(_itemIndex);
 
-            _view.UpdatePriceText(_weaponsConfig.Weapons[_itemIdex].Price.ToString());
+            _view.UpdatePriceText(_weaponsConfig.Weapons[_itemIndex].Price.ToString());
 
-            _view.SetConfirmButtonState(_weaponData[_itemIdex].Bought);
-
-            _view.SetBuyButtonState(!_weaponData[_itemIdex].Bought);
+            _view.SetBuyButtonState(!_weaponData[_itemIndex].Bought);
         }
 
         private void UpdateWeaponData()
@@ -91,53 +83,38 @@ namespace WeaponsShop
 
         private void BuyWeapon()
         {
-            if (_gameData.Coins < _weaponData[_itemIdex].Price)
+            if (_gameData.Coins < _weaponData[_itemIndex].Price)
                 return;
 
-            _gameData.BuyWeapon(_itemIdex);
+            _gameData.BuyWeapon(_itemIndex);
 
-            _gameData.SpendCoins(_weaponData[_itemIdex].Price);
+            _gameData.SpendCoins(_weaponData[_itemIndex].Price);
 
             UpdateWeaponData();
 
             _gameDataIO.SaveGameData();
 
-            _view.SetBuyButtonState(!_weaponData[_itemIdex].Bought);
-
-            _view.SetConfirmButtonState(_weaponData[_itemIdex].Bought);
+            _view.SetBuyButtonState(!_weaponData[_itemIndex].Bought);
         }
 
         private void SelectNextWeapon()
         {
-            if (_itemIdex < _weaponsConfig.Weapons.Count - 1)
+            if (_itemIndex < _weaponsConfig.Weapons.Count - 1)
             {
-                _itemIdex++;
+                _itemIndex++;
 
                 UpdateView();
-
-                SaveSelectedWeapon(_weaponsConfig.Weapons[_itemIdex].Projectile, _itemIdex);
             }
         }
 
         private void SelectPreviousWeapon()
         {
-            if (_itemIdex > 0)
+            if (_itemIndex > 0)
             {
-                _itemIdex--;
+                _itemIndex--;
 
                 UpdateView();
-
-                SaveSelectedWeapon(_weaponsConfig.Weapons[_itemIdex].Projectile, _itemIdex);
             }
-        }
-
-        private void SaveSelectedWeapon(PlayerProjectile projectile, int id)
-        {
-            _weaponSettings.SetWeaponPrefab(projectile);
-
-            PlayerPrefs.SetInt("Weapon", id);
-
-            PlayerPrefs.Save();
         }
     }
 }

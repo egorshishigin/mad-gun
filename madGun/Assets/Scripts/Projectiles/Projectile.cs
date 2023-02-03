@@ -74,8 +74,6 @@ namespace Projectiles
             }
 
             _trail.gameObject.SetActive(false);
-
-            //_trail.Clear();
         }
 
         public void Launch(Vector3 direction, float speed)
@@ -83,6 +81,11 @@ namespace Projectiles
             _rigidbody.AddForce(direction * speed, _forceMode);
 
             StartCoroutine(Deactivate());
+        }
+
+        public void SetDamage(int damage)
+        {
+            _damage = damage;
         }
 
         public void EnableTrail()

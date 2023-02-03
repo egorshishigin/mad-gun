@@ -14,7 +14,7 @@ namespace Player
 
         private void OnEnable()
         {
-            _playerHealth.Dmaged += UpdateHealthText;
+            _playerHealth.Damaged += UpdateHealthText;
 
             _playerHealth.HealthInitialized += UpdateHealthText;
 
@@ -23,7 +23,7 @@ namespace Player
 
         private void OnDisable()
         {
-            _playerHealth.Dmaged -= UpdateHealthText;
+            _playerHealth.Damaged -= UpdateHealthText;
 
             _playerHealth.HealthInitialized -= UpdateHealthText;
 

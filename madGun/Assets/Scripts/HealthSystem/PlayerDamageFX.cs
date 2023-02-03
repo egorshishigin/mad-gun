@@ -20,12 +20,12 @@ namespace HealthSystem
 
         private void OnEnable()
         {
-            _playerHealth.Dmaged += HealthChangedHandler;
+            _playerHealth.Damaged += HealthChangedHandler;
         }
 
         private void OnDisable()
         {
-            _playerHealth.Dmaged -= HealthChangedHandler;
+            _playerHealth.Damaged -= HealthChangedHandler;
         }
 
         private void HealthChangedHandler(int obj)

@@ -14,7 +14,7 @@ namespace HealthSystem
 
         private bool _died = false;
 
-        public event Action<int> Dmaged = delegate { };
+        public event Action<int> Damaged = delegate { };
 
         public event Action<int> HealthInitialized = delegate { };
 
@@ -42,7 +42,7 @@ namespace HealthSystem
         {
             _currentHealth -= damage;
 
-            Dmaged.Invoke(_currentHealth);
+            Damaged.Invoke(_currentHealth);
 
             if (_currentHealth <= 0 && !_died)
             {
