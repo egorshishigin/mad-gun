@@ -2134,6 +2134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 8287357674795328051}
   _speed: 30
+  _aim: 1
 --- !u!114 &4347665312662289127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2150,6 +2151,7 @@ MonoBehaviour:
   _boosterHolder: {fileID: 8287357676135191418}
   _coinsBoosterSpawnChance: 1
   _medkitSpawnChance: 0
+  _ammoSpawnChance: 0
 --- !u!114 &4347665312662289120
 MonoBehaviour:
   m_ObjectHideFlags: 0

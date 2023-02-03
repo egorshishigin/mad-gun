@@ -48,6 +48,8 @@ namespace Infrastructure
 
         [SerializeField] private AmmoConfig _ammoConfig;
 
+        [SerializeField] private WeaponSwitch _weaponSwitch;
+
         public override void InstallBindings()
         {
             BindPlayerInput();
@@ -75,6 +77,8 @@ namespace Infrastructure
 
         private void BindAmmo()
         {
+            Container.Bind<WeaponSwitch>().FromInstance(_weaponSwitch).AsSingle();
+
             Container.Bind<AmmoConfig>().FromScriptableObject(_ammoConfig).AsSingle();
 
             Container.Bind<Ammo>().AsSingle();

@@ -17,14 +17,20 @@ namespace Weapons
 
         private AmmoConfig _ammoConfig;
 
+        private WeaponSwitch _weaponSwitch;
+
+        private int _selectedWeapon => _weaponSwitch.SelectedWeapon;
+
         public List<int> AmmoSupply => _ammo;
 
         public event Action<int> AmmoCountChanged = delegate { };
 
         [Inject]
-        private Ammo(AmmoConfig ammoConfig)
+        private Ammo(AmmoConfig ammoConfig, WeaponSwitch weaponSwitch)
         {
             _ammoConfig = ammoConfig;
+
+            _weaponSwitch = weaponSwitch;
 
             InitializeStartAmmo();
         }
@@ -36,9 +42,9 @@ namespace Weapons
                 int gainCount = UnityEngine.Random.Range(_minAmmoGain, _maxAmmoGain);
 
                 _ammo[i] += gainCount * amount;
-
-                AmmoCountChanged.Invoke(_ammo[i]);
             }
+
+            AmmoCountChanged.Invoke(_ammo[_selectedWeapon]);
         }
 
         public void SpendAmmo(int id)

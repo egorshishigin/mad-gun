@@ -17,6 +17,10 @@ namespace Weapons
 
         private int _weaponIndex = 0;
 
+        private int _selectedWeapon;
+
+        public int SelectedWeapon => _selectedWeapon;
+
         [Inject]
         private void Construct(GameDataIO gameData)
         {
@@ -62,6 +66,8 @@ namespace Weapons
                 EnableWeapon(_weaponIndex);
 
                 UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
             }
         }
 
@@ -74,6 +80,8 @@ namespace Weapons
                 EnableWeapon(_weaponIndex);
 
                 UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
             }
         }
 

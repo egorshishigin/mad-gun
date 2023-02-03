@@ -16,6 +16,8 @@ namespace Enemies
 
         [SerializeField] private float _speed;
 
+        [SerializeField] private bool _aim;
+
         private EnemyProjectilePool _projectilesPool;
 
         private PlayerHitBox _player;
@@ -30,7 +32,10 @@ namespace Enemies
 
         public void Shoot()
         {
-            Aim();
+            if (_aim)
+            {
+                Aim();
+            }
 
             LaunchProjectile();
         }

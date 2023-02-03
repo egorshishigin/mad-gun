@@ -577,7 +577,7 @@ MonoBehaviour:
   _type: 2
   _boostersHolder: {fileID: 7813252217671743566}
   _animation: {fileID: 828533745806026343}
-  _ammoPickUp: 50
+  _ammoPickUp: 1
 --- !u!82 &5702477810177955637
 AudioSource:
   m_ObjectHideFlags: 0
