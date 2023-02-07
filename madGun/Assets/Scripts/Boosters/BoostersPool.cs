@@ -20,13 +20,11 @@ namespace Boosters
             _boostersHolders.Add(_pool.Spawn(startPosition, type));
         }
 
-        public void RemoveBooster()
+        public void RemoveBooster(BoostersHolder boostersHolder)
         {
-            var booster = _boostersHolders[0];
+            _pool.Despawn(boostersHolder);
 
-            _pool.Despawn(booster);
-
-            _boostersHolders.Remove(booster);
+            _boostersHolders.Remove(boostersHolder);
         }
     }
 }

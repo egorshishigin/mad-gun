@@ -22,6 +22,8 @@ namespace Enemies
 
         [SerializeField] private float _destroyTime;
 
+        private float _distanceToPlayer;
+
         private PlayerHitBox _player;
 
         public PlayerHitBox Player => _player;
@@ -48,7 +50,9 @@ namespace Enemies
 
         private void Update()
         {
-            if (_meshAgent.remainingDistance <= _attackDistance)
+            _distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
+
+            if (_distanceToPlayer <= _attackDistance)
             {
                 StopAgent();
 

@@ -34,6 +34,9 @@ namespace Weapons
 
         private void PlayAudio()
         {
+            if (_audio == null)
+                return;
+
             _audio.PlayOneShot(_audio.clip);
         }
     }

@@ -32,8 +32,20 @@ MonoBehaviour:
     _description: Increases active time and use count
     _level: 2
   - _id: 3
-    _icon: {fileID: 21300000, guid: d57a35f800d3be24ea7a6d9891f8479d, type: 3}
+    _icon: {fileID: 21300000, guid: 4c56caa32e96c264aa6bc53edbb3f5e8, type: 3}
     _price: 0
     _priceGrowAmount: 100
     _description: Increases active time and use count
+    _level: 0
+  - _id: 4
+    _icon: {fileID: 21300000, guid: ecd6d478be1e1a54bb3ec61663397459, type: 3}
+    _price: 0
+    _priceGrowAmount: 100
+    _description: Increases count of restored ammo
+    _level: 0
+  - _id: 5
+    _icon: {fileID: 21300000, guid: 67047db6f6230ee428ed70deeef4120d, type: 3}
+    _price: 0
+    _priceGrowAmount: 100
+    _description: Increases magnet radius
     _level: 0

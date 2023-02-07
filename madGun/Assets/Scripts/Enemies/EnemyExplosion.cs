@@ -26,7 +26,7 @@ namespace Enemies
 
         }
 
-        private void DiedExplosion()
+        public void DiedExplosion()
         {
             _particleSystem.Play();
 

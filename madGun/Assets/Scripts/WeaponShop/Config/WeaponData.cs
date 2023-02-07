@@ -13,8 +13,6 @@ namespace WeaponsShop
 
         [SerializeField] private GameObject _weaponPrefab;
 
-        [SerializeField] private PlayerProjectile _projectile;
-
         [SerializeField] private int _price;
 
         [SerializeField] private bool _bought;
@@ -22,8 +20,6 @@ namespace WeaponsShop
         public int ID => _id;
 
         public GameObject WeaponPrefab => _weaponPrefab;
-
-        public PlayerProjectile Projectile => _projectile;
 
         public int Price => _price;
 

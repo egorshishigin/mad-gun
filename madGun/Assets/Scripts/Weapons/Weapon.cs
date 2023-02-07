@@ -30,6 +30,8 @@ namespace Weapons
 
         [SerializeField] private float _speed;
 
+        [SerializeField] private bool _rotateProjectile;
+
         [Header("Recoil")]
 
         [SerializeField] private Transform _recoilRoot;
@@ -78,15 +80,6 @@ namespace Weapons
             _ammo = ammo;
         }
 
-        private void Awake()
-        {
-            if (_doubleGun)
-            {
-                _secondGun.SetActive(true);
-            }
-            else return;
-        }
-
         private void OnEnable()
         {
             switch (_type)
@@ -121,11 +114,16 @@ namespace Weapons
             _playerControl.ScreenMove -= Aim;
         }
 
+        public void SetDoubleGunState(bool value)
+        {
+            _secondGun.SetActive(value);
+        }
+
         private void Aim(Vector3 target)
         {
             RotateShootPointsHolder(target);
 
-           WeaponRecoil();
+            WeaponRecoil();
         }
 
         private void WeaponRecoil()
@@ -162,6 +160,11 @@ namespace Weapons
                     projectile.SetDamage(_damage);
 
                     projectile.transform.position = _shootPoints[i].position;
+
+                    if (_rotateProjectile)
+                    {
+                        projectile.transform.rotation = _shootPoints[i].rotation;
+                    }
 
                     projectile.EnableTrail();
 

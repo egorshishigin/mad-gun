@@ -1,9 +1,9 @@
+using System.Collections.Generic;
 using System.Linq;
 
 using Zenject;
 
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace Boosters
 {
@@ -21,20 +21,21 @@ namespace Boosters
 
         public void ReturnToPool()
         {
-            _boostersPool.RemoveBooster();
+            _boostersPool.RemoveBooster(this);
         }
 
         private void ActivateBooster(Vector3 startPosition, BoosterType type)
         {
-            _boosters.FirstOrDefault(item => item.BoosterType != type).gameObject.SetActive(false);
+            foreach (var item in _boosters.Where(item => item.BoosterType != type))
+            {
+                item.gameObject.SetActive(false);
+            }
 
             BoosterBase booster = _boosters.FirstOrDefault(item => item.BoosterType == type);
 
             booster.gameObject.SetActive(true);
 
             booster.transform.position = startPosition;
-
-            booster.MoveToPlayer();
         }
 
         public class Pool : MonoMemoryPool<Vector3, BoosterType, BoostersHolder>

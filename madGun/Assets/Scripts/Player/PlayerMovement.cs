@@ -18,6 +18,8 @@ struct Cmd
 
 public class PlayerMovement : MonoBehaviour, IPauseHandler
 {
+    private const string SettingName = "CameraSensitivity";
+
     [Header("Cemera")]
 
     [SerializeField] private Transform _playerView;
@@ -55,6 +57,8 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
     [SerializeField] private float _jumpSpeed = 8.0f;
 
     [SerializeField] private bool _holdJumpToBhop = false;
+
+    [SerializeField] private AudioSource _jumpSound;
 
     private CharacterController _controller;
 
@@ -100,6 +104,8 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
 
     private void Start()
     {
+        SetCameraSensitivity();
+
         Cursor.visible = false;
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -120,6 +126,18 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
         _controller = GetComponent<CharacterController>();
     }
 
+    public void SetPause(bool paused)
+    {
+        enabled = !paused;
+    }
+
+    public void SetCameraSensitivity()
+    {
+        _xMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
+
+        _yMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
+    }
+
     private void RotateCamera(Vector3 obj)
     {
         _cameraXRotation -= Input.GetAxisRaw("Mouse Y") * _xMouseSensitivity * 0.02f;
@@ -134,11 +152,6 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
         _playerView.rotation = Quaternion.Euler(_cameraXRotation, _cameraYRotation, 0);
 
 
-    }
-
-    public void SetPause(bool paused)
-    {
-        enabled = !paused;
     }
 
     private void Update()
@@ -324,6 +337,8 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
         if (_wishJump)
         {
             _playerVelocity.y = _jumpSpeed;
+
+            _jumpSound.PlayOneShot(_jumpSound.clip);
 
             _wishJump = false;
         }

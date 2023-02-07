@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Boosters
 {
-    public class AmmoPickUp : BoosterBase
+    public class AmmoPickUp : BoosterBase, IUpgradetable
     {
         [SerializeField] private int _ammoPickUp;
 
@@ -21,6 +21,11 @@ namespace Boosters
         protected override void ActivateBooster()
         {
             _ammo.GainAmmo(_ammoPickUp);
+        }
+
+        public void Upgrade(int timeAmount, int countAmount)
+        {
+            _ammoPickUp += countAmount;
         }
     }
 }

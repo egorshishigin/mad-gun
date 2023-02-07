@@ -13,15 +13,13 @@ MonoBehaviour:
   m_Name: WavesConfig
   m_EditorClassIdentifier: 
   _waves:
-  - {fileID: 5624050751463234092, guid: fd6d4e2267ba3424e8db78f59b632d5d, type: 3}
+  - {fileID: 8115169096100152353, guid: f1e7b6075e52d2b4aa40b2febf547c75, type: 3}
   - {fileID: 4347665312662289120, guid: 7f0cd09738747464d9469576d14c800c, type: 3}
-  - {fileID: 2102845084, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
-  - {fileID: 4856065700548986942, guid: af8c133ecf5b59c408eadee752d3d913, type: 3}
-  - {fileID: 7128639363952210932, guid: e5f67b06345bd784ea1558aff0872c9c, type: 3}
-  - {fileID: 4839119702581270796, guid: 025601bf39748af4faaea17805328743, type: 3}
-  - {fileID: 6766754929590776002, guid: da4caceaba688254593d047b314ccf0c, type: 3}
-  - {fileID: 658482921103658509, guid: 93788f6469ea0314e95dbb8068d82ef8, type: 3}
-  - {fileID: 3763661100543190675, guid: 389202465c5600d4990e4ecb07fa95dd, type: 3}
+  - {fileID: 6673032427605915778, guid: 0ff69a0ff3ad2fc43aa5c15b7dab0c9f, type: 3}
+  - {fileID: 6386474018780780417, guid: a969526c725f02a4a83daeb0f1ee8b6c, type: 3}
+  - {fileID: 465961344637562061, guid: 7ad867005021fc84e9115e718a7f1db9, type: 3}
+  - {fileID: 6372044424703233978, guid: e9b412eb0d9b0ac449dc66a12df1e278, type: 3}
+  - {fileID: 2467637860566185003, guid: 732cfcff85251024aabe9331451d1052, type: 3}
   _waveLevelFromGameTime:
     serializedVersion: 2
     m_Curve:
@@ -46,6 +44,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 250
       value: 3
+      inSlope: 0.006666667
+      outSlope: 0.006666667
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 400
+      value: 4
       inSlope: 0.006666667
       outSlope: 0.006666667
       tangentMode: 34

@@ -730,7 +730,7 @@ Transform:
   m_GameObject: {fileID: 5005278811796904535}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -3.3655255, y: 6.59, z: 29.084858}
-  m_LocalScale: {x: 0.31057, y: 0.31057, z: 0.31057}
+  m_LocalScale: {x: 0.4752653, y: 0.4752653, z: 0.4752653}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5486968154766020866}
@@ -937,7 +937,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 5005278811796904541}
   _health: {fileID: 5005278811796904531}
   _damage: 1
-  _speed: 25
+  _speed: 5
   _destroyTime: 1
   _animator: {fileID: 5486968154766020877}
 --- !u!208 &5005278811796904521

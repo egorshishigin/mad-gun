@@ -12,7 +12,9 @@ namespace Boosters
 
         [SerializeField] private BoostersHolder _boostersHolder;
 
-        [SerializeField] private BoosterAnimation _animation;
+        [SerializeField] private BoosterAnimation _boosterAnimation;
+
+        private BoostersAudio _audio;
 
         private PlayerHitBox _player;
 
@@ -21,18 +23,22 @@ namespace Boosters
         public PlayerHitBox Player => _player;
 
         [Inject]
-        private void Construct(PlayerHitBox playerHitBox)
+        private void Construct(PlayerHitBox playerHitBox, BoostersAudio boostersAudio)
         {
             _player = playerHitBox;
+
+            _audio = boostersAudio;
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<PlayerHitBox>() != null)
             {
+                _audio.PlayBoosterAudio(_type);
+
                 Use();
 
-                _animation.StopAnimation();
+                _boosterAnimation.StopAnimation();
 
                 _boostersHolder.ReturnToPool();
             }
@@ -40,14 +46,14 @@ namespace Boosters
 
         protected abstract void ActivateBooster();
 
-        public void MoveToPlayer()
-        {
-            _animation.MoveAnimation(_player.transform);
-        }
-
         public void Use()
         {
             ActivateBooster();
+        }
+
+        public void MoveToPlayer()
+        {
+            _boosterAnimation.MoveAnimation(_player.transform);
         }
     }
 }

@@ -50,6 +50,8 @@ namespace Infrastructure
 
         [SerializeField] private WeaponSwitch _weaponSwitch;
 
+        [SerializeField] private BoostersAudio _boostersAudio;
+
         public override void InstallBindings()
         {
             BindPlayerInput();
@@ -96,11 +98,14 @@ namespace Infrastructure
 
         private void BindBoostersPool()
         {
+
+            Container.Bind<BoostersAudio>().FromInstance(_boostersAudio).AsSingle();
+
             Container.Bind<BoostersPool>().AsSingle();
 
             Container
                .BindMemoryPool<BoostersHolder, BoostersHolder.Pool>()
-               .WithInitialSize(5)
+               .WithInitialSize(25)
                .FromComponentInNewPrefab(_boostersHolderPrefab)
                .UnderTransform(_boostersHolder);
         }

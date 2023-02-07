@@ -21,6 +21,8 @@ namespace Weapons
 
         public int SelectedWeapon => _selectedWeapon;
 
+        public List<Weapon> Weapons => _weapons;
+
         [Inject]
         private void Construct(GameDataIO gameData)
         {

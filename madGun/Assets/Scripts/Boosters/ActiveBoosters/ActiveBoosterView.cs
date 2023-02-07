@@ -46,7 +46,7 @@ namespace Boosters
 
         private void CooldownHandler(float value)
         {
-            _boosterIcon.fillAmount += 1.0f / value * Time.deltaTime;
+            _boosterIcon.fillAmount += 0.25f / value * Time.deltaTime;
         }
 
         private void UdpdateBoosterCount(int count)
