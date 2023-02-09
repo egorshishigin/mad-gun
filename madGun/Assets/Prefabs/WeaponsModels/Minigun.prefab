@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2225011891202790289}
   - component: {fileID: 2225011891201961815}
   - component: {fileID: 2225011891200768849}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: barrels_minigun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2225011891202739497}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MinigunModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 2225011891202715691}
   - component: {fileID: 2225011891201932067}
   - component: {fileID: 2225011891200968203}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Base_minigun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

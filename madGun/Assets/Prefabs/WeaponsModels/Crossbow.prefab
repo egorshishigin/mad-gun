@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7677950845411950843}
   - component: {fileID: 6711018788101263198}
   - component: {fileID: 8846938021538266004}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Crossbow_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

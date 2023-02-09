@@ -60,6 +60,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3093841950902310250}
     m_Modifications:
+    - target: {fileID: 2275206876411379976, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
+      propertyPath: _hitAnimationChance
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2371129472730463204, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
       propertyPath: _attackRadius
       value: 4.53
@@ -157,6 +161,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3093841950902310250}
     m_Modifications:
+    - target: {fileID: 2275206876411379976, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
+      propertyPath: _hitAnimationChance
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2371129472730463204, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
       propertyPath: _attackRadius
       value: 4.53
@@ -254,6 +262,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3093841950902310250}
     m_Modifications:
+    - target: {fileID: 2275206876411379976, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
+      propertyPath: _hitAnimationChance
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2371129472730463204, guid: 983d8c7dacec8e240aa5c9c74b3091aa, type: 3}
       propertyPath: _attackRadius
       value: 4.53

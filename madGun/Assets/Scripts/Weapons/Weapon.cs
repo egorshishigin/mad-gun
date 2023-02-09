@@ -32,18 +32,6 @@ namespace Weapons
 
         [SerializeField] private bool _rotateProjectile;
 
-        [Header("Recoil")]
-
-        [SerializeField] private Transform _recoilRoot;
-
-        [SerializeField] private float _xRecoil;
-
-        [SerializeField] private float _yRecoil;
-
-        [SerializeField] private float _recoilSpeed;
-
-        [SerializeField] private float _returnSpeed;
-
         [Header("Spread")]
 
         [SerializeField] private float _xSpread;
@@ -122,17 +110,6 @@ namespace Weapons
         private void Aim(Vector3 target)
         {
             RotateShootPointsHolder(target);
-
-            WeaponRecoil();
-        }
-
-        private void WeaponRecoil()
-        {
-            _targetRotation = Vector3.Lerp(_targetRotation, Vector3.zero, _returnSpeed * Time.deltaTime);
-
-            _currentRotation = Vector3.Slerp(_currentRotation, _targetRotation, _recoilSpeed * Time.fixedDeltaTime);
-
-            _recoilRoot.rotation = Quaternion.Euler(_currentRotation.x, _currentRotation.y, 0);
         }
 
         private void RotateShootPointsHolder(Vector3 target)
@@ -171,8 +148,6 @@ namespace Weapons
                     projectile.Launch(_shootPoints[i].forward, _speed);
                 }
 
-                ShootRecoil();
-
                 Shot.Invoke();
 
                 _ammo.SpendAmmo(_id);
@@ -191,11 +166,6 @@ namespace Weapons
             {
                 _shootPoints[i].localEulerAngles = Vector3.zero;
             }
-        }
-
-        private void ShootRecoil()
-        {
-            _targetRotation += new Vector3(_xRecoil, UnityEngine.Random.Range(-_yRecoil, _yRecoil), 0f);
         }
 
         private void ShootSpread(Transform shootPoint)

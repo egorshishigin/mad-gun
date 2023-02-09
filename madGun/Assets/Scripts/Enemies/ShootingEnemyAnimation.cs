@@ -16,6 +16,8 @@ namespace Enemies
 
         [SerializeField] private ShootingEnemy _shootingEnemy;
 
+        [SerializeField] private float _hitAnimationChance;
+
         private void OnEnable()
         {
             _health.Died += DisableAnimation;
@@ -32,9 +34,15 @@ namespace Enemies
 
         public void HitAnimation()
         {
-            _animator.SetTrigger("Hit");
+            float animationChance = Random.value;
 
-            _shootingEnemy.StopAgent();
+            if (animationChance < _hitAnimationChance)
+            {
+                _animator.SetTrigger("Hit");
+
+                _shootingEnemy.StopAgent();
+            }
+            else return;
         }
 
         public void ContinueMove()

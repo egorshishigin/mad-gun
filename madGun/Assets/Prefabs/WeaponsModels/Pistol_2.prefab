@@ -8,31 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6940459901430339505}
+  - component: {fileID: 608974599204636470}
   - component: {fileID: 6340694541721802772}
   - component: {fileID: 8077869343989755102}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pistol_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6940459901430339505
-Transform:
+  m_IsActive: 1
+--- !u!224 &608974599204636470
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7717664729613290763}
   m_LocalRotation: {x: -0.11363277, y: 0.71963537, z: 0.674166, w: -0.12129656}
-  m_LocalPosition: {x: 3.4393222, y: 1.5578214, z: 102.09599}
+  m_LocalPosition: {x: 0, y: 0, z: 102.09599}
   m_LocalScale: {x: 51.13317, y: 51.13318, z: 51.13318}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -109.483, y: 79.361, z: 101.269}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.4393222, y: 1.5578214}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &6340694541721802772
 MeshFilter:
   m_ObjectHideFlags: 0

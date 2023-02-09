@@ -52,11 +52,13 @@ namespace Infrastructure
 
         [SerializeField] private BoostersAudio _boostersAudio;
 
+        [SerializeField] private PlayerJumpExplosion _jumpExplosionPrefab;
+
+        [SerializeField] private Transform _playerJumpExplosionPool;
+
         public override void InstallBindings()
         {
             BindPlayerInput();
-
-            BindPlayerProjectile();
 
             BindEnemyShooting();
 
@@ -75,6 +77,8 @@ namespace Infrastructure
             BindSceneLoader();
 
             BindAmmo();
+
+            BindPlayerJumpExplosion();
         }
 
         private void BindAmmo()
@@ -150,15 +154,14 @@ namespace Infrastructure
                 .UnderTransform(_enemyProjectilesHolder);
         }
 
-        private void BindPlayerProjectile()
+        private void BindPlayerJumpExplosion()
         {
-            //Container.Bind<ProjectilesPool>().AsSingle();
+            Container.Bind<PlayerJumpExplosionPool>().AsSingle();
 
-            //Container
-            //    .BindMemoryPool<PlayerProjectile, PlayerProjectile.Pool>()
-            //    .WithInitialSize(10)
-            //    .FromComponentInNewPrefab(_weaponSettings.PlayerProjectile)
-            //    .UnderTransform(_playerProjectilesHolder);
+            Container.BindMemoryPool<PlayerJumpExplosion, PlayerJumpExplosion.Pool>()
+                .WithInitialSize(3)
+                .FromComponentInNewPrefab(_jumpExplosionPrefab)
+                .UnderTransform(_playerJumpExplosionPool);
         }
 
         private void BindPlayerInput()

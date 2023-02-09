@@ -57,6 +57,155 @@ namespace Weapons
             {
                 NextWeapon();
             }
+
+            KeyBoardNumbersWeaponSwitch();
+        }
+
+        private void KeyBoardNumbersWeaponSwitch()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                _weaponIndex = 0;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                _weaponIndex = 1;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                _weaponIndex = 2;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                _weaponIndex = 3;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                _weaponIndex = 4;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                _weaponIndex = 5;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                _weaponIndex = 6;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                _weaponIndex = 7;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha9))
+            {
+                _weaponIndex = 8;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                _weaponIndex = 9;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
+            else if (Input.GetKeyDown(KeyCode.Minus))
+            {
+                _weaponIndex = 10;
+
+                if (_weaponIndex >= _weapons.Count)
+                    return;
+
+                EnableWeapon(_weaponIndex);
+
+                UpdateView(_weapons[_weaponIndex].ID);
+
+                _selectedWeapon = _weapons[_weaponIndex].ID;
+            }
         }
 
         private void NextWeapon()

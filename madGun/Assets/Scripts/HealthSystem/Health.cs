@@ -24,6 +24,8 @@ namespace HealthSystem
 
         public event Action Destroyed = delegate { };
 
+        public event Action GoreDied = delegate { };
+
         public int CurrentHealth => _currentHealth;
 
         private void Start()
@@ -51,6 +53,11 @@ namespace HealthSystem
                 if(_deathSound != null)
                 {
                     _deathSound.Play();
+                }
+
+                if(damage > _currentHealth + _maxHealth)
+                {
+                    GoreDied.Invoke();
                 }
 
                 Died.Invoke();

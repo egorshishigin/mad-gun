@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -19,6 +20,8 @@ namespace Enemies
         [SerializeField] private Health _health;
 
         [SerializeField] private Animator _animator;
+
+        [SerializeField] private float _hitAnimationChance;
 
         private void OnEnable()
         {
@@ -57,11 +60,17 @@ namespace Enemies
 
         public void HitAnimation()
         {
-            _animator.SetBool(MoveName, false);
+            float animationChance = Random.value;
 
-            _animator.SetBool(AttackName, false);
+            if (animationChance < _hitAnimationChance)
+            {
+                _animator.SetBool(MoveName, false);
 
-            _animator.SetTrigger(HitName);
+                _animator.SetBool(AttackName, false);
+
+                _animator.SetTrigger(HitName);
+            }
+            else return;
         }
 
         public void MoveAnimatiom()

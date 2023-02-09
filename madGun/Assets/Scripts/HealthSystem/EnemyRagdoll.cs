@@ -10,14 +10,42 @@ namespace HealthSystem
 
         [SerializeField] private float _pushBackForce;
 
+        [SerializeField] private ParticleSystem _fleshEffect;
+
+        [SerializeField] private GameObject _model;
+
+        [SerializeField] private GameObject _bones;
+
+        [SerializeField] private AudioSource _fleshSound;
+
         private void OnEnable()
         {
             _health.Died += DiedHandler;
+
+            _health.GoreDied += GoreDiedHandler;
+        }
+
+        private void Start()
+        {
+            _fleshSound = _fleshEffect.GetComponent<AudioSource>();
+        }
+
+        private void GoreDiedHandler()
+        {
+            _model.SetActive(false);
+
+            _bones.SetActive(false);
+
+            _fleshEffect.Play();
+
+            _fleshSound.PlayOneShot(_fleshSound.clip);
         }
 
         private void OnDisable()
         {
             _health.Died -= DiedHandler;
+
+            _health.GoreDied -= GoreDiedHandler;
         }
 
         private void Awake()

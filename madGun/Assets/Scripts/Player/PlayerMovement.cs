@@ -82,6 +82,8 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
 
     private Pause _pause;
 
+    public bool Grounded => _controller.isGrounded;
+
     [Inject]
     private void Construct(PlayerControl playerControl, Pause pause)
     {
@@ -138,6 +140,15 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
         _yMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
     }
 
+    public void FireJump(float upSpeed, float forward)
+    {
+        _wishJump = true;
+
+        Jump(upSpeed);
+
+        _controller.Move(transform.forward * forward * Time.deltaTime);
+    }
+
     private void RotateCamera(Vector3 obj)
     {
         _cameraXRotation -= Input.GetAxisRaw("Mouse Y") * _xMouseSensitivity * 0.02f;
@@ -150,8 +161,6 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
             _cameraXRotation = 90;
 
         _playerView.rotation = Quaternion.Euler(_cameraXRotation, _cameraYRotation, 0);
-
-
     }
 
     private void Update()
@@ -334,9 +343,14 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
 
         _playerVelocity.y = -_gravity * Time.deltaTime;
 
+        Jump(_jumpSpeed);
+    }
+
+    public void Jump(float speed)
+    {
         if (_wishJump)
         {
-            _playerVelocity.y = _jumpSpeed;
+            _playerVelocity.y = speed;
 
             _jumpSound.PlayOneShot(_jumpSound.clip);
 
