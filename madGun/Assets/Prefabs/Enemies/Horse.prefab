@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b764aa766af5f094ca014ca296d7dd09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 180
+  _maxHealth: 250
   _deathSound: {fileID: 2193421067481309742}
 --- !u!82 &2193421067481309742
 AudioSource:
@@ -1355,6 +1355,7 @@ MonoBehaviour:
   _fleshEffect: {fileID: 3162559847221721825}
   _model: {fileID: 8991918977236873296}
   _bones: {fileID: 8402757625945001876}
+  _fleshSound: {fileID: 0}
 --- !u!114 &2193421067481309741
 MonoBehaviour:
   m_ObjectHideFlags: 0

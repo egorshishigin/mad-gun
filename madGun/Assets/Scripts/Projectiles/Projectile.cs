@@ -24,6 +24,8 @@ namespace Projectiles
 
         [SerializeField] private LayerMask _fleshLayer;
 
+        [SerializeField] private LayerMask _playerLayer;
+
         [SerializeField] private ParticleSystem _fleshHit;
 
         [SerializeField] private ParticleSystem _metalHit;
@@ -58,6 +60,10 @@ namespace Projectiles
             {
                 _stoneHit.Play();
             }
+            else if ((_playerLayer & (1 << collision.gameObject.layer)) != 0)
+            {
+                return;
+            }
 
             if (collision.transform.TryGetComponent(out _shootable))
             {
@@ -74,6 +80,15 @@ namespace Projectiles
             }
 
             _trail.gameObject.SetActive(false);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out IShootable shootable))
+            {
+                shootable.HitHandler(_damage);
+            }
+            else return;
         }
 
         public void Launch(Vector3 direction, float speed)

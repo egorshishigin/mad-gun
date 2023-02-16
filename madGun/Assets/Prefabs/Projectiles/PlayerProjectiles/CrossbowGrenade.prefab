@@ -28592,7 +28592,7 @@ Transform:
   m_GameObject: {fileID: 5225232114056632724}
   m_LocalRotation: {x: 0.70710707, y: -0, z: -0, w: 0.70710653}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39012, y: 0.39012, z: 0.39012}
+  m_LocalScale: {x: 0.18728435, y: 0.18728435, z: 0.18728435}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7164139412502884154}
@@ -28605,7 +28605,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5225232114056632724}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 289301614986012343, guid: dd64798b22c4a4d419975e6ade9739c3, type: 3}
 --- !u!23 &6017720169653123137
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28614,7 +28614,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5225232114056632724}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -28873,7 +28873,7 @@ MonoBehaviour:
   _collider: {fileID: 1253966129832973289}
   _trail: {fileID: 2574454808791141296}
   _forceMode: 1
-  _activeTime: 10
+  _activeTime: 3
   _metalLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -28883,6 +28883,9 @@ MonoBehaviour:
   _fleshLayer:
     serializedVersion: 2
     m_Bits: 256
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _fleshHit: {fileID: 1095641245570609991}
   _metalHit: {fileID: 785879400741996327}
   _stoneHit: {fileID: 421528828592795966}

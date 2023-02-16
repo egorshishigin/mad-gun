@@ -29,7 +29,7 @@ namespace Weapons
             _gameData = gameData;
         }
 
-        private void Awake()
+        private void Start()
         {
             for (int i = _weapons.Count - 1; i >= 0; i--)
             {
