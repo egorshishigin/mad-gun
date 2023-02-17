@@ -12,6 +12,8 @@ namespace GameSettings
 
         private const float MinSensitivity = 15f;
 
+        private const float DefaultSensitivity = 45f;
+
 
         [SerializeField] private CameraSensitivitySettingView _view;
 
@@ -31,7 +33,7 @@ namespace GameSettings
 
             if (currentSensitivity < MinSensitivity)
             {
-                currentSensitivity = MinSensitivity;
+                currentSensitivity = DefaultSensitivity;
             }
 
             _view.InitializeView(MaxSensitivity, MinSensitivity, currentSensitivity);

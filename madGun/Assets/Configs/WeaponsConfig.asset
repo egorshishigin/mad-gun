@@ -28,15 +28,15 @@ MonoBehaviour:
   - _id: 3
     _weaponPrefab: {fileID: 3837339382966016998, guid: 16fb4739d4813f744bf4f0165acaaf20, type: 3}
     _price: 10
-    _bought: 1
+    _bought: 0
   - _id: 4
     _weaponPrefab: {fileID: 5393324304726941182, guid: e252a29ad40400f4f88d8526538c472f, type: 3}
     _price: 0
-    _bought: 1
+    _bought: 0
   - _id: 5
     _weaponPrefab: {fileID: 5387998015398000668, guid: 1fe6b958bf5e365499d7c54fc7753363, type: 3}
     _price: 0
-    _bought: 1
+    _bought: 0
   - _id: 6
     _weaponPrefab: {fileID: 3963816362503103304, guid: 4131d05c956fe924891be2a8c5087c8d, type: 3}
     _price: 0
@@ -48,12 +48,12 @@ MonoBehaviour:
   - _id: 8
     _weaponPrefab: {fileID: 7775153440789322714, guid: cc8295a601df12f49b16262ba08f4306, type: 3}
     _price: 0
-    _bought: 1
+    _bought: 0
   - _id: 9
     _weaponPrefab: {fileID: 7312247789602467978, guid: bf0f9fd2cf4e3214b846ad20e81028d2, type: 3}
     _price: 0
-    _bought: 1
+    _bought: 0
   - _id: 10
     _weaponPrefab: {fileID: 5067215327397119154, guid: 386ee8e86dd4c7649982535ba128a55e, type: 3}
     _price: 0
-    _bought: 1
+    _bought: 0

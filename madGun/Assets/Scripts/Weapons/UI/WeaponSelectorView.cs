@@ -1,8 +1,12 @@
-using UnityEngine;
+using Zenject;
+
+using TMPro;
+
+using Data;
 
 using WeaponsShop;
 
-using TMPro;
+using UnityEngine;
 
 namespace Weapons
 {
@@ -16,7 +20,15 @@ namespace Weapons
 
         [SerializeField] private TMP_Text _weaponNumber;
 
+        private GameDataIO _gameData;
+
         private int _weaponCount;
+
+        [Inject]
+        private void Construct(GameDataIO gameData)
+        {
+            _gameData = gameData;
+        }
 
         private void Start()
         {
@@ -24,7 +36,7 @@ namespace Weapons
             {
                 WeaponData item = _config.Weapons[i];
 
-                if (item.Bought)
+                if (_gameData.GameData.Weapons[i])
                 {
                     var weaponImage = Instantiate(item.WeaponPrefab, _weaponImageHolder.position, item.WeaponPrefab.transform.rotation, _weaponImageHolder);
 

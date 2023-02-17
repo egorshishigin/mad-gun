@@ -1,13 +1,16 @@
+using System.Collections.Generic;
+
 using Zenject;
 
 using Data;
 
+using GamePause;
+
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace Weapons
 {
-    public class WeaponSwitch : MonoBehaviour
+    public class WeaponSwitch : MonoBehaviour, IPauseHandler
     {
         [SerializeField] private List<Weapon> _weapons = new List<Weapon>();
 
@@ -19,14 +22,25 @@ namespace Weapons
 
         private int _selectedWeapon;
 
+        private Pause _pause;
+
         public int SelectedWeapon => _selectedWeapon;
 
         public List<Weapon> Weapons => _weapons;
 
         [Inject]
-        private void Construct(GameDataIO gameData)
+        private void Construct(GameDataIO gameData, Pause pause)
         {
             _gameData = gameData;
+
+            _pause = pause;
+
+            _pause.Register(this);
+        }
+
+        public void SetPause(bool paused)
+        {
+            enabled = !paused;
         }
 
         private void Start()
@@ -59,6 +73,11 @@ namespace Weapons
             }
 
             KeyBoardNumbersWeaponSwitch();
+        }
+
+        private void OnDestroy()
+        {
+            _pause.UnRegister(this);
         }
 
         private void KeyBoardNumbersWeaponSwitch()

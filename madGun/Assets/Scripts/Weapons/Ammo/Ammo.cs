@@ -3,15 +3,13 @@ using System.Collections.Generic;
 
 using Zenject;
 
-using UnityEngine;
-
 namespace Weapons
 {
     public class Ammo
     {
         private const int _minAmmoGain = 15;
 
-        private const int _maxAmmoGain = 150;
+        private const int _maxAmmoGain = 50;
 
         private List<int> _ammo = new List<int>();
 

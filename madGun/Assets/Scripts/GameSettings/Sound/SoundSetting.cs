@@ -6,7 +6,7 @@ namespace GameSettings
     {
         protected override void ApplySetting(bool value)
         {
-            AudioListener.pause = !value;
+            AudioListener.volume = value ? 1f : 0f;
         }
     }
 }
