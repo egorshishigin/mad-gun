@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2149270545266177362}
   - component: {fileID: 2149270545266177363}
   - component: {fileID: 3086181399172567809}
-  - component: {fileID: 921006818937310272}
+  - component: {fileID: 101247043490523994}
   m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2149270545266177363}
   _meshRenderer: {fileID: 3259656593455735337}
-  _collider: {fileID: 921006818937310272}
+  _collider: {fileID: 101247043490523994}
   _trail: {fileID: 6702994487303082456}
   _forceMode: 2
   _activeTime: 5
@@ -92,8 +92,8 @@ MonoBehaviour:
   _metalSound: {fileID: 8883406733384925133}
   _damage: 8
   _disableOnCollision: 1
---- !u!65 &921006818937310272
-BoxCollider:
+--- !u!135 &101247043490523994
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,8 +103,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.037805967, y: 0.020802842, z: 0.058333274}
-  m_Center: {x: 0, y: 0, z: 0.027993022}
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0.01}
 --- !u!1 &2469859501579454598
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,10 @@
+using Zenject;
+
 using UnityEngine;
 
 namespace Weapons
 {
-    public class WeaponSwayAndBob : MonoBehaviour
+    public class WeaponSwayAndBob : MonoBehaviour, IUpdatable
     {
         [Header("Smooth values")]
 
@@ -52,7 +54,17 @@ namespace Weapons
 
         private Vector3 _walkInput;
 
-        private void Update()
+        private UpdatesContainer _updatesContainer;
+
+        [Inject]
+        private void Construct(UpdatesContainer updatesContainer)
+        {
+            _updatesContainer = updatesContainer;
+
+            _updatesContainer.Register(this);
+        }
+
+        void IUpdatable.Run()
         {
             GetLookPosition();
 
@@ -67,6 +79,11 @@ namespace Weapons
             BobRotation();
 
             CompositePositionRotation();
+        }
+
+        private void OnDestroy()
+        {
+            _updatesContainer.UnRegister(this);
         }
 
         private void GetLookPosition()

@@ -12,7 +12,7 @@ using UnityEngine.AI;
 
 namespace Enemies
 {
-    public abstract class EnemyBase : MonoBehaviour, IEnemy
+    public abstract class EnemyBase : MonoBehaviour, IEnemy, IUpdatable
     {
         [SerializeField] private NavMeshAgent _meshAgent;
 
@@ -22,18 +22,42 @@ namespace Enemies
 
         [SerializeField] private float _destroyTime;
 
+        [SerializeField] private AudioSource _attackSound;
+
         private float _distanceToPlayer;
 
         private PlayerHitBox _player;
+
+        private UpdatesContainer _updatesContainer;
 
         public PlayerHitBox Player => _player;
 
         public event Action Attacked = delegate { };
 
         [Inject]
-        private void Consruct(PlayerHitBox player)
+        private void Consruct(PlayerHitBox player, UpdatesContainer updatesContainer)
         {
             _player = player;
+
+            _updatesContainer = updatesContainer;
+
+            _updatesContainer.Register(this);
+        }
+
+        void IUpdatable.Run()
+        {
+            _distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
+
+            if (_distanceToPlayer <= _attackDistance)
+            {
+                StopAgent();
+
+                Attacked.Invoke();
+            }
+            else
+            {
+                Move();
+            }
         }
 
         private void OnEnable()
@@ -48,20 +72,9 @@ namespace Enemies
             Move();
         }
 
-        private void Update()
+        private void OnDestroy()
         {
-            _distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
-
-            if (_distanceToPlayer <= _attackDistance)
-            {
-                StopAgent();
-
-                Attacked.Invoke();
-            }
-            else
-            {
-                Move();
-            }
+            _updatesContainer.UnRegister(this);
         }
 
         private void OnDisable()
@@ -91,6 +104,11 @@ namespace Enemies
         private void StopAgent()
         {
             _meshAgent.isStopped = true;
+        }
+
+        public void PlayAttackSound()
+        {
+            _attackSound.PlayOneShot(_attackSound.clip);
         }
 
         private void UnStopAgent()

@@ -18,6 +18,8 @@ namespace Enemies
 
         [SerializeField] private bool _aim;
 
+        [SerializeField] private AudioSource _attackSound;
+
         private EnemyProjectilePool _projectilesPool;
 
         private PlayerHitBox _player;
@@ -38,6 +40,11 @@ namespace Enemies
             }
 
             LaunchProjectile();
+        }
+
+        public void PlayAttackSound()
+        {
+            _attackSound.PlayOneShot(_attackSound.clip);
         }
 
         private void LaunchProjectile()

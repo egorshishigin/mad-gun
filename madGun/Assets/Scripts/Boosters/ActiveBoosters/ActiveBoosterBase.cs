@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Boosters
 {
-    public abstract class ActiveBoosterBase : MonoBehaviour, IUpgradetable
+    public abstract class ActiveBoosterBase : MonoBehaviour, IUpgradetable, IUpdatable
     {
         [SerializeField] private float _activeTime;
 
@@ -22,6 +22,8 @@ namespace Boosters
         private bool _used;
 
         private Pause _pause;
+
+        private UpdatesContainer _updatesContainer;
 
         public float ActiveTime => _activeTime;
 
@@ -36,9 +38,27 @@ namespace Boosters
         public event Action Refreshed = delegate { };
 
         [Inject]
-        private void Construct(Pause pause)
+        private void Construct(Pause pause, UpdatesContainer updatesContainer)
         {
             _pause = pause;
+
+            _updatesContainer = updatesContainer;
+
+            _updatesContainer.Register(this);
+        }
+
+        void IUpdatable.Run()
+        {
+            if (Input.GetKeyDown(_boosterKey) && !_used && _count > 0)
+            {
+                Activate();
+            }
+            else return;
+        }
+
+        private void OnDestroy()
+        {
+            _updatesContainer.UnRegister(this);
         }
 
         public void Upgrade(int timeAmount, int countAmount)
@@ -46,15 +66,6 @@ namespace Boosters
             _activeTime += timeAmount;
 
             _count += countAmount;
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(_boosterKey) && !_used && _count > 0)
-            {
-                Activate();
-            }
-            else return;
         }
 
         public void Activate()

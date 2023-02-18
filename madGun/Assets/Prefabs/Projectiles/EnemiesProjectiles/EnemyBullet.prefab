@@ -166,6 +166,9 @@ MonoBehaviour:
   _fleshLayer:
     serializedVersion: 2
     m_Bits: 256
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _fleshHit: {fileID: 3499293373306285625}
   _metalHit: {fileID: 8383342801317190991}
   _stoneHit: {fileID: 8891810760700521302}
@@ -184,7 +187,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.38
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &2884310773587665089
 NavMeshObstacle:

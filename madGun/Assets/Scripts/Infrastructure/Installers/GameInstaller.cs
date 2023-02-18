@@ -40,6 +40,8 @@ namespace Infrastructure
 
         [SerializeField] private BoostersAudio _boostersAudio;
 
+        [SerializeField] private UpdatesContainer _updatesContainer;
+
         public override void InstallBindings()
         {
             BindPlayerInput();
@@ -59,6 +61,16 @@ namespace Infrastructure
             BindWeapons();
 
             BindBoostersAudio();
+
+            BindUpdatesContainer();
+        }
+
+        private void BindUpdatesContainer()
+        {
+            Container
+                .Bind<UpdatesContainer>()
+                .FromInstance(_updatesContainer)
+                .AsSingle();
         }
 
         private void BindWeapons()

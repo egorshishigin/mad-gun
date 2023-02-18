@@ -53077,6 +53077,9 @@ MonoBehaviour:
   _fleshLayer:
     serializedVersion: 2
     m_Bits: 256
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _fleshHit: {fileID: 721443890524883501}
   _metalHit: {fileID: 721443890524883501}
   _stoneHit: {fileID: 374509601917680692}
@@ -53124,5 +53127,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.18294995, y: 0.18011655, z: 0.92073727}
-  m_Center: {x: 0, y: 0, z: 0.039631367}
+  m_Size: {x: 0.2, y: 0.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

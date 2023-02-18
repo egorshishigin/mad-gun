@@ -16,7 +16,7 @@ struct Cmd
     public float upMove;
 }
 
-public class PlayerMovement : MonoBehaviour, IPauseHandler
+public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
 {
     private const string SettingName = "CameraSensitivity";
 
@@ -78,16 +78,58 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
 
     private Pause _pause;
 
+    private UpdatesContainer _updatesContainer;
+
     public bool Grounded => _controller.isGrounded;
 
     [Inject]
-    private void Construct(PlayerControl playerControl, Pause pause)
+    private void Construct(PlayerControl playerControl, Pause pause, UpdatesContainer updatesContainer)
     {
         _playerControl = playerControl;
 
         _pause = pause;
 
+        _updatesContainer = updatesContainer;
+
         _pause.Register(this);
+
+        _updatesContainer.Register(this);
+    }
+
+    public void Run()
+    {
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            if (Input.GetButtonDown("Fire1"))
+                Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        transform.rotation = Quaternion.Euler(0, _cameraYRotation, 0);
+
+        QueueJump();
+
+        if (_controller.isGrounded)
+        {
+            GroundMove();
+        }
+        else if (!_controller.isGrounded)
+        {
+            AirMove();
+        }
+
+        _controller.Move(_playerVelocity * Time.deltaTime);
+
+        Vector3 udp = _playerVelocity;
+
+        udp.y = 0.0f;
+
+        if (udp.magnitude > _playerTopVelocity)
+            _playerTopVelocity = udp.magnitude;
+
+        _playerView.position = new Vector3(
+    transform.position.x,
+    transform.position.y + _playerViewYOffset,
+    transform.position.z);
     }
 
     private void OnEnable()
@@ -133,14 +175,11 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
 
     public void FireJump(float upSpeed, float forward)
     {
-        if (!_wishJump)
-        {
-            _wishJump = true;
+        _wishJump = true;
 
-            Jump(upSpeed);
+        Jump(upSpeed);
 
-            _controller.Move(transform.forward * forward * Time.deltaTime);
-        }
+        _controller.Move(transform.forward * forward * Time.deltaTime);
     }
 
     private void RotateCamera(Vector3 obj)
@@ -157,45 +196,11 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler
         _playerView.rotation = Quaternion.Euler(_cameraXRotation, _cameraYRotation, 0);
     }
 
-    private void Update()
-    {
-        if (Cursor.lockState != CursorLockMode.Locked)
-        {
-            if (Input.GetButtonDown("Fire1"))
-                Cursor.lockState = CursorLockMode.Locked;
-        }
-
-        transform.rotation = Quaternion.Euler(0, _cameraYRotation, 0);
-
-        QueueJump();
-
-        if (_controller.isGrounded)
-        {
-            GroundMove();
-        }
-        else if (!_controller.isGrounded)
-        {
-            AirMove();
-        }
-
-        _controller.Move(_playerVelocity * Time.deltaTime);
-
-        Vector3 udp = _playerVelocity;
-
-        udp.y = 0.0f;
-
-        if (udp.magnitude > _playerTopVelocity)
-            _playerTopVelocity = udp.magnitude;
-
-        _playerView.position = new Vector3(
-    transform.position.x,
-    transform.position.y + _playerViewYOffset,
-    transform.position.z);
-    }
-
     private void OnDestroy()
     {
         _pause.UnRegister(this);
+
+        _updatesContainer.UnRegister(this);
     }
 
     private void SetMovementDir()

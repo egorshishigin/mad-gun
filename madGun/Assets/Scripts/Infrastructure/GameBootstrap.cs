@@ -4,7 +4,7 @@ namespace Infrastructure
 {
     public class GameBootstrap : MonoBehaviour
     {
-        private const int TargetFPS = 120;
+        [SerializeField] private int TargetFPS = 120;
 
         private void Awake()
         {

@@ -126,7 +126,7 @@ namespace Weapons
 
                 for (int i = 0; i < _shootPoints.Length; i++)
                 {
-                    ShootSpread(_shootPoints[i]);
+                    //ShootSpread(_shootPoints[i]);
 
                     PlayerProjectile projectile = _projectilesPool.Pool.Get();
 

@@ -11,7 +11,7 @@ using UnityEngine.AI;
 
 namespace Enemies
 {
-    public class ShootingEnemy : MonoBehaviour, IEnemy
+    public class ShootingEnemy : MonoBehaviour, IEnemy, IUpdatable
     {
         [SerializeField] private NavMeshAgent _meshAgent;
 
@@ -33,6 +33,8 @@ namespace Enemies
 
         private PlayerHitBox _player;
 
+        private UpdatesContainer _updatesContainer;
+
         private float _nextTimeToShoot;
 
         private bool _shoot = false;
@@ -40,9 +42,24 @@ namespace Enemies
         private float _currentShootTime;
 
         [Inject]
-        private void Construct(PlayerHitBox player)
+        private void Construct(PlayerHitBox player, UpdatesContainer updatesContainer)
         {
             _player = player;
+
+            _updatesContainer = updatesContainer;
+
+            _updatesContainer.Register(this);
+        }
+
+        void IUpdatable.Run()
+        {
+            if (Time.time >= _nextTimeToShoot && !_shoot)
+            {
+                _nextTimeToShoot = Time.time + 1f / _fireRate;
+
+                StartCoroutine(Shoot());
+            }
+            else return;
         }
 
         private void OnEnable()
@@ -58,17 +75,6 @@ namespace Enemies
         private void Start()
         {
             Move();
-        }
-
-        private void Update()
-        {
-            if (Time.time >= _nextTimeToShoot && !_shoot)
-            {
-                _nextTimeToShoot = Time.time + 1f / _fireRate;
-
-                StartCoroutine(Shoot());
-            }
-            else return;
         }
 
         public void Die()
@@ -136,6 +142,8 @@ namespace Enemies
 
         private IEnumerator Deactivate()
         {
+            _updatesContainer.UnRegister(this);
+
             yield return new WaitForSeconds(_destroyTime);
 
             Destroy(_rootObject);

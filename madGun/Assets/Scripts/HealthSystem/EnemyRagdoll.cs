@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HealthSystem
@@ -30,17 +31,6 @@ namespace HealthSystem
             _fleshSound = _fleshEffect.GetComponent<AudioSource>();
         }
 
-        private void GoreDiedHandler()
-        {
-            _model.SetActive(false);
-
-            _bones.SetActive(false);
-
-            _fleshEffect.Play();
-
-            _fleshSound.PlayOneShot(_fleshSound.clip);
-        }
-
         private void OnDisable()
         {
             _health.Died -= DiedHandler;
@@ -54,6 +44,17 @@ namespace HealthSystem
             {
                 item.isKinematic = true;
             }
+        }
+
+        private void GoreDiedHandler()
+        {
+            _model.SetActive(false);
+
+            _bones.SetActive(false);
+
+            _fleshEffect.Play();
+
+            _fleshSound.PlayOneShot(_fleshSound.clip);
         }
 
         private void DiedHandler()

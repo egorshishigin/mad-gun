@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace PlayerInput
 {
-    public class PlayerControl : MonoBehaviour, IPauseHandler
+    public class PlayerControl : MonoBehaviour, IPauseHandler, IUpdatable
     {
         [SerializeField] private Camera _gameCamera;
 
@@ -17,6 +17,8 @@ namespace PlayerInput
         [SerializeField] private LayerMask _inputLayer;
 
         private Pause _pause;
+
+        private UpdatesContainer _updatesContainer;
 
         public event Action<Vector3> ScreenMove = delegate { };
 
@@ -29,14 +31,18 @@ namespace PlayerInput
         public event Action PauseButtonDown = delegate { };
 
         [Inject]
-        private void Construct(Pause pause)
+        private void Construct(Pause pause, UpdatesContainer updatesContainer)
         {
             _pause = pause;
 
+            _updatesContainer = updatesContainer;
+
             _pause.Register(this);
+
+            _updatesContainer.Register(this);
         }
 
-        private void Update()
+        void IUpdatable.Run()
         {
             if (Input.GetMouseButton(0))
             {
@@ -89,6 +95,8 @@ namespace PlayerInput
         private void OnDestroy()
         {
             _pause.UnRegister(this);
+
+            _updatesContainer.UnRegister(this);
         }
     }
 }

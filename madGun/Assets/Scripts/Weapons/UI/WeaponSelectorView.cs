@@ -7,6 +7,7 @@ using Data;
 using WeaponsShop;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Weapons
 {
@@ -19,6 +20,10 @@ namespace Weapons
         [SerializeField] private Transform _weaponNumbersHolder;
 
         [SerializeField] private TMP_Text _weaponNumber;
+
+        [SerializeField] private HorizontalLayoutGroup _numbersGroup;
+
+        [SerializeField] private int _leftPadding;
 
         private GameDataIO _gameData;
 
@@ -55,6 +60,13 @@ namespace Weapons
                         text.text = "-";
                     }
                 }
+            }
+
+            _numbersGroup.padding.left = _leftPadding / _weaponCount;
+
+            if(_weaponCount == 1)
+            {
+                gameObject.SetActive(false);
             }
 
             enabled = false;
