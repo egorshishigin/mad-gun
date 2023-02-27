@@ -49,9 +49,3 @@ MonoBehaviour:
     _priceGrowAmount: 100
     _description: Increases magnet radius
     _level: 0
-  - _id: 6
-    _icon: {fileID: 21300000, guid: 01c50d6a99055cb41abd0a1e3628f9bc, type: 3}
-    _price: 0
-    _priceGrowAmount: 100
-    _description: Increases use count
-    _level: 0

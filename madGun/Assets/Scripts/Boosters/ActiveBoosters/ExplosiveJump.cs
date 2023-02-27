@@ -24,8 +24,6 @@ namespace Boosters
 
         protected override void OnActivated()
         {
-            _playerMovement.FireJump(_jumpSpeed, _forwardSpeed);
-
             _explosionPool.AddExplosion(transform.position);
         }
 

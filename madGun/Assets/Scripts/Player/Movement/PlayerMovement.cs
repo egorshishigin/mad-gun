@@ -173,15 +173,6 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
         _yMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
     }
 
-    public void FireJump(float upSpeed, float forward)
-    {
-        _wishJump = true;
-
-        Jump(upSpeed);
-
-        _controller.Move(transform.forward * forward * Time.deltaTime);
-    }
-
     private void RotateCamera(Vector3 obj)
     {
         _cameraXRotation -= Input.GetAxisRaw("Mouse Y") * _xMouseSensitivity * 0.02f;

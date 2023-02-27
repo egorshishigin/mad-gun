@@ -2,8 +2,6 @@ using Zenject;
 
 using Boosters;
 
-using Player;
-
 using Projectiles;
 
 using UnityEngine;
@@ -18,17 +16,11 @@ public class PoolsInstaller : MonoInstaller
 
     [SerializeField] private BoostersHolder _boostersHolderPrefab;
 
-    [SerializeField] private PlayerJumpExplosion _jumpExplosionPrefab;
-
-    [SerializeField] private Transform _playerJumpExplosionPool;
-
     public override void InstallBindings()
     {
         BindBoostersPool();
 
         BindEnemyProjectilePool();
-
-        BindPlayerJumpExplosionPool();
     }
 
     private void BindBoostersPool()
@@ -55,18 +47,5 @@ public class PoolsInstaller : MonoInstaller
             .WithInitialSize(10)
             .FromComponentInNewPrefab(_enemyProjectilePrefab)
             .UnderTransform(_enemyProjectilesHolder);
-    }
-
-    private void BindPlayerJumpExplosionPool()
-    {
-        Container
-            .Bind<PlayerJumpExplosionPool>()
-            .AsSingle();
-
-        Container
-            .BindMemoryPool<PlayerJumpExplosion, PlayerJumpExplosion.Pool>()
-            .WithInitialSize(3)
-            .FromComponentInNewPrefab(_jumpExplosionPrefab)
-            .UnderTransform(_playerJumpExplosionPool);
     }
 }
