@@ -31,6 +31,8 @@ namespace Enemies
 
         [SerializeField] private ShootingEnemyAnimation _enemyAnimation;
 
+        [SerializeField] private float _lookDamping;
+
         private PlayerHitBox _player;
 
         private UpdatesContainer _updatesContainer;
@@ -53,6 +55,9 @@ namespace Enemies
 
         void IUpdatable.Run()
         {
+            if (!_shooting.enabled)
+                return;
+
             if (Time.time >= _nextTimeToShoot && !_shoot)
             {
                 _nextTimeToShoot = Time.time + 1f / _fireRate;
@@ -65,11 +70,15 @@ namespace Enemies
         private void OnEnable()
         {
             _health.Died += Stop;
+
+            _health.GoreDied += Stop;
         }
 
         private void OnDisable()
         {
             _health.Died -= Stop;
+
+            _health.GoreDied -= Stop;
         }
 
         private void Start()
@@ -93,6 +102,8 @@ namespace Enemies
 
         public void Stop()
         {
+            StopAllCoroutines();
+
             _meshAgent.isStopped = true;
 
             _shooting.enabled = false;
@@ -128,7 +139,13 @@ namespace Enemies
             {
                 _currentShootTime -= Time.deltaTime;
 
-                _rootObject.transform.LookAt(_player.transform.position);
+                var lookPosition = _player.transform.position - _rootObject.transform.position;
+
+                lookPosition.y = 0;
+
+                var lookRotation = Quaternion.LookRotation(lookPosition);
+
+                _rootObject.transform.rotation = Quaternion.Slerp(_rootObject.transform.rotation, lookRotation, Time.deltaTime * _lookDamping);
 
                 yield return null;
             }

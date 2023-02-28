@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1341b9837ba8024187db3dbabf182d5, type: 3}
+  m_Name: GraveyardWavesConfig
+  m_EditorClassIdentifier: 
+  _waves:
+  - {fileID: 8115169096100152353, guid: f1e7b6075e52d2b4aa40b2febf547c75, type: 3}
+  - {fileID: 4347665312662289120, guid: 7f0cd09738747464d9469576d14c800c, type: 3}
+  - {fileID: 6673032427605915778, guid: 0ff69a0ff3ad2fc43aa5c15b7dab0c9f, type: 3}
+  - {fileID: 6386474018780780417, guid: a969526c725f02a4a83daeb0f1ee8b6c, type: 3}
+  - {fileID: 465961344637562061, guid: 7ad867005021fc84e9115e718a7f1db9, type: 3}
+  - {fileID: 6372044424703233978, guid: e9b412eb0d9b0ac449dc66a12df1e278, type: 3}
+  - {fileID: 2467637860566185003, guid: 732cfcff85251024aabe9331451d1052, type: 3}
+  _waveLevelFromGameTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.02
+      outSlope: 0.02
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 2
+      inSlope: 0.013333334
+      outSlope: 0.013333334
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 250
+      value: 3
+      inSlope: 0.006666667
+      outSlope: 0.006666667
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 400
+      value: 4
+      inSlope: 0.006666667
+      outSlope: 0.006666667
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
