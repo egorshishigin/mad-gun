@@ -1,6 +1,9 @@
 using TMPro;
 
+using DG.Tweening;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GameOver
 {
@@ -13,6 +16,10 @@ namespace GameOver
         [SerializeField] private TMP_Text _kills;
 
         [SerializeField] private TMP_Text _score;
+
+        [SerializeField] private CanvasGroup _viewPanel;
+
+        [SerializeField] private float _fadeDuration;
 
         public void SetGameOverValues(int coins, float time, int kills, int score)
         {
@@ -29,6 +36,11 @@ namespace GameOver
             _kills.text = $"Kills: {kills}";
 
             _score.text = $"Score: {score}";
+        }
+
+        public void PanelFadeAnimation()
+        {
+            _viewPanel.DOFade(1, _fadeDuration).SetUpdate(true);
         }
     }
 }

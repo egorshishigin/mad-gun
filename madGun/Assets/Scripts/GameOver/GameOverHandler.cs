@@ -62,6 +62,8 @@ namespace GameOver
 
             _view.SetGameOverValues(_gameScore.Coins, _gameTimer.GameTime, _gameScore.Kills, score);
 
+            _view.PanelFadeAnimation();
+
             if (score > _gameData.GameData.HighScore)
             {
                 _gameData.GameData.SetHighScore(score);

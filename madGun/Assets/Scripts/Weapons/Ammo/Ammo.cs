@@ -7,9 +7,9 @@ namespace Weapons
 {
     public class Ammo
     {
-        private const int _minAmmoGain = 15;
+        private const int _minAmmoGain = 3;
 
-        private const int _maxAmmoGain = 50;
+        private const int _maxAmmoGain = 10;
 
         private List<int> _ammo = new List<int>();
 

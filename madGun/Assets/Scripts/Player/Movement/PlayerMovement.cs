@@ -7,6 +7,8 @@ using PlayerInput;
 
 using GamePause;
 
+using Boosters;
+
 using UnityEngine;
 
 struct Cmd
@@ -60,7 +62,9 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
 
     [SerializeField] private AudioSource _jumpSound;
 
-    private CharacterController _controller;
+    [SerializeField] private JumpBooster _jumpBooster;
+
+    [SerializeField] private CharacterController _controller;
 
     private float _cameraXRotation = 0.0f;
 
@@ -79,8 +83,6 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
     private Pause _pause;
 
     private UpdatesContainer _updatesContainer;
-
-    public bool Grounded => _controller.isGrounded;
 
     [Inject]
     private void Construct(PlayerControl playerControl, Pause pause, UpdatesContainer updatesContainer)
@@ -157,8 +159,6 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
             if (mainCamera != null)
                 _playerView = mainCamera.gameObject.transform;
         }
-
-        _controller = GetComponent<CharacterController>();
     }
 
     public void SetPause(bool paused)
@@ -328,6 +328,22 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
         _playerVelocity.y = -_gravity * Time.deltaTime;
 
         Jump(_jumpSpeed);
+
+        BoosterJump(_jumpBooster.JumpSpeed);
+    }
+
+    private void BoosterJump(float jumpSpeed)
+    {
+        if (_jumpBooster.CanJump)
+        {
+            _playerVelocity.y = jumpSpeed;
+
+            _jumpSound.PlayOneShot(_jumpSound.clip);
+
+            _wishJump = false;
+
+            _jumpBooster.CanJump = false;
+        }
     }
 
     public void Jump(float speed)

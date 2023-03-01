@@ -51,7 +51,7 @@ MonoBehaviour:
     _bought: 0
   - _id: 9
     _weaponPrefab: {fileID: 7312247789602467978, guid: bf0f9fd2cf4e3214b846ad20e81028d2, type: 3}
-    _price: 600
+    _price: 6000
     _bought: 0
   - _id: 10
     _weaponPrefab: {fileID: 5067215327397119154, guid: 386ee8e86dd4c7649982535ba128a55e, type: 3}
