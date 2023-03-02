@@ -124,6 +124,46 @@ MonoBehaviour:
     m_Localized: Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 328965419286528
+    m_Localized: Controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335606856400896
+    m_Localized: "\u2013 Move"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336471138877440
+    m_Localized: "\u2013 Jump"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340069268701184
+    m_Localized: "\u2013 Pause"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340714944053248
+    m_Localized: "\u2013 Bullet-time"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341740241666048
+    m_Localized: "\u2013 Double weapon"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342446482767872
+    m_Localized: "\u2013 Super jump"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343331694821376
+    m_Localized: "\u2013 Look around"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 344058693533696
+    m_Localized: "\u2013 Next/previous weapon"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346557529833472
+    m_Localized: "\u2013 Weapon hotkeys"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

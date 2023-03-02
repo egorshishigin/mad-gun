@@ -119,6 +119,46 @@ MonoBehaviour:
     m_Key: game.menu
     m_Metadata:
       m_Items: []
+  - m_Id: 328965419286528
+    m_Key: main-menu.controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335606856400896
+    m_Key: controls.move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336471138877440
+    m_Key: controls.jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340069268701184
+    m_Key: controls.pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340714944053248
+    m_Key: controls.bullet-time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341740241666048
+    m_Key: controls.double-gun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342446482767872
+    m_Key: controls.super-jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343331694821376
+    m_Key: controls.look
+    m_Metadata:
+      m_Items: []
+  - m_Id: 344058693533696
+    m_Key: controls.mouse-scroll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346557529833472
+    m_Key: controls.weapons-keys
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/GameHuggy.unity
-    guid: e2355322f5d7a1640afae4cdbe3831d3
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 96fa10033a76b9a4aa1bb6b7e7f52d17, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 85d49654e31129b4ab1cf886b9e84e5a, type: 2}

@@ -125,6 +125,46 @@ MonoBehaviour:
     m_Localized: Cephane
     m_Metadata:
       m_Items: []
+  - m_Id: 328965419286528
+    m_Localized: Kontrol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335606856400896
+    m_Localized: "\u2013 Hareket"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336471138877440
+    m_Localized: "\u2013 Z\u0131plamak"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340069268701184
+    m_Localized: "\u2013 Duraklat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340714944053248
+    m_Localized: "\u2013 Mermi zaman\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341740241666048
+    m_Localized: "\u2013 \xC7ift silah"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342446482767872
+    m_Localized: "- S\xFCper z\u0131plama"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343331694821376
+    m_Localized: "\u2013 Etrafa bak"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 344058693533696
+    m_Localized: "\u2013 Sonraki/\xF6nceki silah"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346557529833472
+    m_Localized: "- Silah k\u0131sayol tu\u015Flar\u0131"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
