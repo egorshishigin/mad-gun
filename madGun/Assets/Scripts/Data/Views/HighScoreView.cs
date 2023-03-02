@@ -25,6 +25,6 @@ public class HighScoreView : MonoBehaviour
 
     private void SetHighScoreText()
     {
-        _highScore.text = $"High score: {_gameData.GameData.HighScore}";
+        _highScore.text = _gameData.GameData.HighScore.ToString();
     }
 }

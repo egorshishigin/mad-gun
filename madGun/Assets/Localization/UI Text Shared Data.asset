@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Text Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI Text
+  m_TableCollectionNameGuidString: 2cb702e47a7fba1448fdd8ac4ff14fe4
+  m_Entries:
+  - m_Id: 4261437358080
+    m_Key: title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156855918592
+    m_Key: main-menu.high-score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7672228593664
+    m_Key: global.settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9482142072832
+    m_Key: main-menu.start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9799025934336
+    m_Key: main-menu.weapons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10041452511232
+    m_Key: main-menu.power-up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11962531823616
+    m_Key: settings.sounds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12218082377728
+    m_Key: settings.music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12606453956608
+    m_Key: settings.camera-sensitivity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13168754933760
+    m_Key: main-menu.weapons-shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42351761670144
+    m_Key: power-up.hp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43664956309504
+    m_Key: power-up.medkit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44388888985600
+    m_Key: power-up.time-count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44959603736576
+    m_Key: power-up.ammo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45251615375360
+    m_Key: power-up.extra-jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45464585355264
+    m_Key: power-up.magnet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54075378221056
+    m_Key: game.hp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54334527488000
+    m_Key: game.ammo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54877358505984
+    m_Key: game.pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55136247726080
+    m_Key: game.resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55500330090496
+    m_Key: game.quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59490186936320
+    m_Key: game.game-over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60465723326464
+    m_Key: game.time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63459240034304
+    m_Key: game.kills
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63902930288640
+    m_Key: game.score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64330262757376
+    m_Key: game.menu
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3286837208807899160
+  references:
+    version: 2
+    RefIds:
+    - rid: 3286837208807899160
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1677655906292

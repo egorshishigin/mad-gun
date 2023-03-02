@@ -17,41 +17,100 @@ MonoBehaviour:
     _icon: {fileID: 21300000, guid: 5bcdd08b6f2577c4980f43d1f0fe623c, type: 3}
     _price: 500
     _priceGrowAmount: 250
-    _description: Increases the player's HP
+    _descriptionKey:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cb702e47a7fba1448fdd8ac4ff14fe4
+      m_TableEntryReference:
+        m_KeyId: 42351761670144
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     _level: 0
   - _id: 1
     _icon: {fileID: 21300000, guid: a179b5e3665184e45a7f6cc16361302c, type: 3}
     _price: 350
     _priceGrowAmount: 100
-    _description: Increases the level of restored HP
+    _descriptionKey:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cb702e47a7fba1448fdd8ac4ff14fe4
+      m_TableEntryReference:
+        m_KeyId: 43664956309504
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     _level: 0
   - _id: 2
     _icon: {fileID: 21300000, guid: 3cfa302569b8de24b897b807f1485562, type: 3}
     _price: 250
     _priceGrowAmount: 150
-    _description: Increases active time and use count
+    _descriptionKey:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cb702e47a7fba1448fdd8ac4ff14fe4
+      m_TableEntryReference:
+        m_KeyId: 44388888985600
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     _level: 0
   - _id: 3
     _icon: {fileID: 21300000, guid: 4c56caa32e96c264aa6bc53edbb3f5e8, type: 3}
     _price: 450
     _priceGrowAmount: 250
-    _description: Increases active time and use count
+    _descriptionKey:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cb702e47a7fba1448fdd8ac4ff14fe4
+      m_TableEntryReference:
+        m_KeyId: 44388888985600
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     _level: 0
   - _id: 4
     _icon: {fileID: 21300000, guid: ecd6d478be1e1a54bb3ec61663397459, type: 3}
     _price: 700
     _priceGrowAmount: 150
-    _description: Increases count of restored ammo
+    _descriptionKey:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cb702e47a7fba1448fdd8ac4ff14fe4
+      m_TableEntryReference:
+        m_KeyId: 44959603736576
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     _level: 0
   - _id: 5
     _icon: {fileID: 21300000, guid: 67047db6f6230ee428ed70deeef4120d, type: 3}
     _price: 250
     _priceGrowAmount: 150
-    _description: Increases magnet radius
+    _descriptionKey:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cb702e47a7fba1448fdd8ac4ff14fe4
+      m_TableEntryReference:
+        m_KeyId: 45464585355264
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     _level: 0
   - _id: 6
     _icon: {fileID: 21300000, guid: 01c50d6a99055cb41abd0a1e3628f9bc, type: 3}
     _price: 550
     _priceGrowAmount: 250
-    _description: Increases use count
+    _descriptionKey:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cb702e47a7fba1448fdd8ac4ff14fe4
+      m_TableEntryReference:
+        m_KeyId: 45251615375360
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     _level: 0
+  references:
+    version: 2
+    RefIds: []

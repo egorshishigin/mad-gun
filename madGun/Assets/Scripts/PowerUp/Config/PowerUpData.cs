@@ -1,6 +1,7 @@
 using System;
 
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace PowerUp
 {
@@ -17,7 +18,7 @@ namespace PowerUp
 
         [SerializeField] private int _priceGrowAmount;
 
-        [SerializeField] private string _description;
+        [SerializeField] private LocalizedString _descriptionKey;
 
         [SerializeField] private int _level;
 
@@ -27,7 +28,7 @@ namespace PowerUp
 
         public int Price => _price + (_level * _priceGrowAmount);
 
-        public string Description => _description;
+        public LocalizedString Description => _descriptionKey;
 
         public int Level => _level;
 

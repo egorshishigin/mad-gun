@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 8750763783029766502}
   - component: {fileID: 8750763783029766504}
   - component: {fileID: 8750763783029766505}
+  - component: {fileID: 5194755650283849936}
   m_Layer: 5
   m_Name: Description_txt
   m_TagString: Untagged
@@ -310,8 +311,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -38.37367, y: -9.4}
-  m_SizeDelta: {x: 244.5386, y: 20.26}
+  m_AnchoredPosition: {x: -39.61, y: -9.4}
+  m_SizeDelta: {x: 242.06, y: 20.26}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8750763783029766504
 CanvasRenderer:
@@ -368,15 +369,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -410,6 +411,53 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5194755650283849936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750763783029766503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables:
+    - name: description
+      variable:
+        rid: 3286837208807899214
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8750763783029766505}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: 3286837208807899214
+      type: {class: ObjectVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables, asm: Unity.Localization}
+      data:
+        m_Value: {fileID: 8750763783029766503}
 --- !u!1 &8750763783405135496
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,8 +707,8 @@ MonoBehaviour:
   _butButton: {fileID: 8750763782995211279}
   _icon: {fileID: 8750763782838947633}
   _priceText: {fileID: 8750763783994966840}
-  _descriptionText: {fileID: 8750763783029766505}
   _powerUpLevel: {fileID: 8750763783780826610}
+  _descriptionLocalizeString: {fileID: 5194755650283849936}
 --- !u!1 &8750763783994966838
 GameObject:
   m_ObjectHideFlags: 0

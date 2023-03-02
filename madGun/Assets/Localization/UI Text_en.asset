@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 2cb702e47a7fba1448fdd8ac4ff14fe4, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 3286837208807899193
+  m_TableData:
+  - m_Id: 6156855918592
+    m_Localized: 'High score:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4261437358080
+    m_Localized: Mad Gunz:\nArena Shooter
+    m_Metadata:
+      m_Items:
+      - rid: 3286837208807899193
+  - m_Id: 7672228593664
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9482142072832
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9799025934336
+    m_Localized: Weapons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10041452511232
+    m_Localized: Power Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11962531823616
+    m_Localized: All sounds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12218082377728
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12606453956608
+    m_Localized: Camera sensitivity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13168754933760
+    m_Localized: Weapons shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42351761670144
+    m_Localized: Increases the player's start health
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43664956309504
+    m_Localized: Increases the amount of health restored by medkit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44388888985600
+    m_Localized: Increases active time and use count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44959603736576
+    m_Localized: Increases amount of restored ammo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45251615375360
+    m_Localized: Increases use count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45464585355264
+    m_Localized: Increases magnet radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54075378221056
+    m_Localized: HP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54334527488000
+    m_Localized: Ammo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54877358505984
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55136247726080
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55500330090496
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59490186936320
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60465723326464
+    m_Localized: 'Time:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63459240034304
+    m_Localized: 'Kills:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63902930288640
+    m_Localized: 'Score:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64330262757376
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 3286837208807899193
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00c0755f0500000000c075e33400000000c07531e0030000

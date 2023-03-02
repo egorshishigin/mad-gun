@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 namespace PowerUp
@@ -18,9 +19,9 @@ namespace PowerUp
 
         [SerializeField] private TMP_Text _priceText;
 
-        [SerializeField] private TMP_Text _descriptionText;
-
         [SerializeField] private Image _powerUpLevel;
+
+        [SerializeField] private LocalizeStringEvent _descriptionLocalizeString;
 
         private int _id;
 
@@ -39,7 +40,7 @@ namespace PowerUp
 
             _priceText.text = powerUpData.Price.ToString();
 
-            _descriptionText.text = powerUpData.Description;
+            _descriptionLocalizeString.StringReference = powerUpData.Description;
 
             _butButton.onClick.AddListener(BuyPowerUp);
         }

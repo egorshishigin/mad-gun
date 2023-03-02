@@ -31,11 +31,11 @@ namespace GameOver
 
             string gameTime = $"{minutes:00}:{seconds:00}";
 
-            _time.text = "Time: " + gameTime;
+            _time.text = gameTime;
 
-            _kills.text = $"Kills: {kills}";
+            _kills.text = kills.ToString();
 
-            _score.text = $"Score: {score}";
+            _score.text = score.ToString();
         }
 
         public void PanelFadeAnimation()
