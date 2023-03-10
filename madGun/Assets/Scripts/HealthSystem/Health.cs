@@ -74,6 +74,11 @@ namespace HealthSystem
             Healed.Invoke(_currentHealth);
         }
 
+        public void Revive()
+        {
+            _died = false;
+        }
+
         public void Upgrade(int amount, int count)
         {
             _maxHealth += amount;

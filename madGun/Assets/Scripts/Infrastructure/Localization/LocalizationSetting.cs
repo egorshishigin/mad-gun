@@ -1,5 +1,5 @@
 using System.Collections;
-
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
@@ -9,7 +9,10 @@ namespace Localization
     {
         private const string SettingName = "Language";
 
-        private Language _language;
+        [DllImport("__Internal")]
+        private static extern string GetLanguage();
+
+        private string _language;
 
         private void Start()
         {
@@ -18,20 +21,20 @@ namespace Localization
 
         private IEnumerator Initialize()
         {
-            _language = LoadLanguageSetting();
+            _language = GetLanguage();
 
             yield return LocalizationSettings.InitializationOperation;
 
             switch (_language)
             {
-                case Language.RU:
-                    SetLanguage(_language);
+                case "ru":
+                    SetLanguage(Language.RU);
                     break;
-                case Language.TR:
-                    SetLanguage(_language);
+                case "tr":
+                    SetLanguage(Language.TR);
                     break;
                 default:
-                    SetLanguage(_language);
+                    SetLanguage(Language.EN);
                     break;
             }
         }

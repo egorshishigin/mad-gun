@@ -38,9 +38,26 @@ namespace GameOver
             _score.text = score.ToString();
         }
 
+        public void SetDoubleCoinsText(int value)
+        {
+            _coins.text += $" + {value}";
+        }
+
         public void PanelFadeAnimation()
         {
             _viewPanel.DOFade(1, _fadeDuration).SetUpdate(true);
+        }
+
+        public void PanelFadeOutAnimation()
+        {
+            Tween tween = _viewPanel.DOFade(0, _fadeDuration).SetUpdate(true);
+
+            tween.OnComplete(() =>
+            {
+                gameObject.SetActive(false);
+
+                tween.Kill();
+            });
         }
     }
 }
