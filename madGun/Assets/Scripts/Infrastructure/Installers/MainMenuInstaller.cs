@@ -10,15 +10,11 @@ namespace Infrastructure
     {
         [SerializeField] private SceneLoader _sceneLoader;
 
-        [SerializeField] private LocalizationSetting _localizationSetting;
-
         public override void InstallBindings()
         {
             EnableCursor();
 
             BindSceneLoader();
-
-            BindLocalizationSetting();
         }
 
         private static void EnableCursor()
@@ -33,14 +29,6 @@ namespace Infrastructure
             Container
                 .Bind<SceneLoader>()
                 .FromInstance(_sceneLoader)
-                .AsSingle();
-        }
-
-        private void BindLocalizationSetting()
-        {
-            Container
-                .Bind<LocalizationSetting>()
-                .FromInstance(_localizationSetting)
                 .AsSingle();
         }
     }

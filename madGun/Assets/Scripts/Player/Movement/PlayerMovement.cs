@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-using Zenject;
+﻿using Zenject;
 
 using PlayerInput;
 
@@ -171,8 +168,6 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
         _xMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
 
         _yMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
-
-        Debug.Log($"Camera sens = {PlayerPrefs.GetFloat(SettingName)}");
     }
 
     private void RotateCamera(Vector3 obj)

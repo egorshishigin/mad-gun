@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.InteropServices;
 
 using Zenject;
@@ -5,7 +6,6 @@ using Zenject;
 using Data;
 
 using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure

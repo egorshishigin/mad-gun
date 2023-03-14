@@ -1890,7 +1890,6 @@ GameObject:
   - component: {fileID: 277408932}
   - component: {fileID: 277408934}
   - component: {fileID: 277408933}
-  - component: {fileID: 277408936}
   - component: {fileID: 277408935}
   m_Layer: 5
   m_Name: Settings_panel
@@ -1974,19 +1973,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sensitivityValue: {fileID: 1342460639}
   _sensitivitySlider: {fileID: 781604402}
---- !u!114 &277408936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 277408931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d26525acc8ceba04abfa69393ae7f75c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _view: {fileID: 277408935}
 --- !u!1 &284133858
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,9 +4342,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 695371161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f7771c089f8efb42a976468b50a5b06, type: 3}
+  m_Script: {fileID: 11500000, guid: d26525acc8ceba04abfa69393ae7f75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _view: {fileID: 277408935}
 --- !u!1 &729604486
 GameObject:
   m_ObjectHideFlags: 0
@@ -5560,7 +5547,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneLoader: {fileID: 1809593724}
-  _localizationSetting: {fileID: 695371162}
 --- !u!1 &968797319
 GameObject:
   m_ObjectHideFlags: 0

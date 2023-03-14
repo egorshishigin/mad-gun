@@ -8,6 +8,8 @@ using PowerUp;
 
 using GamePause;
 
+using Localization;
+
 using UnityEngine;
 
 namespace Infrastructure
@@ -20,6 +22,8 @@ namespace Infrastructure
 
         [SerializeField] private YandexAD _yandexAD;
 
+        [SerializeField] private LocalizationSetting _localizationSetting;
+
         public override void InstallBindings()
         {
             Container.Bind<Pause>().AsSingle();
@@ -31,6 +35,16 @@ namespace Infrastructure
             Container.Bind<GameDataIO>().AsSingle();
 
             Container.Bind<YandexAD>().FromComponentInNewPrefab(_yandexAD).AsSingle();
+
+            BindLocalizationSetting();
+        }
+
+        private void BindLocalizationSetting()
+        {
+            Container
+                .Bind<LocalizationSetting>()
+                .FromComponentInNewPrefab(_localizationSetting)
+                .AsSingle();
         }
     }
 }

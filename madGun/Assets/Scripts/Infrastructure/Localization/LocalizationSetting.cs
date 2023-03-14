@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.InteropServices;
+
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
@@ -16,6 +17,8 @@ namespace Localization
 
         private void Start()
         {
+            DontDestroyOnLoad(this);
+
             StartCoroutine(Initialize());
         }
 
@@ -37,6 +40,7 @@ namespace Localization
                     SetLanguage(Language.EN);
                     break;
             }
+
         }
 
         public void ChangeLanguage(Language language)
@@ -56,15 +60,6 @@ namespace Localization
             PlayerPrefs.SetInt(SettingName, (int)language);
 
             PlayerPrefs.Save();
-        }
-
-        private Language LoadLanguageSetting()
-        {
-            var languageSettingValue = PlayerPrefs.GetInt(SettingName);
-
-            Language language = (Language)languageSettingValue;
-
-            return language;
         }
     }
 }

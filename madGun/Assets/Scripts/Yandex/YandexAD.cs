@@ -22,6 +22,10 @@ public class YandexAD : MonoBehaviour
 
     public event Action GoldADRewarded = delegate { };
 
+    public event Action GameWindowMinimazed = delegate { };
+
+    public event Action GameWindowFocused = delegate { };
+
     private void Start()
     {
         name = "YandexAD";
@@ -52,5 +56,15 @@ public class YandexAD : MonoBehaviour
     public void GoldRewarded()
     {
         GoldADRewarded.Invoke();
+    }
+
+    public void GameWindowMinimize()
+    {
+        GameWindowMinimazed.Invoke();
+    }
+
+    public void GameWindowFocus()
+    {
+        GameWindowFocused.Invoke();
     }
 }

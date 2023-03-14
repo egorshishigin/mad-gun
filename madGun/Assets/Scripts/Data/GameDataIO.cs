@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 using WeaponsShop;
 
 using PowerUp;
-using UnityEngine;
 
 namespace Data
 {
@@ -43,23 +42,17 @@ namespace Data
         {
             string loadedData = data;
 
-            Debug.Log($"Data lenght = {loadedData.Length}");
-
             if (loadedData.Length <= 3)
             {
-                _gameData = new GameData(1000000, 0, _weaponsConfig, _powerUpConfig);
+                _gameData = new GameData(0, 0, _weaponsConfig, _powerUpConfig);
 
                 _gameData.InitializeWeapons();
 
                 _gameData.InitializePowerUps();
-
-                Debug.Log($"New data created");
             }
             else
             {
                 _gameData = JsonConvert.DeserializeObject<GameData>(loadedData);
-
-                Debug.Log($"Data loaded");
             }
         }
     }

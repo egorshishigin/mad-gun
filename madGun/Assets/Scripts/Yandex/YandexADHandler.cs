@@ -35,9 +35,13 @@ public class YandexADHandler : MonoBehaviour
 
         _goldView.onClick.AddListener(PlayGoldAD);
 
-        _yandexAD.RewardedADOpened += RewardedADOpenedHandler;
+        _yandexAD.RewardedADOpened += MuteAudio;
 
-        _yandexAD.RewardedADClosed += RewardedADClosedHandler;
+        _yandexAD.RewardedADClosed += ResetAudioVolume;
+
+        _yandexAD.GameWindowMinimazed += MuteAudio;
+
+        _yandexAD.GameWindowFocused += ResetAudioVolume;
     }
 
     private void OnDisable()
@@ -46,9 +50,13 @@ public class YandexADHandler : MonoBehaviour
 
         _goldView.onClick.RemoveListener(PlayGoldAD);
 
-        _yandexAD.RewardedADOpened -= RewardedADOpenedHandler;
+        _yandexAD.RewardedADOpened -= MuteAudio;
 
-        _yandexAD.RewardedADClosed -= RewardedADClosedHandler;
+        _yandexAD.RewardedADClosed -= ResetAudioVolume;
+
+        _yandexAD.GameWindowMinimazed -= MuteAudio;
+
+        _yandexAD.GameWindowFocused -= ResetAudioVolume;
     }
 
     private void PlayReviveAD()
@@ -65,12 +73,12 @@ public class YandexADHandler : MonoBehaviour
         DeactivateView(_goldView);
     }
 
-    private void RewardedADClosedHandler()
+    private void ResetAudioVolume()
     {
         AudioListener.volume = _soundSetting.Value ? 1f : 0f;
     }
 
-    private void RewardedADOpenedHandler()
+    private void MuteAudio()
     {
         AudioListener.volume = 0f;
     }

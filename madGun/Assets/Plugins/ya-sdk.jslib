@@ -8,8 +8,6 @@ mergeInto(LibraryManager.library, {
 	var json = JSON.parse(dataString);
 	
 	player.setData(json);
-	
-	console.log("Data saving");
 	  }
 
   },
@@ -18,8 +16,6 @@ mergeInto(LibraryManager.library, {
 		if(player != null){
 		player.getData().then(_data => {
 		const json = JSON.stringify(_data);
-		console.log("Data loading");
-		console.log(json);
 		myGameInstance.SendMessage('GameBootstrap', 'LoadData', json);
 	});
 		}
@@ -36,10 +32,8 @@ mergeInto(LibraryManager.library, {
 	ysdk.adv.showFullscreenAdv({
     callbacks: {
         onClose: function(wasShown) {
-          // some action after close
         },
         onError: function(error) {
-          // some action on error
         }
     }
 	})  
@@ -49,14 +43,11 @@ mergeInto(LibraryManager.library, {
 	  ysdk.adv.showRewardedVideo({
     callbacks: {
         onOpen: () => {
-          console.log('Video ad open.');
 		  myGameInstance.SendMessage('YandexAD', 'OpenRewardedAD');
         },
         onRewarded: () => {
-          console.log('Rewarded!');
         },
         onClose: () => {
-          console.log('Video ad closed.');
 		  myGameInstance.SendMessage('YandexAD', 'ReviveRewarded');
 		  myGameInstance.SendMessage('YandexAD', 'CloseRewardedAD');
         }, 
@@ -71,15 +62,12 @@ mergeInto(LibraryManager.library, {
 	  ysdk.adv.showRewardedVideo({
     callbacks: {
         onOpen: () => {
-          console.log('Video ad open.');
 		  myGameInstance.SendMessage('YandexAD', 'OpenRewardedAD');
         },
         onRewarded: () => {
-          console.log('Rewarded!');
 		  myGameInstance.SendMessage('YandexAD', 'GoldRewarded');
         },
         onClose: () => {
-          console.log('Video ad closed.');
 		  myGameInstance.SendMessage('YandexAD', 'CloseRewardedAD');
         }, 
         onError: (e) => {

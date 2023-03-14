@@ -17,15 +17,7 @@ namespace GameSettings
         private void OnEnable()
         {
             _view.SensitivityChanged += SensitivityChangedHandler;
-        }
 
-        private void OnDisable()
-        {
-            _view.SensitivityChanged -= SensitivityChangedHandler;
-        }
-
-        private void Start()
-        {
             float currentSensitivity;
 
             if (PlayerPrefs.HasKey(SettingName))
@@ -35,11 +27,16 @@ namespace GameSettings
             else
             {
                 currentSensitivity = DefaultSensitivity;
-
-                SensitivityChangedHandler(currentSensitivity);
             }
 
+            SensitivityChangedHandler(currentSensitivity);
+
             _view.InitializeView(MaxSensitivity, MinSensitivity, currentSensitivity);
+        }
+
+        private void OnDisable()
+        {
+            _view.SensitivityChanged -= SensitivityChangedHandler;
         }
 
         private void SensitivityChangedHandler(float value)

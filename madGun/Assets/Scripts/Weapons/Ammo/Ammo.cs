@@ -39,7 +39,7 @@ namespace Weapons
             {
                 int gainCount = UnityEngine.Random.Range(_minAmmoGain, _maxAmmoGain);
 
-                _ammo[i] += gainCount * amount;
+                _ammo[i] += gainCount + amount;
             }
 
             AmmoCountChanged.Invoke(_ammo[_selectedWeapon]);
