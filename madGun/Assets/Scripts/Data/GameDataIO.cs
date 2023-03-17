@@ -1,4 +1,4 @@
-using System.Runtime.InteropServices;
+using System.IO;
 
 using Zenject;
 
@@ -8,12 +8,13 @@ using WeaponsShop;
 
 using PowerUp;
 
+using UnityEngine;
+
 namespace Data
 {
     public class GameDataIO
     {
-        [DllImport("__Internal")]
-        private static extern void SaveDataExtern(string data);
+        private const string FileName = "GameData";
 
         private GameData _gameData;
 
@@ -35,24 +36,24 @@ namespace Data
         {
             string json = JsonConvert.SerializeObject(_gameData);
 
-            SaveDataExtern(json);
+            File.WriteAllText(Application.persistentDataPath + FileName, json);
         }
 
-        public void LoadGameData(string data)
+        public void LoadGameData()
         {
-            string loadedData = data;
-
-            if (loadedData.Length <= 3)
+            if (File.Exists(Application.persistentDataPath + FileName))
             {
-                _gameData = new GameData(0, 0, _weaponsConfig, _powerUpConfig);
+                string json = File.ReadAllText(Application.persistentDataPath + FileName);
+
+                _gameData = JsonConvert.DeserializeObject<GameData>(json);
+            }
+            else
+            {
+                _gameData = new GameData(100000, 0, _weaponsConfig, _powerUpConfig);
 
                 _gameData.InitializeWeapons();
 
                 _gameData.InitializePowerUps();
-            }
-            else
-            {
-                _gameData = JsonConvert.DeserializeObject<GameData>(loadedData);
             }
         }
     }

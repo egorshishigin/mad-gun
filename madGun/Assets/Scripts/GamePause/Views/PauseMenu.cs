@@ -18,13 +18,6 @@ namespace GamePause
             _pause.Register(this);
         }
 
-        private void Awake()
-        {
-            Cursor.visible = false;
-
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
         public void SetPause(bool paused)
         {
             _menu.SetActive(paused);

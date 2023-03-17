@@ -15,7 +15,7 @@ namespace Weapons
 
         private AmmoConfig _ammoConfig;
 
-        private WeaponSwitch _weaponSwitch;
+        private MobileWeaponSwitcher _weaponSwitch;
 
         private int _selectedWeapon => _weaponSwitch.SelectedWeapon;
 
@@ -24,7 +24,7 @@ namespace Weapons
         public event Action<int> AmmoCountChanged = delegate { };
 
         [Inject]
-        private Ammo(AmmoConfig ammoConfig, WeaponSwitch weaponSwitch)
+        private Ammo(AmmoConfig ammoConfig, MobileWeaponSwitcher weaponSwitch)
         {
             _ammoConfig = ammoConfig;
 

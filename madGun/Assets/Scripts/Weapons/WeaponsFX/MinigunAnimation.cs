@@ -28,14 +28,14 @@ namespace Weapons
 
         private void OnEnable()
         {
-            _playerControl.ScreenDown += PlayAnimation;
+            _playerControl.ScreenHold += PlayAnimation;
 
             _playerControl.ScreenUp += StopAnimation;
         }
 
         private void OnDisable()
         {
-            _playerControl.ScreenDown -= PlayAnimation;
+            _playerControl.ScreenHold -= PlayAnimation;
 
             _playerControl.ScreenUp -= StopAnimation;
 

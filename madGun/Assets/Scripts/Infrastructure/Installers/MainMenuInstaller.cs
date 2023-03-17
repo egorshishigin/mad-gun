@@ -12,18 +12,8 @@ namespace Infrastructure
 
         public override void InstallBindings()
         {
-            EnableCursor();
-
             BindSceneLoader();
         }
-
-        private static void EnableCursor()
-        {
-            Cursor.visible = true;
-
-            Cursor.lockState = CursorLockMode.None;
-        }
-
         private void BindSceneLoader()
         {
             Container

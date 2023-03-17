@@ -23,19 +23,6 @@ namespace GamePause
         {
             Paused = paused;
 
-            if (paused)
-            {
-                Cursor.visible = true;
-
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.visible = false;
-
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-
             foreach (var handler in _handlers)
             {
                 handler.SetPause(paused);

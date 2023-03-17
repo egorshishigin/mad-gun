@@ -20,8 +20,6 @@ namespace Infrastructure
 
         [SerializeField] private PowerUpConfig _powerUpConfig;
 
-        [SerializeField] private YandexAD _yandexAD;
-
         [SerializeField] private LocalizationSetting _localizationSetting;
 
         public override void InstallBindings()
@@ -33,8 +31,6 @@ namespace Infrastructure
             Container.Bind<PowerUpConfig>().FromScriptableObject(_powerUpConfig).AsSingle();
 
             Container.Bind<GameDataIO>().AsSingle();
-
-            Container.Bind<YandexAD>().FromComponentInNewPrefab(_yandexAD).AsSingle();
 
             BindLocalizationSetting();
         }

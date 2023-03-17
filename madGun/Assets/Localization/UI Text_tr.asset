@@ -177,6 +177,10 @@ MonoBehaviour:
     m_Localized: Devam
     m_Metadata:
       m_Items: []
+  - m_Id: 5477093189468160
+    m_Localized: "Otomatik at\u0131\u015F"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

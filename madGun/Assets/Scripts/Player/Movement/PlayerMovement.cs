@@ -7,6 +7,7 @@ using GamePause;
 using Boosters;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 struct Cmd
 {
@@ -97,13 +98,7 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
 
     public void Run()
     {
-        if (Cursor.lockState != CursorLockMode.Locked)
-        {
-            if (Input.GetButtonDown("Fire1"))
-                Cursor.lockState = CursorLockMode.Locked;
-        }
-
-        transform.rotation = Quaternion.Euler(0, _cameraYRotation, 0);
+        RotateCamera();
 
         QueueJump();
 
@@ -131,23 +126,9 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
     transform.position.z);
     }
 
-    private void OnEnable()
-    {
-        _playerControl.ScreenMove += RotateCamera;
-    }
-
-    private void OnDisable()
-    {
-        _playerControl.ScreenMove -= RotateCamera;
-    }
-
     private void Start()
     {
         SetCameraSensitivity();
-
-        Cursor.visible = false;
-
-        Cursor.lockState = CursorLockMode.Locked;
 
         if (_playerView == null)
         {
@@ -170,16 +151,18 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
         _yMouseSensitivity = PlayerPrefs.GetFloat(SettingName);
     }
 
-    private void RotateCamera(Vector3 obj)
+    private void RotateCamera()
     {
-        _cameraXRotation -= Input.GetAxisRaw("Mouse Y") * _xMouseSensitivity * 0.02f;
+        _cameraXRotation -= _playerControl.InputActions.Player.Look.ReadValue<Vector2>().y * _xMouseSensitivity * 0.02f;
 
-        _cameraYRotation += Input.GetAxisRaw("Mouse X") * _yMouseSensitivity * 0.02f;
+        _cameraYRotation += _playerControl.InputActions.Player.Look.ReadValue<Vector2>().x * _yMouseSensitivity * 0.02f;
 
         if (_cameraXRotation < -72)
             _cameraXRotation = -72;
         else if (_cameraXRotation > 72)
             _cameraXRotation = 72;
+
+        transform.rotation = Quaternion.Euler(0, _cameraYRotation, 0);
 
         _playerView.rotation = Quaternion.Euler(_cameraXRotation, _cameraYRotation, 0);
     }
@@ -193,22 +176,22 @@ public class PlayerMovement : MonoBehaviour, IPauseHandler, IUpdatable
 
     private void SetMovementDir()
     {
-        _cmd.forwardMove = Input.GetAxisRaw("Vertical");
+        _cmd.forwardMove = _playerControl.InputActions.Player.Move.ReadValue<Vector2>().y;
 
-        _cmd.rightMove = Input.GetAxisRaw("Horizontal");
+        _cmd.rightMove = _playerControl.InputActions.Player.Move.ReadValue<Vector2>().x;
     }
 
     private void QueueJump()
     {
         if (_holdJumpToBhop)
         {
-            _wishJump = Input.GetButton("Jump");
+            _wishJump = _playerControl.InputActions.Player.Jump.phase == InputActionPhase.Performed;
             return;
         }
 
-        if (Input.GetButtonDown("Jump") && !_wishJump)
+        if (_playerControl.InputActions.Player.Jump.phase == InputActionPhase.Performed && !_wishJump)
             _wishJump = true;
-        if (Input.GetButtonUp("Jump"))
+        if (_playerControl.InputActions.Player.Jump.phase == InputActionPhase.Canceled || _playerControl.InputActions.Player.Jump.phase == InputActionPhase.Waiting)
             _wishJump = false;
     }
 

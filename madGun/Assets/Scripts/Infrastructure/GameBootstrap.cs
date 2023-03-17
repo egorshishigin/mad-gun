@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Runtime.InteropServices;
 
 using Zenject;
 
@@ -12,21 +11,14 @@ namespace Infrastructure
 {
     public class GameBootstrap : MonoBehaviour
     {
-        [DllImport("__Internal")]
-        private static extern void LoadDataExtern();
-
         [SerializeField] private int TargetFPS;
 
         private GameDataIO _gameDataIO;
 
-        private YandexAD _yandexAD;
-
         [Inject]
-        private void Construct(GameDataIO gameDataIO, YandexAD yandexAD)
+        private void Construct(GameDataIO gameDataIO)
         {
             _gameDataIO = gameDataIO;
-
-            _yandexAD = yandexAD;
         }
 
         private void Start()
@@ -36,11 +28,6 @@ namespace Infrastructure
             StartCoroutine(LoadScene(1));
         }
 
-        public void LoadData(string data)
-        {
-            _gameDataIO.LoadGameData(data);
-        }
-
         private void SetTragetFrameRate()
         {
             Application.targetFrameRate = TargetFPS;
@@ -48,9 +35,7 @@ namespace Infrastructure
 
         private IEnumerator LoadScene(int buildIndex)
         {
-            LoadDataExtern();
-
-            _yandexAD.PlayFullScreenAD();
+            _gameDataIO.LoadGameData();
 
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(buildIndex);
 

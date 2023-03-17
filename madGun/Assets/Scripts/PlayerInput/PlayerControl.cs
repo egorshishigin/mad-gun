@@ -5,6 +5,7 @@ using Zenject;
 using GamePause;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace PlayerInput
 {
@@ -18,7 +19,11 @@ namespace PlayerInput
 
         private Pause _pause;
 
+        private PlayerInputActions _inputActions;
+
         private UpdatesContainer _updatesContainer;
+
+        public PlayerInputActions InputActions => _inputActions;
 
         public event Action<Vector3> ScreenMove = delegate { };
 
@@ -33,6 +38,10 @@ namespace PlayerInput
         [Inject]
         private void Construct(Pause pause, UpdatesContainer updatesContainer)
         {
+            _inputActions = new PlayerInputActions();
+
+            _inputActions.Enable();
+
             _pause = pause;
 
             _updatesContainer = updatesContainer;
@@ -44,22 +53,22 @@ namespace PlayerInput
 
         void IUpdatable.Run()
         {
-            if (Input.GetMouseButton(0))
+            if (_inputActions.Player.Shoot.phase == InputActionPhase.Started || _inputActions.Player.Shoot.phase == InputActionPhase.Performed)
             {
                 ScreenHold.Invoke();
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (_inputActions.Player.Shoot.phase == InputActionPhase.Started)
             {
                 ScreenDown.Invoke();
             }
 
-            if (Input.GetMouseButtonUp(0))
+            if (_inputActions.Player.Shoot.phase == InputActionPhase.Canceled || _inputActions.Player.Shoot.phase == InputActionPhase.Waiting)
             {
                 ScreenUp.Invoke();
             }
 
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (_inputActions.Player.Pause.phase == InputActionPhase.Performed)
             {
                 PauseButtonDown.Invoke();
             }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Runtime.InteropServices;
 
 using UnityEngine;
 using UnityEngine.Localization.Settings;
@@ -10,10 +9,7 @@ namespace Localization
     {
         private const string SettingName = "Language";
 
-        [DllImport("__Internal")]
-        private static extern string GetLanguage();
-
-        private string _language;
+        private Language _language;
 
         private void Start()
         {
@@ -24,17 +20,20 @@ namespace Localization
 
         private IEnumerator Initialize()
         {
-            _language = GetLanguage();
+            LoadLanguage();
 
             yield return LocalizationSettings.InitializationOperation;
 
             switch (_language)
             {
-                case "ru":
+                case Language.EN:
+                    SetLanguage(Language.EN);
+                    break;
+                case Language.RU:
                     SetLanguage(Language.RU);
                     break;
-                case "tr":
-                    SetLanguage(Language.TR);
+                case Language.TR:
+                    SetLanguage(Language.EN);
                     break;
                 default:
                     SetLanguage(Language.EN);
@@ -60,6 +59,18 @@ namespace Localization
             PlayerPrefs.SetInt(SettingName, (int)language);
 
             PlayerPrefs.Save();
+        }
+
+        private void LoadLanguage()
+        {
+            if (PlayerPrefs.HasKey(SettingName))
+            {
+                _language = (Language)PlayerPrefs.GetInt(SettingName);
+            }
+            else
+            {
+                _language = Language.EN;
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ namespace GameSettings
     {
         private const string SettingName = "CameraSensitivity";
 
-        private const float MaxSensitivity = 150f;
+        private const float MaxSensitivity = 350f;
 
         private const float MinSensitivity = 15f;
 

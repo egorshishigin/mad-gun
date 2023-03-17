@@ -1,5 +1,7 @@
 using Zenject;
 
+using PlayerInput;
+
 using UnityEngine;
 
 namespace Weapons
@@ -56,12 +58,20 @@ namespace Weapons
 
         private UpdatesContainer _updatesContainer;
 
+        private PlayerControl _playerControl;
+
+        private PlayerInputActions _playerInputActions;
+
         [Inject]
-        private void Construct(UpdatesContainer updatesContainer)
+        private void Construct(UpdatesContainer updatesContainer, PlayerControl playerControl)
         {
             _updatesContainer = updatesContainer;
 
             _updatesContainer.Register(this);
+
+            _playerControl = playerControl;
+
+            _playerInputActions = _playerControl.InputActions;
         }
 
         void IUpdatable.Run()
@@ -88,16 +98,16 @@ namespace Weapons
 
         private void GetLookPosition()
         {
-            _lookInput.x = Input.GetAxis("Mouse X");
+            _lookInput.x = _playerInputActions.Player.Look.ReadValue<Vector2>().x;
 
-            _lookInput.y = Input.GetAxis("Mouse Y");
+            _lookInput.y = _playerInputActions.Player.Look.ReadValue<Vector2>().y;
         }
 
         private void GetWalkInput()
         {
-            _walkInput.x = Input.GetAxis("Horizontal");
+            _walkInput.x = _playerInputActions.Player.Move.ReadValue<Vector2>().x;
 
-            _walkInput.y = Input.GetAxis("Vertical");
+            _walkInput.y = _playerInputActions.Player.Move.ReadValue<Vector2>().y;
         }
 
         private void BobPosition()

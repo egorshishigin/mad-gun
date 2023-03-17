@@ -56,6 +56,12 @@ namespace Weapons
 
         public int ID => _id;
 
+        public float FireRate => _fireRate;
+
+        public Weapon SecondGun => _secondGun.GetComponent<Weapon>();
+
+        public bool DoubleGun => _doubleGun;
+
         [Inject]
         private void Construct(PlayerControl playerControl, Ammo ammo)
         {
@@ -101,6 +107,8 @@ namespace Weapons
         public void SetDoubleGunState(bool value)
         {
             _secondGun.SetActive(value);
+
+            _doubleGun = value;
         }
 
         private void Aim(Vector3 target)
@@ -115,7 +123,7 @@ namespace Weapons
             _shootDirection = lookPositon;
         }
 
-        private void Shoot()
+        public void Shoot()
         {
             if (_ammo.AmmoSupply[_id] <= 0)
                 return;
@@ -126,8 +134,6 @@ namespace Weapons
 
                 for (int i = 0; i < _shootPoints.Length; i++)
                 {
-                    //ShootSpread(_shootPoints[i]);
-
                     PlayerProjectile projectile = _projectilesPool.Pool.Get();
 
                     projectile.SetDamage(_damage);
@@ -163,11 +169,6 @@ namespace Weapons
             {
                 _shootPoints[i].localEulerAngles = Vector3.zero;
             }
-        }
-
-        private void ShootSpread(Transform shootPoint)
-        {
-            shootPoint.localEulerAngles += new Vector3(UnityEngine.Random.Range(-_xSpread, _xSpread), UnityEngine.Random.Range(-_ySpread, _ySpread), 0f);
         }
     }
 }

@@ -171,6 +171,10 @@ MonoBehaviour:
     m_Key: game.continue
     m_Metadata:
       m_Items: []
+  - m_Id: 5477093189468160
+    m_Key: settings.autoshoot
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
