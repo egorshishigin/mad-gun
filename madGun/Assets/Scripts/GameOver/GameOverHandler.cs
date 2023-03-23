@@ -93,7 +93,11 @@ namespace GameOver
             {
                 _gameData.GameData.SetHighScore(score);
 
-                SetLeaderboard(score);
+#if UNITY_STANDALONE || UNITY_EDITOR
+
+#else
+            SetLeaderboard(score);
+#endif
             }
 
             _pause.SetPause(true);

@@ -75,7 +75,7 @@ public class YandexADHandler : MonoBehaviour
 
     private void ResetAudioVolume()
     {
-        AudioListener.volume = _soundSetting.Value ? 1f : 0f;
+        AudioListener.volume = PlayerPrefs.GetInt("Sound");
     }
 
     private void MuteAudio()

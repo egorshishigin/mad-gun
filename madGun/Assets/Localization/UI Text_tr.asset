@@ -177,6 +177,10 @@ MonoBehaviour:
     m_Localized: Devam
     m_Metadata:
       m_Items: []
+  - m_Id: 7996347184955392
+    m_Localized: "Ate\u015F"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

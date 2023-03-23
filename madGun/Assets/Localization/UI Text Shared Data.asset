@@ -171,6 +171,10 @@ MonoBehaviour:
     m_Key: game.continue
     m_Metadata:
       m_Items: []
+  - m_Id: 7996347184955392
+    m_Key: controls.shoot
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

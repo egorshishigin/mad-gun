@@ -24,10 +24,17 @@ namespace Localization
 
         private IEnumerator Initialize()
         {
+#if UNITY_STANDALONE || UNITY_EDITOR
+
+#else
             _language = GetLanguage();
+#endif
 
             yield return LocalizationSettings.InitializationOperation;
 
+#if UNITY_STANDALONE || UNITY_EDITOR
+            SetLanguage(Language.EN);
+#else
             switch (_language)
             {
                 case "ru":
@@ -40,7 +47,7 @@ namespace Localization
                     SetLanguage(Language.EN);
                     break;
             }
-
+#endif
         }
 
         public void ChangeLanguage(Language language)

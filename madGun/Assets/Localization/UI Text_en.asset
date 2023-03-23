@@ -176,6 +176,10 @@ MonoBehaviour:
     m_Localized: Continue
     m_Metadata:
       m_Items: []
+  - m_Id: 7996347184955392
+    m_Localized: "\u2013 Shoot"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -3,6 +3,8 @@ using System.Runtime.InteropServices;
 
 using Zenject;
 
+using DG.Tweening;
+
 using Data;
 
 using UnityEngine;
@@ -16,6 +18,12 @@ namespace Infrastructure
         private static extern void LoadDataExtern();
 
         [SerializeField] private int TargetFPS;
+
+        [SerializeField] private float _loadDelay;
+
+        [SerializeField] private Transform _loadIcon;
+
+        private Tween _loadTween;
 
         private GameDataIO _gameDataIO;
 
@@ -33,7 +41,15 @@ namespace Infrastructure
         {
             SetTragetFrameRate();
 
-            StartCoroutine(LoadScene(1));
+#if UNITY_STANDALONE || UNITY_EDITOR
+            _gameDataIO.LoadLocalData();
+#else
+            LoadDataExtern();
+
+            _yandexAD.PlayFullScreenAD();
+#endif
+
+            StartCoroutine(LoadScene());
         }
 
         public void LoadData(string data)
@@ -46,18 +62,15 @@ namespace Infrastructure
             Application.targetFrameRate = TargetFPS;
         }
 
-        private IEnumerator LoadScene(int buildIndex)
+        private IEnumerator LoadScene()
         {
-            LoadDataExtern();
+            _loadTween = _loadIcon.DOLocalRotate(new Vector3(0, 0, -360f), 1f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Incremental);
 
-            _yandexAD.PlayFullScreenAD();
+            yield return new WaitForSeconds(_loadDelay);
 
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(buildIndex);
+            _loadTween.Kill();
 
-            while (!asyncLoad.isDone)
-            {
-                yield return null;
-            }
+            SceneManager.LoadScene(1);
         }
     }
 }
