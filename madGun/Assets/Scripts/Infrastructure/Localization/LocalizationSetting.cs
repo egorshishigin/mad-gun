@@ -13,27 +13,33 @@ namespace Localization
 
         private void Start()
         {
+            DontDestroyOnLoad(this);
+
             StartCoroutine(Initialize());
         }
 
         private IEnumerator Initialize()
         {
-            _language = LoadLanguageSetting();
+            LoadLanguage();
 
             yield return LocalizationSettings.InitializationOperation;
 
             switch (_language)
             {
+                case Language.EN:
+                    SetLanguage(Language.EN);
+                    break;
                 case Language.RU:
-                    SetLanguage(_language);
+                    SetLanguage(Language.RU);
                     break;
                 case Language.TR:
-                    SetLanguage(_language);
+                    SetLanguage(Language.EN);
                     break;
                 default:
-                    SetLanguage(_language);
+                    SetLanguage(Language.EN);
                     break;
             }
+
         }
 
         public void ChangeLanguage(Language language)
@@ -55,13 +61,16 @@ namespace Localization
             PlayerPrefs.Save();
         }
 
-        private Language LoadLanguageSetting()
+        private void LoadLanguage()
         {
-            var languageSettingValue = PlayerPrefs.GetInt(SettingName);
-
-            Language language = (Language)languageSettingValue;
-
-            return language;
+            if (PlayerPrefs.HasKey(SettingName))
+            {
+                _language = (Language)PlayerPrefs.GetInt(SettingName);
+            }
+            else
+            {
+                _language = Language.EN;
+            }
         }
     }
 }

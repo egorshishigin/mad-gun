@@ -1,6 +1,3 @@
-using Zenject;
-
-using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Projectiles

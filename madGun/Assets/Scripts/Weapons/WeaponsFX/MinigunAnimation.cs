@@ -28,16 +28,18 @@ namespace Weapons
 
         private void OnEnable()
         {
-            _playerControl.ScreenDown += PlayAnimation;
+            _playerControl.InputActions.Player.Shoot.Enable();
 
-            _playerControl.ScreenUp += StopAnimation;
+            _playerControl.InputActions.Player.Shoot.performed += _ => PlayAnimation();
+
+            _playerControl.InputActions.Player.Shoot.canceled += _ => StopAnimation();
         }
 
         private void OnDisable()
         {
-            _playerControl.ScreenDown -= PlayAnimation;
+            _playerControl.InputActions.Player.Shoot.performed -= _ => PlayAnimation();
 
-            _playerControl.ScreenUp -= StopAnimation;
+            _playerControl.InputActions.Player.Shoot.canceled -= _ => StopAnimation();
 
             StopAnimation();
         }

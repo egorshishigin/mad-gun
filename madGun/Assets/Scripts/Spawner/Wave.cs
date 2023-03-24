@@ -47,6 +47,14 @@ namespace Spawner
             }
         }
 
+        private void OnDisable()
+        {
+            for (int i = 0; i < _enemies.Length; i++)
+            {
+                _enemies[i].Died -= WaveScore;
+            }
+        }
+
         private void EnemyDestroyedHandler()
         {
             _destroyedEnemies++;
@@ -54,14 +62,6 @@ namespace Spawner
             if (_destroyedEnemies == _enemyCount)
             {
                 Destroy(gameObject, 5f);
-            }
-        }
-
-        private void OnDisable()
-        {
-            for (int i = 0; i < _enemies.Length; i++)
-            {
-                _enemies[i].Died -= WaveScore;
             }
         }
     }

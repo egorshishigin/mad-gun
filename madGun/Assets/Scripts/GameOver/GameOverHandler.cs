@@ -20,7 +20,11 @@ namespace GameOver
 
         [SerializeField] private GameObject _pauseMenu;
 
+        [SerializeField] private GameObject _reviveButton;
+
         [SerializeField] private Health _playerHealth;
+
+        [SerializeField] private AudioSource _coinsRewardSound;
 
         private GameDataIO _gameData;
 

@@ -2,7 +2,5 @@ using Zenject;
 
 namespace Spawner
 {
-    public class WaveFactory : PlaceholderFactory<IWave>
-    {
-    }
+    public class WaveFactory : PlaceholderFactory<IWave> { }
 }

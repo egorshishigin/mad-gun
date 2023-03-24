@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
 
 using TMPro;
 
 using UnityEngine;
-using UnityEngine.Localization.Components;
 using UnityEngine.UI;
+using UnityEngine.Localization.Components;
 
 namespace PowerUp
 {
@@ -49,7 +48,7 @@ namespace PowerUp
         {
             _powerUpLevel.fillAmount = 0.2f * level;
 
-            if(level >= _maxLevel)
+            if (level >= _maxLevel)
             {
                 DisableBuyButton();
             }

@@ -1,5 +1,3 @@
-using System;
-
 using Zenject;
 
 using PlayerInput;
@@ -8,7 +6,7 @@ using UnityEngine;
 
 namespace GamePause
 {
-    public class KeyBoardPauseButton: MonoBehaviour
+    public class KeyBoardPauseButton : MonoBehaviour
     {
         private Pause _pause;
 

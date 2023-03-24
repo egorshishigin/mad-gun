@@ -10,6 +10,8 @@ namespace GameSettings
 
         private bool _value;
 
+        public bool Value => _value;
+
         private void OnEnable()
         {
             _view.SettingValueChanged += SettingValueChangedHandler;
@@ -43,11 +45,26 @@ namespace GameSettings
             int settingValue = value ? 1 : 0;
 
             PlayerPrefs.SetInt(name, settingValue);
+
+            PlayerPrefs.Save();
         }
 
         private void LoadSetting(string name)
         {
-            int value = PlayerPrefs.GetInt(name);
+            int value;
+
+            if (PlayerPrefs.HasKey(name))
+            {
+                value = PlayerPrefs.GetInt(name);
+            }
+            else
+            {
+                PlayerPrefs.SetInt(name, 1);
+
+                value = 1;
+
+                PlayerPrefs.Save();
+            }
 
             _value = value != 0;
         }

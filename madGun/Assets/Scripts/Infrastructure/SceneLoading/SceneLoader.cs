@@ -9,9 +9,14 @@ namespace Infrastructure
     {
         public void LoadSceneAsync(int buildIndex)
         {
-            Time.timeScale = 1;
+            ResetTimeScale();
 
             StartCoroutine(LoadScene(buildIndex));
+        }
+
+        private static void ResetTimeScale()
+        {
+            Time.timeScale = 1;
         }
 
         private IEnumerator LoadScene(int buildIndex)

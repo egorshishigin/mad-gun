@@ -159,6 +159,26 @@ MonoBehaviour:
     m_Key: controls.weapons-keys
     m_Metadata:
       m_Items: []
+  - m_Id: 2917405583327232
+    m_Key: game.gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2917827559669760
+    m_Key: game.revive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2918476665962496
+    m_Key: game.continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5477093189468160
+    m_Key: settings.autoshoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8298331049934848
+    m_Key: controls.shoot
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

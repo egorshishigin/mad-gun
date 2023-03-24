@@ -165,6 +165,26 @@ MonoBehaviour:
     m_Localized: "- Silah k\u0131sayol tu\u015Flar\u0131"
     m_Metadata:
       m_Items: []
+  - m_Id: 2917405583327232
+    m_Localized: "2x Alt\u0131n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2917827559669760
+    m_Localized: "Canland\u0131rmak"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2918476665962496
+    m_Localized: Devam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5477093189468160
+    m_Localized: "Otomatik at\u0131\u015F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8298331049934848
+    m_Localized: "\u2013 Ate\u015F"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

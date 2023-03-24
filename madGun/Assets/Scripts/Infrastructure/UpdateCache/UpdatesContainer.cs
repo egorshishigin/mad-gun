@@ -24,6 +24,7 @@ public class UpdatesContainer : ITickable
         for (int i = 0; i < _updatables.Count; i++)
         {
             IUpdatable item = _updatables[i];
+
             item.Run();
         }
     }

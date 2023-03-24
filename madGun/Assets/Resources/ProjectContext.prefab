@@ -76,4 +76,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponsConfig: {fileID: 11400000, guid: 1c01bd1d47327134382a6661d848f23c, type: 2}
   _powerUpConfig: {fileID: 11400000, guid: e302a812d137f5442aaeda68f6a0e7e1, type: 2}
-  _sceneLoaderPrefab: {fileID: 7863526666874393803, guid: 3a9274149cf13454a91a54c6cc542896, type: 3}
+  _yandexAD: {fileID: 4286304468334178188, guid: 49580a1cad7aae848965d2d023939466, type: 3}
+  _localizationSetting: {fileID: 4607108869580759951, guid: 30f94ded74f3a2c47a60aecfbd2fd386, type: 3}

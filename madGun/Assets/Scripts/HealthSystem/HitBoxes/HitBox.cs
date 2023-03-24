@@ -8,7 +8,7 @@ namespace HealthSystem
 
         public void HitHandler(int damage)
         {
-            if(_health.CurrentHealth <= 0)
+            if (_health.CurrentHealth <= 0)
             {
                 enabled = false;
             }

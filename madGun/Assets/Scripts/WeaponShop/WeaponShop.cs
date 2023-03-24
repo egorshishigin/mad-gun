@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 using Zenject;
 
-using Projectiles;
-
 using Data;
 
 using UnityEngine;

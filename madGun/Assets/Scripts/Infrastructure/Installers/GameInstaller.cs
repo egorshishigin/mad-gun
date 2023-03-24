@@ -36,7 +36,7 @@ namespace Infrastructure
 
         [SerializeField] private AmmoConfig _ammoConfig;
 
-        [SerializeField] private WeaponSwitch _weaponSwitch;
+        [SerializeField] private WeaponSwitcher _weaponSwitch;
 
         [SerializeField] private BoostersAudio _boostersAudio;
 
@@ -73,7 +73,7 @@ namespace Infrastructure
         private void BindWeapons()
         {
             Container
-                .Bind<WeaponSwitch>()
+                .Bind<WeaponSwitcher>()
                 .FromInstance(_weaponSwitch)
                 .AsSingle();
 

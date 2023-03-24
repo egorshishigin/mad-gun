@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace GamePause
 {
@@ -22,19 +21,6 @@ namespace GamePause
         public void SetPause(bool paused)
         {
             Paused = paused;
-
-            if (paused)
-            {
-                Cursor.visible = true;
-
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.visible = false;
-
-                Cursor.lockState = CursorLockMode.Locked;
-            }
 
             foreach (var handler in _handlers)
             {

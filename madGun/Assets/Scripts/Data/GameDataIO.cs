@@ -28,8 +28,6 @@ namespace Data
             _weaponsConfig = weaponsConfig;
 
             _powerUpConfig = powerUpConfig;
-
-            LoadGameData();
         }
 
         public GameData GameData => _gameData;
@@ -51,7 +49,7 @@ namespace Data
             }
             else
             {
-                _gameData = new GameData(1000000, 0, _weaponsConfig, _powerUpConfig);
+                _gameData = new GameData(100000, 0, _weaponsConfig, _powerUpConfig);
 
                 _gameData.InitializeWeapons();
 

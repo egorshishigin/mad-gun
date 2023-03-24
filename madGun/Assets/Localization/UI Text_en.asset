@@ -164,6 +164,26 @@ MonoBehaviour:
     m_Localized: "\u2013 Weapon hotkeys"
     m_Metadata:
       m_Items: []
+  - m_Id: 2917405583327232
+    m_Localized: 2x Gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2917827559669760
+    m_Localized: Revive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2918476665962496
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5477093189468160
+    m_Localized: AutoShoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8298331049934848
+    m_Localized: "\u2013 Shoot"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

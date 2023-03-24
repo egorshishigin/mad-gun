@@ -6,10 +6,11 @@ using Zenject;
 using GamePause;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Boosters
 {
-    public abstract class ActiveBoosterBase : MonoBehaviour, IUpgradetable, IUpdatable
+    public abstract class ActiveBoosterBase : MonoBehaviour, IUpgradetable
     {
         [SerializeField] private float _activeTime;
 
@@ -17,13 +18,13 @@ namespace Boosters
 
         [SerializeField] private int _count;
 
-        [SerializeField] private KeyCode _boosterKey;
+        [SerializeField] private InputActionReference _boosterAction;
+
+        [SerializeField] private PlayerInputActions.PlayerActions _actions;
 
         private bool _used;
 
         private Pause _pause;
-
-        private UpdatesContainer _updatesContainer;
 
         public float ActiveTime => _activeTime;
 
@@ -38,27 +39,30 @@ namespace Boosters
         public event Action Refreshed = delegate { };
 
         [Inject]
-        private void Construct(Pause pause, UpdatesContainer updatesContainer)
+        private void Construct(Pause pause)
         {
             _pause = pause;
-
-            _updatesContainer = updatesContainer;
-
-            _updatesContainer.Register(this);
         }
 
-        void IUpdatable.Run()
+        private void OnEnable()
         {
-            if (Input.GetKeyDown(_boosterKey) && !_used && _count > 0)
+            _boosterAction.action.Enable();
+
+            _boosterAction.action.performed += _ => Use();
+        }
+
+        private void OnDisable()
+        {
+            _boosterAction.action.performed -= _ => Use();
+        }
+
+        private void Use()
+        {
+            if (!_used && _count > 0)
             {
                 Activate();
             }
             else return;
-        }
-
-        private void OnDestroy()
-        {
-            _updatesContainer.UnRegister(this);
         }
 
         public void Upgrade(int timeAmount, int countAmount)

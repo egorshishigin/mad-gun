@@ -1,5 +1,3 @@
-using HealthSystem;
-
 using Weapons;
 
 using Projectiles;
