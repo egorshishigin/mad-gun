@@ -175,6 +175,10 @@ MonoBehaviour:
     m_Key: settings.autoshoot
     m_Metadata:
       m_Items: []
+  - m_Id: 8298331049934848
+    m_Key: controls.shoot
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -14,7 +14,7 @@ namespace Data
 {
     public class GameDataIO
     {
-        private const string FileName = "GameData";
+        private const string FileName = "/GameData.json";
 
         private GameData _gameData;
 

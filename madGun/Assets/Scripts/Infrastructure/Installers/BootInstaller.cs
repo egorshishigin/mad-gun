@@ -24,15 +24,45 @@ namespace Infrastructure
 
         public override void InstallBindings()
         {
-            Container.Bind<Pause>().AsSingle();
+            BindGamePause();
 
-            Container.Bind<WeaponsConfig>().FromScriptableObject(_weaponsConfig).AsSingle();
+            BindWeaponsConfig();
 
-            Container.Bind<PowerUpConfig>().FromScriptableObject(_powerUpConfig).AsSingle();
+            BindPowerUpConfig();
 
-            Container.Bind<GameDataIO>().AsSingle();
+            BindGameData();
 
             BindLocalizationSetting();
+        }
+
+        private void BindGameData()
+        {
+            Container
+                .Bind<GameDataIO>()
+                .AsSingle();
+        }
+
+        private void BindPowerUpConfig()
+        {
+            Container
+                .Bind<PowerUpConfig>()
+                .FromScriptableObject(_powerUpConfig)
+                .AsSingle();
+        }
+
+        private void BindWeaponsConfig()
+        {
+            Container
+                .Bind<WeaponsConfig>()
+                .FromScriptableObject(_weaponsConfig)
+                .AsSingle();
+        }
+
+        private void BindGamePause()
+        {
+            Container
+                .Bind<Pause>()
+                .AsSingle();
         }
 
         private void BindLocalizationSetting()

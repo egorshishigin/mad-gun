@@ -181,6 +181,10 @@ MonoBehaviour:
     m_Localized: "Otomatik at\u0131\u015F"
     m_Metadata:
       m_Items: []
+  - m_Id: 8298331049934848
+    m_Localized: "\u2013 Ate\u015F"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerHitBox : MonoBehaviour, IPlayer, IShootable
+    public class PlayerHitBox : MonoBehaviour, IShootable
     {
         [SerializeField] private Health _health;
 

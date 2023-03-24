@@ -1,7 +1,5 @@
 using Zenject;
 
-using Localization;
-
 using UnityEngine;
 
 namespace Infrastructure

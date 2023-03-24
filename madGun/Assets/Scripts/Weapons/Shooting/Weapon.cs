@@ -75,14 +75,14 @@ namespace Weapons
             switch (_type)
             {
                 case WeaponType.SINGLE:
-                    _playerControl.ScreenDown += Shoot;
+                    _playerControl.ShootButtonDown += Shoot;
                     break;
                 case WeaponType.AUTO:
-                    _playerControl.ScreenHold += Shoot;
+                    _playerControl.ShootButtonHold += Shoot;
                     break;
             }
 
-            _playerControl.ScreenUp += ResetShootTime;
+            _playerControl.ShootButtonUp += ResetShootTime;
 
             _playerControl.ScreenMove += Aim;
         }
@@ -92,14 +92,14 @@ namespace Weapons
             switch (_type)
             {
                 case WeaponType.SINGLE:
-                    _playerControl.ScreenDown -= Shoot;
+                    _playerControl.ShootButtonDown -= Shoot;
                     break;
                 case WeaponType.AUTO:
-                    _playerControl.ScreenHold -= Shoot;
+                    _playerControl.ShootButtonHold -= Shoot;
                     break;
             }
 
-            _playerControl.ScreenUp -= ResetShootTime;
+            _playerControl.ShootButtonUp -= ResetShootTime;
 
             _playerControl.ScreenMove -= Aim;
         }
@@ -123,7 +123,7 @@ namespace Weapons
             _shootDirection = lookPositon;
         }
 
-        public void Shoot()
+        private void Shoot()
         {
             if (_ammo.AmmoSupply[_id] <= 0)
                 return;

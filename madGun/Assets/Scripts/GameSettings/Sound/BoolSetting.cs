@@ -45,6 +45,8 @@ namespace GameSettings
             int settingValue = value ? 1 : 0;
 
             PlayerPrefs.SetInt(name, settingValue);
+
+            PlayerPrefs.Save();
         }
 
         private void LoadSetting(string name)
@@ -60,6 +62,8 @@ namespace GameSettings
                 PlayerPrefs.SetInt(name, 1);
 
                 value = 1;
+
+                PlayerPrefs.Save();
             }
 
             _value = value != 0;

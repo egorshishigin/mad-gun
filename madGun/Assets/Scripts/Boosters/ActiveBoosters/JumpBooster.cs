@@ -16,9 +16,6 @@ namespace Boosters
             CanJump = true;
         }
 
-        protected override void OnDectivated()
-        {
-           
-        }
+        protected override void OnDectivated() { }
     }
 }

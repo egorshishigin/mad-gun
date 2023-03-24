@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 
 using Zenject;
@@ -5,7 +6,6 @@ using Zenject;
 using Timer;
 
 using UnityEngine;
-using System.Linq;
 
 namespace Spawner
 {

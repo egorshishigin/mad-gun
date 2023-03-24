@@ -6,10 +6,10 @@ namespace Boosters
 {
     public class DoubleGun : ActiveBoosterBase
     {
-        private MobileWeaponSwitcher _weaponSwitch;
+        private WeaponSwitcher _weaponSwitch;
 
         [Inject]
-        private void Construct(MobileWeaponSwitcher weaponSwitch)
+        private void Construct(WeaponSwitcher weaponSwitch)
         {
             _weaponSwitch = weaponSwitch;
         }

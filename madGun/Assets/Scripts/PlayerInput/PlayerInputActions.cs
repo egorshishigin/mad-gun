@@ -134,7 +134,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""609292a3-bc96-4773-a2e7-f9313bd395b3"",
                     ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": ""Hold,Press"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shoot"",

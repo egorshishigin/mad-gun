@@ -5,8 +5,6 @@ using Zenject;
 
 using GamePause;
 
-using PlayerInput;
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,8 +26,6 @@ namespace Boosters
 
         private Pause _pause;
 
-        private PlayerControl _playerControl;
-
         public float ActiveTime => _activeTime;
 
         public int Count => _count;
@@ -43,11 +39,9 @@ namespace Boosters
         public event Action Refreshed = delegate { };
 
         [Inject]
-        private void Construct(Pause pause, PlayerControl playerControl)
+        private void Construct(Pause pause)
         {
             _pause = pause;
-
-            _playerControl = playerControl;
         }
 
         private void OnEnable()

@@ -50,12 +50,12 @@ namespace HealthSystem
             {
                 _died = true;
 
-                if(_deathSound != null)
+                if (_deathSound != null)
                 {
                     _deathSound.Play();
                 }
 
-                if(damage > _currentHealth + _maxHealth)
+                if (damage > _currentHealth + _maxHealth)
                 {
                     GoreDied.Invoke();
                 }

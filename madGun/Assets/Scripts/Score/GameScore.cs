@@ -1,7 +1,5 @@
 using System;
 
-using UnityEngine;
-
 namespace Score
 {
     public class GameScore

@@ -27,11 +27,11 @@ namespace PlayerInput
 
         public event Action<Vector3> ScreenMove = delegate { };
 
-        public event Action ScreenHold = delegate { };
+        public event Action ShootButtonHold = delegate { };
 
-        public event Action ScreenDown = delegate { };
+        public event Action ShootButtonDown = delegate { };
 
-        public event Action ScreenUp = delegate { };
+        public event Action ShootButtonUp = delegate { };
 
         public event Action PauseButtonDown = delegate { };
 
@@ -55,17 +55,17 @@ namespace PlayerInput
         {
             if (_inputActions.Player.Shoot.phase == InputActionPhase.Started || _inputActions.Player.Shoot.phase == InputActionPhase.Performed)
             {
-                ScreenHold.Invoke();
+                ShootButtonHold.Invoke();
             }
 
-            if (_inputActions.Player.Shoot.phase == InputActionPhase.Started)
+            if (_inputActions.Player.Shoot.phase == InputActionPhase.Performed)
             {
-                ScreenDown.Invoke();
+                ShootButtonDown.Invoke();
             }
 
-            if (_inputActions.Player.Shoot.phase == InputActionPhase.Canceled || _inputActions.Player.Shoot.phase == InputActionPhase.Waiting)
+            if (_inputActions.Player.Shoot.phase == InputActionPhase.Canceled)
             {
-                ScreenUp.Invoke();
+                ShootButtonUp.Invoke();
             }
 
             if (_inputActions.Player.Pause.phase == InputActionPhase.Performed)

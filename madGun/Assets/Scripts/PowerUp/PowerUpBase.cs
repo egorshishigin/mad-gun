@@ -40,9 +40,22 @@ namespace PowerUp
 
         private int GetPowerUpLevel()
         {
-            int level = _gameData.GameData.PowerUpsLevels[_id];
+            int level;
 
-            return level;
+            if (_gameData.GameData == null)
+            {
+                Debug.LogWarning("Game data has not been loaded. Power up level set to 0. Launch game from Boot scene to load saved data");
+
+                level = 0;
+
+                return level;
+            }
+            else
+            {
+                level = _gameData.GameData.PowerUpsLevels[_id];
+
+                return level;
+            }
         }
     }
 }

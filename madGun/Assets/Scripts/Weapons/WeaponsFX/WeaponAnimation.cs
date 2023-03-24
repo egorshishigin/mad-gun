@@ -33,7 +33,7 @@ namespace Weapons
                 case WeaponType.AUTO:
                     _weapon.Shot += PlayAutoShotAnimation;
 
-                    _playerControl.ScreenUp += StopAutoShotAnimation;
+                    _playerControl.ShootButtonUp += StopAutoShotAnimation;
                     break;
             }
         }
@@ -47,8 +47,7 @@ namespace Weapons
                     break;
                 case WeaponType.AUTO:
                     _weapon.Shot -= PlayAutoShotAnimation;
-
-                    _playerControl.ScreenUp -= StopAutoShotAnimation;
+                    _playerControl.ShootButtonUp -= StopAutoShotAnimation;
                     break;
             }
         }

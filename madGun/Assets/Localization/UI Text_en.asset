@@ -180,6 +180,10 @@ MonoBehaviour:
     m_Localized: AutoShoot
     m_Metadata:
       m_Items: []
+  - m_Id: 8298331049934848
+    m_Localized: "\u2013 Shoot"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

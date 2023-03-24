@@ -15,7 +15,7 @@ namespace Boosters
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.TryGetComponent<BoosterBase>(out BoosterBase booster))
+            if (other.TryGetComponent(out BoosterBase booster))
             {
                 booster.MoveToPlayer();
             }
