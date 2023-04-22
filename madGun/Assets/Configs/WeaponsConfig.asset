@@ -19,11 +19,11 @@ MonoBehaviour:
     _bought: 1
   - _id: 1
     _weaponPrefab: {fileID: 7717664729613290763, guid: f9a008ffe1055c44ea2d46eef24e058b, type: 3}
-    _price: 250
+    _price: 85
     _bought: 0
   - _id: 2
     _weaponPrefab: {fileID: 6852974714741176632, guid: 5ba32eaa152a24943a451ba264a6be13, type: 3}
-    _price: 650
+    _price: 150
     _bought: 0
   - _id: 3
     _weaponPrefab: {fileID: 3837339382966016998, guid: 16fb4739d4813f744bf4f0165acaaf20, type: 3}
@@ -31,29 +31,29 @@ MonoBehaviour:
     _bought: 1
   - _id: 4
     _weaponPrefab: {fileID: 5393324304726941182, guid: e252a29ad40400f4f88d8526538c472f, type: 3}
-    _price: 1650
+    _price: 350
     _bought: 0
   - _id: 5
     _weaponPrefab: {fileID: 5387998015398000668, guid: 1fe6b958bf5e365499d7c54fc7753363, type: 3}
-    _price: 3600
+    _price: 600
     _bought: 0
   - _id: 6
     _weaponPrefab: {fileID: 3963816362503103304, guid: 4131d05c956fe924891be2a8c5087c8d, type: 3}
-    _price: 4750
+    _price: 650
     _bought: 0
   - _id: 7
     _weaponPrefab: {fileID: 7146807829585277148, guid: 8c3cef2cae166d3429740c38e4113fb8, type: 3}
-    _price: 5250
+    _price: 700
     _bought: 0
   - _id: 8
     _weaponPrefab: {fileID: 7775153440789322714, guid: cc8295a601df12f49b16262ba08f4306, type: 3}
-    _price: 5750
+    _price: 785
     _bought: 0
   - _id: 9
     _weaponPrefab: {fileID: 7312247789602467978, guid: bf0f9fd2cf4e3214b846ad20e81028d2, type: 3}
-    _price: 6000
+    _price: 800
     _bought: 0
   - _id: 10
     _weaponPrefab: {fileID: 5067215327397119154, guid: 386ee8e86dd4c7649982535ba128a55e, type: 3}
-    _price: 6600
+    _price: 1600
     _bought: 0

@@ -165,11 +165,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2917405583327232
-    m_Localized: 2x Gold
+    m_Localized: x2 for AD
     m_Metadata:
       m_Items: []
   - m_Id: 2917827559669760
-    m_Localized: Revive
+    m_Localized: Watch AD to revive
     m_Metadata:
       m_Items: []
   - m_Id: 2918476665962496

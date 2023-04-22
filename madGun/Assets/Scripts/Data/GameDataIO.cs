@@ -50,13 +50,9 @@ namespace Data
         {
             string loadedData = data;
 
-            if (loadedData.Length <= 3 ||  string.IsNullOrEmpty(loadedData))
+            if (loadedData.Length <= 6 || string.IsNullOrEmpty(loadedData))
             {
-                _gameData = new GameData(0, 0, _weaponsConfig, _powerUpConfig);
-
-                _gameData.InitializeWeapons();
-
-                _gameData.InitializePowerUps();
+                CreateNewData();
             }
             else
             {
@@ -82,6 +78,15 @@ namespace Data
 
                 _gameData.InitializePowerUps();
             }
+        }
+
+        private void CreateNewData()
+        {
+            _gameData = new GameData(0, 0, _weaponsConfig, _powerUpConfig);
+
+            _gameData.InitializeWeapons();
+
+            _gameData.InitializePowerUps();
         }
     }
 }
